@@ -1,4 +1,6 @@
 alias jasper='cd /home/jasper'
 alias etc='cd /etc'
-alias my_bash='cd /home/jasper/WEB/my_bash'
-alias my_bash='cd /home/jasper/WEB/my_bash'
+alias mybash='cd /home/jasper/WEB/my_bash'
+alias pictures='cd /home/jasper/Pictures'
+alias downloads='cd /home/jasper/Downloads'
+alias opt='cd /opt'
