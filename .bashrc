@@ -1,5 +1,10 @@
 #!/bin/bash
 # ~/.bashrc
+clear 
+
+# if [ -f ~/.bash_functions ]; then
+#   . ~/.bash_functions
+# fi
 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
@@ -8,6 +13,10 @@ fi
 if [ -f ~/.bash_quick_aliases ]; then
   . ~/.bash_quick_aliases
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ######################################################################################
 ##		CUSTOM FUNCTIONS		    ##
@@ -35,51 +44,32 @@ function book() {
   fi
 }
 
-function theme() {
-  echo "$(ls /home/jasper/.poshthemes/ | shuf -n 1)"
-}
 
-randTheme=$(theme)
-eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/$randTheme)"
+# RENAME  LOOP
+# cat files.txt | while read -r a; do echo "${PPP}/${a}"; done
 
 #### For Loop over filesz
 
-function loop() {
-  for n in $@; do
-    item="$n"
-    echo $item
-    cat $item
-  done
+  function loop() {
+    for n in $@; do
+      item="$n"
+      echo "$PWD/$1/$item"
+      cat $item
+    done
+  }
+
+# clear
+
+function theme() {
+  echo "export mytheme='$(ls /home/jasper/.poshthemes/ | shuf -n 1)'" > ~/.bash_theme
+  $rl
 }
 
-######################################################################################
-##		OTHER SETTINGS		    ##
-######################################################################################
-
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-######################################################################################
-##		FROM POP_OS UBUNTU DEFAULT CONFIG			    ##
-######################################################################################
+echo $mytheme
+eval "$(oh-my-posh init bash --config ~/.poshthemes/$mytheme)"
 
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
