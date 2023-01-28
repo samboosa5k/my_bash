@@ -53,14 +53,10 @@ function foreach() {
   done
 }
 
-
 # THEME
-
-function theme_random() {
-  echo "export mytheme='$(ls /home/jasper/.poshthemes/ | shuf -n 1)'" >~/.bash_theme
+function theme() {
+  echo "$(ls ~/.poshthemes | shuf -n 1)"
 }
 
-alias theme=$theme_random && $rl
-
-echo $mytheme
-eval "$(oh-my-posh init bash --config ~/.poshthemes/$mytheme)"
+randTheme="$(ls -p /home/jasper/.poshthemes | shuf -n 1)"
+eval "$(oh-my-posh init bash --config ~/.poshthemes/$randTheme)"

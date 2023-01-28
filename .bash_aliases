@@ -13,8 +13,7 @@ echo 'loading aliases...'
 
 alias rl="source $home/.bashrc"
 alias cc="clear"
-# alias nr="count_files"
-alias xb="exec bash"
+# alias nr="count_files"alias xb="exec bash"
 alias ss="sudo -s"
 alias dnfi="dnf list installed"
 alias dnfs="dnf search"
@@ -23,8 +22,8 @@ alias gl="dnf grouplist"
 
 alias lsf="ls -p -a | grep -v /"
 alias lsd="ls -d */"
-alias savebash="for n in $(lsf grep bash); do cp './$n' '/home/jaser/WEB/my_bash/$n';  done"
 
+# alias savebash="for n in $(lsf | grep 'bash'); do cp './$n' '/home/jaser/WEB/my_bash/$n';  done"
 
 alias hm="cd $home"
 alias web="cd $home/WEB"
