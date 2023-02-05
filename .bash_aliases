@@ -13,7 +13,10 @@ echo 'loading aliases...'
 
 alias rl="source $home/.bashrc"
 alias cc="clear"
-# alias nr="count_files"alias xb="exec bash"
+
+alias st="git status"
+alias gd="git diff --name-only"
+
 alias ss="sudo -s"
 alias dnfi="dnf list installed"
 alias dnfs="dnf search"
