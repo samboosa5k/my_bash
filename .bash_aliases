@@ -1,19 +1,26 @@
-#!/bin/bash
+# !/bin/bash
 # .bash_aliases
 
-if [ -f ~/.bash_theme ]; then
-  . ~/.bash_theme
-fi
+echo "Aliases you can use:"
+echo "    hm      --> go home
+    rl      --> reload bash config
+    cc      --> clear terminal 
+    lsf     --> list files only
+    lsd     --> list directories only
+    dnfi    --> list installed
+    dnfs    --> search
+    gli     --> list group installed
+    gl      --> grouplist
+    st      --> git status
+    gd      --> git diff names only
+    "
+echo "Yeah boooiiii!!!"
 
-# CONSTANTS
 export home='/home/jasper'
 export aliases="$home/.bash_aliases"
 
-echo 'loading aliases...'
-
-alias rl="source $home/.bashrc"
+alias rl="clear && source $home/.bashrc"
 alias cc="clear"
-
 alias st="git status"
 alias gd="git diff --name-only"
 
@@ -30,5 +37,6 @@ alias lsd="ls -d */"
 
 alias hm="cd $home"
 alias web="cd $home/WEB"
-alias dls="cd $home/Downloads"
-alias music="cd $home/Music"
+
+# applications
+alias webstorm="exec '/home/jasper/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/223.8214.51/bin/webstorm.sh'"
