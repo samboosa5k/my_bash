@@ -18,11 +18,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-######################################################################################
+######################################
 ##		CUSTOM FUNCTIONS		    ##
-######################################################################################
+######################################
 
-echo 'book function...'
+# echo 'book function...'
 
 function book() {
   local fullPath="$PWD"
@@ -45,7 +45,7 @@ function book() {
 
 # Foreach
 
-echo "loop function..."
+# echo "loop function..."
 
 function foreach() {
   for n in $1; do
@@ -54,9 +54,21 @@ function foreach() {
 }
 
 # THEME
-function theme() {
-  echo "$(ls ~/.poshthemes | shuf -n 1)"
+
+function randTheme() {
+    local theme="$(ls -p /home/jasper/.poshthemes | shuf -n 1)"
+    echo $theme
+    return 1
 }
 
-randTheme="$(ls -p /home/jasper/.poshthemes | shuf -n 1)"
-eval "$(oh-my-posh init bash --config ~/.poshthemes/$randTheme)"
+function saveTheme() {
+    echo "saving theme"
+    echo $randTheme >> /home/jasper/.bash_theme
+    return 1
+}
+
+currentTheme="$(sed -n 1p /home/jasper/.bash_theme)"
+
+alias CUSTOM_THEME="/home/jasper/bash.theme.json"
+
+eval "$(oh-my-posh init bash --config ~/bash.theme.json)"
