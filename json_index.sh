@@ -78,11 +78,13 @@ function listImages() {
   filename_date=$(date +"%Y-%m-%d")
   filename="_images_$filename_date.json"
 
-  images=$(ls -1 | grep -E "jpg|JPG|jpeg|JPEG|png|PNG")
   # for loop to get image info
-  for image in $images; do
-    echo "$image"
-    outputjson=$(echo "$image" | getImageInfo "$image")
+  for image in *.jpg *.jpeg *.png ; do
+    # wildecard iamge
+    image="$image"
+#   # glob image to pass to function
+#   for image in *.jpg *.jpeg *.png; do
+    outputjson=$(getImageInfo "${image}")
     outputjson=$(echo "$outputjson" | sed 's/}/},/g')
     # output to json file
     echo "$outputjson" >>"$filename"
