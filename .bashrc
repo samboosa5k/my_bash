@@ -1,18 +1,18 @@
 #!/bin/bash
 # ~/.bashrc
 # clear
-
-# if [ -f ~/.bash_functions ]; then
-#   . ~/.bash_functions
-# fi
-
+#
+#if [ -f ~/.bash_functions ]; then
+#  . ~/.bash_functions
+#fi
+#
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
-
-if [ -f ~/.bash_quick_aliases ]; then
-  . ~/.bash_quick_aliases
-fi
+#
+#if [ -f ~/.bash_quick_aliases ]; then
+#  . ~/.bash_quick_aliases
+#fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -42,33 +42,34 @@ function book() {
     $rl
   fi
 }
-
-# Foreach
-
-# echo "loop function..."
-
-function foreach() {
-  for n in $1; do
-    "$2" $n
-  done
-}
-
-# THEME
-
-function randTheme() {
-    local theme="$(ls -p /home/jasper/.poshthemes | shuf -n 1)"
-    echo $theme
-    return 1
-}
-
-function saveTheme() {
-    echo "saving theme"
-    echo $randTheme >> /home/jasper/.bash_theme
-    return 1
-}
-
-currentTheme="$(sed -n 1p /home/jasper/.bash_theme)"
-
-alias CUSTOM_THEME="/home/jasper/bash.theme.json"
-
-eval "$(oh-my-posh init bash --config ~/bash.theme.json)"
+##
+##
+## Foreach
+#
+## echo "loop function..."
+#
+#function foreach() {
+#  for n in $1; do
+#    "$2" $n
+#  done
+#}
+#
+## THEME
+#
+#function randTheme() {
+#    local theme="$(ls -p /home/jasper/.poshthemes | shuf -n 1)"
+#    echo $theme
+#    return 1
+#}
+#
+#function saveTheme() {
+#    echo "saving theme"
+#    echo $randTheme >> /home/jasper/.bash_theme
+#    return 1
+#}
+#
+#currentTheme="$(sed -n 1p /home/jasper/.bash_theme)"
+#
+#alias CUSTOM_THEME="/home/jasper/bash.theme.json"
+#
+#eval "$(oh-my-posh init bash --config ~/bash.theme.json)"
