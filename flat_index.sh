@@ -36,6 +36,7 @@
 # alias getImageInfo=getImageInfo
 
 function flat_index() {
+    echo "filename,size,type,date,width,height,aspectratio,path,relativepath," > index_formatted.csv
     find . -type f \( -iname \*.jpg -o -iname \*.png \) | while read -r img_glob; do
         # assignment
         local filename
@@ -47,7 +48,6 @@ function flat_index() {
         local aspectratio
         local path
         local relativepath
-        local delimited_string
         local output
         # declariton
         filename=$(basename "$img_glob")
@@ -59,9 +59,10 @@ function flat_index() {
         aspectratio=$(echo "scale=2; $width/$height" | bc)
         path=$(realpath --relative-to="$HOME" "$img_glob")
         relativepath=$(realpath --relative-to="$PWD" "$img_glob")
-        delimited_string="$filename","$size","$type","$date","$width","$height","$aspectratio","$path","$relativepath",
-        output="'""$delimited_string""'"
-        echo "$output" >> index_formatted.txt
+        output="'""$filename""',""$size","$type","$date","$width","$height","$aspectratio"",'""$path""','""$relativepath""',"
+        echo "Done: " 
+        echo "$output"
+        echo "$output" >> index_formatted.csv
     done
 return 1
 }
