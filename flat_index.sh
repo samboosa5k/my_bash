@@ -51,9 +51,10 @@ function flat_index() {
         # local relativepath
         local output
         # declariton
-        imagemagickstr=$(identify -format "%t,%e,%w,%h,$(pwd)\/%f" "$img_glob" | sed 's/\s\+/%20/g')
+        imagemagickstr=$(identify -format "%t,%e,%w,%h,$(pwd)\/%d\/%f" "$img_glob" | sed 's/\s\+/%20/g')
         size=$(du -h "$img_glob" | cut -f1)
-        date=$(stat -c %y "$img_glob" | cut -d' ' -f1)
+        # sed strip everything after the first space, then replace colon with comma
+        date=$(identify -format "%[EXIF:DateTime]" "$img_glob" | sed 's/\s\+.*//g' | sed 's/\:/\-/g')
         daymonthyear=$(echo "$date" | sed 's/\-/\,/g')
         output="$imagemagickstr","$size","$date","$daymonthyear"
         echo "Done: "
