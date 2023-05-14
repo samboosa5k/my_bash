@@ -36,35 +36,31 @@
 # alias getImageInfo=getImageInfo
 
 function flat_index() {
-    echo "filename,size,type,date,width,height,aspectratio,path,relativepath," > index_formatted.csv
+    echo "filename,extension,width,height,path,size,date,year,month,day" > index_formatted.csv
     find . -type f \( -iname \*.jpg -o -iname \*.png \) | while read -r img_glob; do
         # assignment
-        local filename
+        local imagemagickstr
+        # local filename
+        # local type
         local size
-        local type
         local date
-        local width
-        local height
-        local aspectratio
-        local path
-        local relativepath
+        local daymonthyear
+        # local width
+        # local height
+        # local path
+        # local relativepath
         local output
         # declariton
-        filename=$(basename "$img_glob")
+        imagemagickstr=$(identify -format "%t,%e,%w,%h,$(pwd)\/%f" "$img_glob" | sed 's/\s\+/%20/g')
         size=$(du -h "$img_glob" | cut -f1)
-        type=$(file -b --mime-type "$img_glob")
         date=$(stat -c %y "$img_glob" | cut -d' ' -f1)
-        width=$(identify -format "%w" "$img_glob")
-        height=$(identify -format "%h" "$img_glob")
-        aspectratio=$(echo "scale=2; $width/$height" | bc)
-        path=$(realpath --relative-to="$HOME" "$img_glob")
-        relativepath=$(realpath --relative-to="$PWD" "$img_glob")
-        output="'""$filename""',""$size","$type","$date","$width","$height","$aspectratio"",'""$path""','""$relativepath""',"
-        echo "Done: " 
+        daymonthyear=$(echo "$date" | sed 's/\-/\,/g')
+        output="$imagemagickstr","$size","$date","$daymonthyear"
+        echo "Done: "
         echo "$output"
         echo "$output" >> index_formatted.csv
     done
-return 1
+    return 1
 }
 
 alias flat_index=flat_index
