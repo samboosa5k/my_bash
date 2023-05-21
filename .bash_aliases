@@ -27,6 +27,11 @@ alias gd="git diff --name-only"
 
 alias ss="sudo -s"
 
+# FIERWAL
+# sudo systemctl unmask firewalld
+# sudo systemctl enable firewalld
+# sudo systemctl start firewalld
+
 alias home="/home/jasper"
 alias hm="cd ~"
 alias web="cd /home/jasper/_WEB"
