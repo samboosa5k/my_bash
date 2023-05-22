@@ -43,9 +43,18 @@ alias lsd="ls -d */"
 # sudo systemctl enable firewalld
 # sudo systemctl start firewalld
 
-# TOOLBOX
-# toolbox create
-# toolbox enter
+# Systemctl & Systemd
+alias sysc="systemctl"
+alias sysd="systemd"
+alias sysblame="systemd blame"
+alias syscrit="systemd-analyze critical-chain"
+alias systime="systemd-analyze critical-chain"
+
+# systemctl disable NetworkManager-wait-online.service
+# systemctl mask NetworkManager-wait-online.service
+
+# systemctl unmask NetworkManager-wait-online.service
+# systemctl enable NetworkManager-wait-online.service
 
 # to exit toolbox :
 # CTRL + D or 'exit'
