@@ -10,9 +10,9 @@ fi
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
-
+#
 if [ -f ~/.bash_quick_aliases ]; then
- . ~/.bash_quick_aliases
+  . ~/.bash_quick_aliases
 fi
 
 #  set a fancy prompt for hostname and folder details
@@ -30,7 +30,7 @@ ps1_newline_symbol="\n\[\033[38;5;15m\]>"
 ps1_git_branch="\[\033[38;5;15m\]\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)"
 
 # prompt string concatenated
-PS1="$ps1_username_styled $ps1_at $ps1_hostname ($ps1_cat_emoji) $ps1_folder$ps1_git_branch$ps1_newline_symbol ($ps1_time) "
+PS1="🐤\n$ps1_username_styled $ps1_at $ps1_hostname ($ps1_cat_emoji) $ps1_folder$ps1_git_branch$ps1_newline_symbol ($ps1_time) \n"
 
 eval "$(dircolors -b)"
 export alias ls="ls -a1 --color=auto"
