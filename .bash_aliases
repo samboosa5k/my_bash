@@ -74,7 +74,8 @@ alias flatidx="/home/jasper/_WEB/my_bash/flat_index.sh"
 alias mkthumbs="/home/jasper/_WEB/my_bash/create_thumbnails.sh"
 alias linenr="/home/jasper/_WEB/my_bash/prepend.sh"
 
-# alias idxdir="find * -type d | sed -e 's/\.\/*//g' > index_folders.txt"
+alias lan="arp-scan --interface=eno1 --localnet"
+alias portscan="sudo nmap -sT -p- 192.168.1.126"
 
 # podman
 alias docker="podman"
