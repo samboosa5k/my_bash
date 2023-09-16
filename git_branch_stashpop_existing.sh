@@ -12,12 +12,6 @@ function git_branch_stashpop_existing() {
   local branch_list
   local commit_message
   local target_branch
-<<<<<<< Updated upstream
-  local commit_changes_or_bring_stash
-  local pop_stash
-=======
-  local add_commit_and_or_stashpop
->>>>>>> Stashed changes
 
   query=$1
 
@@ -52,84 +46,61 @@ function git_branch_stashpop_existing() {
     fi
   fi
 
+  local add_or_discard
+  # Check if untracked files exist
+  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+    echo "Untracked files exist"
+    echo "What should we do with untracked files?"
+    echo "1. Add"
+    echo "2. Discard"
+    read -r add_or_discard
+
+    if [ -z "$add_or_discard" ]; then
+      echo "No option provided"
+      return 1
+    else
+      if [ "$add_or_discard" == "1" ]; then
+        echo "Adding and stashing untracked files..."
+        git add .
+      elif [ "$add_or_discard" == "2" ]; then
+        echo "Discarding untracked files..."
+        git clean -f
+      else
+        echo "Invalid option"
+        return 1
+      fi
+    fi
+  fi
+
+  local stash_or_commit_or_discard
   # Check if there are changes
-<<<<<<< Updated upstream
   if [ -n "$(git status --porcelain)" ]; then
-    echo "There are changes in the current branch"
-    # Commit current changes or stash and pop to new branch?
+    echo "There are uncommitted changes"
     echo "What should we do with current changes?"
     echo "1. Commit to current branch"
-    echo "2. Stash changes and pop in new branch"
-    echo "3. Stash changes in current branch"
-    read -r commit_changes_or_bring_stash
+    echo "2. Stash then pop in new branch"
+    echo "3. Stash in current branch"
+    read -r stash_or_commit_or_discard
 
-    if [ -z "$commit_changes_or_bring_stash" ]; then
-=======
-  if [ -n "$(git status --porcelain)" ] || [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    echo "There are changes in the current branch"
-    # Commit current changes or stash and pop to new branch?
-    echo "What should we do with current changes?"
-    echo "1. Add & Commit to current branch"
-    echo "2. Add & Stash changes, then pop in new branch"
-    echo "3. Add & Stash changes in current branch"
-    read -r add_commit_and_or_stashpop
-
-    if [ -z "$add_commit_and_or_stashpop" ]; then
->>>>>>> Stashed changes
+    if [ -z "$stash_or_commit_or_discard" ]; then
       echo "No option provided"
       return 1
     fi
 
-<<<<<<< Updated upstream
-    if [ "$commit_changes_or_bring_stash" == "1" ]; then
-      pop_stash="false"
-=======
-    if [ "$add_commit_and_or_stashpop" == "1" ]; then
->>>>>>> Stashed changes
+    if [ "$stash_or_commit_or_discard" == "1" ]; then
       echo "Committing changes to current branch..."
       echo "Enter commit message:"
       read -r commit_message
-      git add . &&
-<<<<<<< Updated upstream
-        git commit -m "$commit_message"
-    elif [ "$commit_changes_or_bring_stash" == "2" ]; then
-      pop_stash="true"
-      echo "Stashing and  popping changes from current branch..."
-      git add . &&
-        git stash
-    else
-      pop_stash="false"
-      echo "Stashing changes from current branch..."
-      git add . &&
-        git stash
-    fi
-  fi
-
-  # Switch to target branch
-  git checkout "$target_branch"
-
-  # If pop_stash is true, pop stash
-  if [ "$pop_stash" == "true" ]; then
-    git stash pop
-  fi
-
-=======
-        git commit -m "$commit_message" &&
+      git commit -m "$commit_message" &&
         git checkout "$target_branch"
-    elif [ "$add_commit_and_or_stashpop" == "2" ]; then
-      echo "Stashing and popping changes from current branch..."
-      echo "Enter commit message:"
-      read -r commit_message
-      git add . &&
-        git stash &&
+    elif [ "$stash_or_commit_or_discard" == "2" ]; then
+      echo "Stashing changes and popping to $target_branch..."
+      git stash &&
         git checkout "$target_branch" &&
-        git stash pop &&
-        git add . &&
-        git commit -m "$commit_message"
-    elif [ "$add_commit_and_or_stashpop" == "3" ]; then
-      echo "Stashing changes from current branch..."
-      git add . &&
-        git stash &&
+        git stash pop
+    elif [ "$stash_or_commit_or_discard" == "3" ]; then
+      echo "Stashing changes "
+      git stash &&
         git checkout "$target_branch"
     else
       echo "Invalid option"
@@ -137,7 +108,6 @@ function git_branch_stashpop_existing() {
     fi
   fi
 
->>>>>>> Stashed changes
   echo "Switched to branch $target_branch"
 
   return 0
