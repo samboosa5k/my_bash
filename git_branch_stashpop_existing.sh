@@ -79,7 +79,7 @@ function git_branch_stashpop_existing() {
     echo "What should we do with current changes?"
     echo "1. Commit to current branch"
     echo "2. Stash then pop in new branch"
-    echo "3. Stash in current branch"
+    echo "3. Discard changes"
     read -r stash_or_commit_or_discard
 
     if [ -z "$stash_or_commit_or_discard" ]; then
@@ -97,11 +97,15 @@ function git_branch_stashpop_existing() {
       echo "Stashing changes and popping to $target_branch..."
       git stash &&
         git checkout "$target_branch" &&
-        git stash pop
-    elif [ "$stash_or_commit_or_discard" == "3" ]; then
-      echo "Stashing changes "
-      git stash &&
+        git stash pop &&
+        git add .
+      echo "Enter commit message:"
+      read -r commit_message
+      git commit -m "$commit_message" &&
         git checkout "$target_branch"
+    elif [ "$stash_or_commit_or_discard" == "3" ]; then
+      echo "Discarding changes..."
+      git checkout -- .
     else
       echo "Invalid option"
       return 1
