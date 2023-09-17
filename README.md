@@ -1,8 +1,8 @@
 # MY BASH SCRIPTZ
-
+asdfasdf
 ## 2023
 # 17-09
--   Baller changes
+-   Super bash script for branch switching
 # 16-09
 -   Handy git branch scripts added
 -   -   Allows for easy creation of new branch.
