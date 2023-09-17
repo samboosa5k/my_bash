@@ -1,10 +1,6 @@
 #!/bin/bash
 
-<<<<<<< Updated upstream
-function git_branch_stashpop_existing() {
-=======
 function git_change_utils() {
->>>>>>> Stashed changes
   local query
   local branch_list
   local commit_message
@@ -90,36 +86,29 @@ function git_change_utils() {
     elif [ "$stash_or_commit_or_discard" == "2" ]; then
       echo "Stashing changes and popping to $target_branch..."
       git add . &&
-        git stash &&
+        #        git stash &&
         git checkout "$target_branch" &&
-        git stash pop &&
-        git add .
+        #        git stash pop &&
+        echo "Committing changes to current branch..."
+      echo "Enter commit message:"
+      read -r commit_message
+      git commit -m "$commit_message" &&
+        git checkout "$target_branch"
       return 0
     elif [ "$stash_or_commit_or_discard" == "3" ]; then
       echo "Discarding changes..."
-<<<<<<< Updated upstream
-      git checkout -- .
-=======
       git checkout -- . &&
         git checkout "$target_branch"
       return 0
->>>>>>> Stashed changes
     else
       echo "Invalid option"
       return 1
     fi
-<<<<<<< Updated upstream
-  fi
-
-  echo "Switched to branch $target_branch"
-  return 0
-=======
   else
     echo "No changes to commit"
     git checkout "$target_branch"
     return 0
   fi
->>>>>>> Stashed changes
 }
 
 alias git_change_utils=git_change_utils
