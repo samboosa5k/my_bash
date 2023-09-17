@@ -1,7 +1,6 @@
 #!/bin/bash
-# .bash_aliases
 
-printf "Aliases loaded"
+echo "Aliases loaded"
 echo "Yeah boooiiii!!!"
 
 alias ss="sudo -s"
@@ -13,15 +12,30 @@ alias cc="clear"
 alias hm="cd ~"
 alias home="/home/jasper"
 
-# nerdy stuff
-alias web="cd /home/jasper/_WEB"
-alias ide="/opt/PhpStorm/bin/phpstorm.sh && exit"
-alias st="git status"
-alias gd="git diff --name-only"
-
 # nav
+alias bkdir="/home/jasper/_WEB/my_bash/quick_alias.sh"
 alias lsf="ls -p -a | grep -v /"
 alias lsd="ls -d */"
+
+# development
+alias web="cd /home/jasper/_WEB"
+alias ide="/opt/PhpStorm/bin/phpstorm.sh && exit"
+
+# git
+alias bn="/home/jasper/_WEB/my_bash/git_branch_new.sh"
+alias bb="/home/jasper/_WEB/my_bash/git_branch_find.sh"
+alias bc="/home/jasper/_WEB/my_bash/git_change_utils.sh"
+alias gbf="/home/jasper/_WEB/my_bash/git_branch_find.sh"
+alias gbn="/home/jasper/_WEB/my_bash/git_branch_new.sh"
+alias gg="/home/jasper/_WEB/my_bash/git_change_utils.sh"
+alias gb="git branch"
+alias gd="git diff --name-only"
+alias gbr="git branch -r"
+alias st="git status"
+
+# network
+alias lan="sudo arp-scan --interface=eno1 --localnet"
+alias portscan="sudo nmap -sT -p- 192.168.1.126"
 
 # packages
 alias dnfi="dnf list installed"
@@ -35,12 +49,7 @@ alias orphans="package-cleanup --orphans"
 alias unused="rpmconf -a"
 alias cleanconfig="rpmconf -c"
 alias reaper="rpmreaper"
-
 alias clean_kernels="dnf repoquery --installonly --latest-limit=-2 -q | xargs sudo dnf remove"
-
-#
-# firemon(1),  firecfg(1),  firejail-profile(5), firejail-login(5), fire‐
-#       jail-users(5), jailcheck(1)
 
 # updates
 alias g_upgrade="for grp in "cinnamon-desktop" "admin-tools" "container-management" "development-tools" "editors" "hardware-support" "system-tools"; do dnf group upgrade "$grp" -y; done"
@@ -54,34 +63,9 @@ alias sysblame="systemd blame"
 alias syscrit="systemd-analyze critical-chain"
 alias systime="systemd-analyze critical-chain"
 
-# firewall
-# sudo systemctl unmask firewalld
-# sudo systemctl enable firewalld
-# sudo systemctl start firewalld
-
-# SCRIPTZ
+# experimental
 alias imgidx="/home/jasper/_WEB/my_bash/json_index.sh"
 alias flatidx="/home/jasper/_WEB/my_bash/flat_index.sh"
 alias mkthumbs="/home/jasper/_WEB/my_bash/create_thumbnails.sh"
 alias linenr="/home/jasper/_WEB/my_bash/prepend.sh"
 
-# GIT
-alias noob="/home/jasper/_WEB/my_bash/git_branch_helpers.sh"
-alias bb="/home/jasper/_WEB/my_bash/git_branch_utils.sh"
-alias gcb="git checkout -b"
-alias gco="/home/jasper/_WEB/my_bash/git_branch_utils.sh"
-alias gb="git branch"
-alias gbr="git branch -r"
-alias st="git status"
-
-alias lan="sudo arp-scan --interface=eno1 --localnet"
-alias portscan="sudo nmap -sT -p- 192.168.1.126"
-
-# podman
-# alias docker="podman"
-# alias docker-compose="podman-compose"
-# alias vol="podman volume ls"
-# alias cnt="podman container ls"
-# alias image="podman image ls"
-# alias rs="podman-compose restart"
-# alias duck="podman-compose"

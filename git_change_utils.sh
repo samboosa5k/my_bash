@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# 1. Check if there are changes
-# 2. If there are changes in the current branch, ask if we should:
-#    echo "1. Commit to current branch"
-#    echo "2. Stash changes and pop in existing branch"
-#   echo "3. Stash changes in current branch"
-# 3. If there are no changes in the current branch, switch immediately to existing branch
-
 function git_branch_stashpop_existing() {
   local query
   local branch_list
@@ -15,12 +8,8 @@ function git_branch_stashpop_existing() {
 
   query=$1
 
-  # List branches including query and print idx as a link
-  # remove stars and whitespace
   branch_list=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
-  # add idx to each line
   branch_list=$(echo "$branch_list" | awk '{print NR-1 " " $0}')
-  # If no branches are found, print an error message
   if [ -z "$branch_list" ]; then
     echo "No branches found"
     return 1

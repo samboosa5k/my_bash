@@ -1,76 +1,57 @@
+#!/bin/bash
+# json_index.sh
 # list all images in a directory and parse output data to json file
 # usage: 'json_index.sh' in a directory with images
-
-# image data
-# {
-#   "name": "image name",
-#   "path": "image path",
-#   "size": "image size Kb",
-#   "width": "image width",
-#   "height": "image height",
-#   "type": "image type",
-#   "date": "image date",
-#   "relative_path": "image relative path"
-# }
-
-
+# output: json file with image data
 
 function getImageInfo() {
-  # echo function
+  local file
+  local filename
+  local path
+  local size
+  local width
+  local height
+  local aspectRatio
+  local type
+  local date
+  local relativePath
+  local infoJson
 
-  local File=$1
-  # separate declaration and assignment
-  local Filename
-  local Path
-  local Size
-  local Width
-  local Height
-  local AspectRatio
-  local Type
-  local Date
-  local RelativePath
-  local InfoJSON
+  file="$1"
 
   # assignment
-  Filename=$(basename "$File")
-  # path relative to ~/
-  Path=$(realpath --relative-to="$HOME" "$File")
-  # get quick dimensions
-  Width=$(identify -format "%w" "$File")
-  Height=$(identify -format "%h" "$File")
-  AspectRatio=$(echo "scale=2; $Width/$Height" | bc)
-  # filesize string with Kb and no decimal places
-  Size=$(du -h "$File" | cut -f1)
-  Type=$(file -b --mime-type "$File")
+  filename=$(basename "$File")
+  path=$(realpath --relative-to="$HOME" "$File")
+  width=$(identify -format "%w" "$File")
+  height=$(identify -format "%h" "$File")
+  aspectRatio=$(echo "scale=2; $Width/$Height" | bc)
+  size=$(du -h "$File" | cut -f1)
+  type=$(file -b --mime-type "$File")
   # Original date from file properties
-  Date=$(stat -c %y "$File" | cut -d' ' -f1)
-  # Relative path
-  RelativePath=$(realpath --relative-to="$PWD" "$File")
+  date=$(stat -c %y "$File" | cut -d' ' -f1)
+  relativePath=$(realpath --relative-to="$PWD" "$File")
 
-  # format output to json
-  InfoJSON=$(jq -n \
-    --arg name "$Filename" \
-    --arg path "$Path" \
-    --arg size "$Size" \
-    --arg width "$Width" \
-    --arg height "$Height" \
-    --arg aspect_ratio "$AspectRatio" \
-    --arg type "$Type" \
-    --arg date "$Date" \
-    --arg relative_path "$RelativePath" \
+  # format output
+  infoJson=$(jq -n \
+    --arg name "$filename" \
+    --arg path "$path" \
+    --arg size "$size" \
+    --arg width "$width" \
+    --arg height "$height" \
+    --arg aspect_ratio "$aspectRatio" \
+    --arg type "$type" \
+    --arg date "$date" \
+    --arg relative_path "$relativePath" \
     '{name: $name, path: $path, size: $size, width: $width, height: $height, aspect_ratio: $aspect_ratio, type: $type, date: $date, relative_path: $relative_path}')
 
-  # return value
-  echo "$InfoJSON"
+  echo "$infoJson"
+
   return 1
 }
-
 
 alias getImageInfo=getImageInfo
 
 function listImages() {
-  # list images and use getImageInfo on xargs
-  local images
   local outputjson
   local filename
   local filename_date
@@ -79,24 +60,18 @@ function listImages() {
   filename_date=$(date +"%Y-%m-%d")
   filename="_images_$filename_date.json"
 
-  # for loop to get image info
-  for image in *.jpg *.jpeg *.png ; do
-    # wildecard iamge
-    image="$image"
-#   # glob image to pass to function
-#   for image in *.jpg *.jpeg *.png; do
+  local image
+  for image in *.jpg *.jpeg *.png; do
+    # glob image to pass to function
     outputjson=$(getImageInfo "${image}")
     outputjson=$(echo "$outputjson" | sed 's/}/},/g')
-    # output to json file
     echo "$outputjson" >>"$filename"
   done
 
-  # add opening bracket
   sed -i '1s/^/[/' "$filename"
-  # remove last comma
   sed -i '$ s/.$//' "$filename"
-  # add closing bracket
   echo "]" >>"$filename"
+
   return 1
 }
 

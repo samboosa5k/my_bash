@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # read csv and prepend line numbers
-
 function prepend_line_numbers {
     local input_file="$1"
     local output_file="$2"
 
+    local line
     local line_number=1
     while IFS= read -r line; do
         echo "$line_number,$line"
@@ -14,4 +14,4 @@ function prepend_line_numbers {
 }
 
 alias prepend_line_numbers=prepend_line_numbers
-prepend_line_numbers $1 $2
+prepend_line_numbers "$1" "$2"
