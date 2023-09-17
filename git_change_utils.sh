@@ -102,7 +102,6 @@ function git_branch_stashpop_existing() {
   fi
 
   echo "Switched to branch $target_branch"
-
   return 0
 }
 
