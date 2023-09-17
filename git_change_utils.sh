@@ -96,6 +96,12 @@ function git_change_utils() {
       git add .
       git stash
       git checkout "$target_branch"
+      if [ -n "$(git status --porcelain)" ]; then
+        echo "Uncommitted changes found in $target_branch"
+        echo "Enter commit message:"
+        read -r commit_message
+        git commit -m "$commit_message"
+      fi
       conflict_handler
       git stash pop
       git add .
