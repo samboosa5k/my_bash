@@ -1,5 +1,5 @@
 #!/bin/bash
-function conflict_handler() {
+function untracked_handler() {
   echo "Checking for conflicts..."
   local add_or_discard
   # Check if untracked files exist
@@ -32,16 +32,17 @@ function conflict_handler() {
   return 0
 }
 
-alias conflict_handler=conflict_handler
+alias untracked_handler=untracked_handler
 
 function git_change_utils() {
-  local query
   local branch_list
   local commit_message
+  local query
   local target_branch
 
   query=$1
 
+  # List branches and print index
   branch_list=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
   branch_list=$(echo "$branch_list" | awk '{print NR-1 " " $0}')
   if [ -z "$branch_list" ]; then
@@ -69,7 +70,7 @@ function git_change_utils() {
     target_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
   fi
 
-  conflict_handler
+  untracked_handler
 
   local stash_or_commit_or_discard
   # Check if there are changes
@@ -92,11 +93,11 @@ function git_change_utils() {
       git checkout "$target_branch"
       return 0
     elif [ "$stash_or_commit_or_discard" == "2" ]; then
-      echo "Stashing changes and popping to $target_branch..."
       git add . &&
       git stash &&
       git checkout "$target_branch" &&
-      conflict_handler
+      untracked_handler
+      echo "Popping to $target_branch..."
       git stash pop &&
       git add . &&
       return 0
