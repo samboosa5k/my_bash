@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# FIXME: Will not make a new branch if the current branch is the source
+# TODO: Update this script to match git_change_utils.sh
 function git_branch_new() {
   local branch_list
   local commit_message

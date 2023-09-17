@@ -10,12 +10,8 @@ function git_branch_find() {
     return 1
   fi
 
-  # List branches including query and print idx as a link
-  # remove stars and whitespace
   result=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
-  # add idx to each line
   result=$(echo "$result" | awk '{print NR-1 " " $0}')
-  # If no branches are found, print an error message
   if [ -z "$result" ]; then
     echo "No branches found"
     return 1
@@ -32,8 +28,7 @@ function git_branch_find() {
   local idx
   read -r idx
   git checkout "$(echo "$result" | awk -v idx="$idx" 'NR-1==idx {print $2}')" &&
-    return 0
-
+  return 0
 }
 
 alias git_branch_find=git_branch_find
