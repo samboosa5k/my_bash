@@ -1,7 +1,8 @@
 # MY BASH SCRIPTZ
 
 ## 2023
-
+# 17-09
+-   Baller changes
 # 16-09
 -   Handy git branch scripts added
 -   -   Allows for easy creation of new branch.
