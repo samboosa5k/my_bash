@@ -34,8 +34,6 @@ function untracked_handler() {
 
 alias untracked_handler=untracked_handler
 
-# FIXME: Will not make a new branch if the current branch is the source
-# TODO: Update this script to match git_change_utils.sh
 function git_branch_new() {
   local branch_list
   local commit_message
@@ -124,8 +122,6 @@ function git_branch_new() {
       git checkout -b "$new_branch"
     return 0
   fi
-
-
 }
 
 alias git_branch_new=git_branch_new
