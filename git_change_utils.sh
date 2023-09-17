@@ -60,13 +60,13 @@ function git_change_utils() {
     local idx
     read -r idx
 
-    # Check if index is valid
-    if [ -z "$idx" ] || [ "$idx" -gt "$(echo "$branch_list" | wc -l)" ]; then
-      echo "Invalid index"
-      return 1
-    else
-      target_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
+    if [ -z "$idx" ]; then
+      echo "No index provided"
+      echo "Enter target branch index:"
+      echo "$branch_list"
+      read -r idx
     fi
+    target_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
   fi
 
   conflict_handler
@@ -88,27 +88,21 @@ function git_change_utils() {
       echo "Committing changes to current branch..."
       echo "Enter commit message:"
       read -r commit_message
-      git commit -m "$commit_message"
+      git commit -m "$commit_message" &&
       git checkout "$target_branch"
       return 0
     elif [ "$stash_or_commit_or_discard" == "2" ]; then
       echo "Stashing changes and popping to $target_branch..."
-      git add .
-      git stash
-      git checkout "$target_branch"
-      if [ -n "$(git status --porcelain)" ]; then
-        echo "Uncommitted changes found in $target_branch"
-        echo "Enter commit message:"
-        read -r commit_message
-        git commit -m "$commit_message"
-      fi
+      git add . &&
+      git stash &&
+      git checkout "$target_branch" &&
       conflict_handler
-      git stash pop
-      git add .
+      git stash pop &&
+      git add . &&
       return 0
     elif [ "$stash_or_commit_or_discard" == "3" ]; then
       echo "Discarding changes..."
-      git checkout -- .
+      git restore . &&
       git checkout "$target_branch"
       return 0
     else

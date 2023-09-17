@@ -1,8 +1,10 @@
 # MY BASH SCRIPTZ
-asdfasdf
+
 ## 2023
 # 17-09
 -   Super bash script for branch switching
+-  -   Switches to branch if it exists
+-  -   Some bugs
 # 16-09
 -   Handy git branch scripts added
 -   -   Allows for easy creation of new branch.
