@@ -32,6 +32,15 @@ alias gb="git branch"
 alias gd="git diff --name-only"
 alias gbr="git branch -r"
 alias st="git status"
+alias gpull="git pull"
+alias gpush="git push"
+alias gdiff="git diff --name-only"
+alias gpulldev="git pull origin main --prune --autostash --recurse-submodules=true"
+# alias gcurr="git branch --show-current"
+
+alias gaa="git add ."
+alias gpforce="git push --force"
+#alias gpf="git add . && git commit -m -read"
 
 # network
 alias lan="sudo arp-scan --interface=eno1 --localnet"
