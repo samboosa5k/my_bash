@@ -1,9 +1,10 @@
 #!/bin/bash
 function untracked_handler() {
-  echo "Checking for conflicts..."
+  
   local add_or_discard
-  # Check if untracked files exist
-  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+  # check if there are untracked files, unstaged files, modified files or new files
+  echo "Checking for untracked changes..."
+  if [ -n "$(git status --porcelain | grep -E '^\?\?')" ] || [ -n "$(git status --porcelain | grep -E '^\sM')" ] || [ -n "$(git status --porcelain | grep -E '^\sA')" ] || [ -n "$(git status --porcelain | grep -E '^\sD')" ]; then  
     echo "Untracked files exist"
     echo "What should we do with untracked files?"
     echo "1. Add"
@@ -21,9 +22,11 @@ function untracked_handler() {
     if [ "$add_or_discard" == "1" ]; then
       echo "Adding and stashing untracked files..."
       git add .
+      return 0
     elif [ "$add_or_discard" == "2" ]; then
       echo "Discarding untracked files..."
       git clean -f
+      return 0
     else
       echo "Invalid option"
       return 1
@@ -70,10 +73,10 @@ function git_change_utils() {
     target_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
   fi
 
-  untracked_handler
 
   local stash_or_commit_or_discard
   # Check if there are changes
+  untracked_handler &&
   if [ -n "$(git status --porcelain)" ]; then
     echo "Changes found"
     while [ -z "$stash_or_commit_or_discard" ]; do
@@ -96,8 +99,8 @@ function git_change_utils() {
       git add . &&
       git stash &&
       git checkout "$target_branch" &&
-      untracked_handler
-      echo "Popping to $target_branch..."
+      untracked_handler &&
+      echo "Popping to $target_branch..." &&
       git stash pop &&
       git add . &&
       return 0
