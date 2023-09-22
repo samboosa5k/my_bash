@@ -55,7 +55,7 @@ function git_change_utils() {
 
   # If only one branch is found set it as target_branch
   if [ "$(echo "$branch_list" | wc -l)" -eq 1 ]; then
-    target_branch=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
+    target_branch="$(echo "$branch_list" | awk '{print $2}')"
   else
     # If multiple branches are found, list them and ask for index
     echo "Enter target branch index:"
@@ -70,7 +70,8 @@ function git_change_utils() {
       echo "$branch_list"
       read -r idx
     fi
-    target_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
+
+    target_branch="$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')" 
   fi
 
 

@@ -34,4 +34,5 @@ function bkdir() {
   fi
 }
 
-export alias bkdir=bkdir
+alias bkdir=bkdir
+bkdir "$1"
