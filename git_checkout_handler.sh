@@ -11,18 +11,15 @@ angry="😡"
 function checkout_branch_handler() {
   local query
   local branch_list
-  local local_branch_name
-  local remote_branch_name
 
   query=$1
 
-  if [ -z "$query" ]; then
-    echo -n "No query provided $unhappy"
-    read -r query
-    while [ -z "$query" ]; do
-      echo -n "No query provided $angry"
-      read -r query
-    done
+  # List branches and print index
+  branch_list=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
+  branch_list=$(echo "$branch_list" | awk '{print NR-1 " " $0}')
+  if [ -z "$branch_list" ]; then
+    echo "No branches found"
+    return 1
   fi
 
   local is_local_branch
@@ -30,41 +27,59 @@ function checkout_branch_handler() {
   local local_branch_list
   local remote_branch_list
 
-  if [ "$(echo "$branch_list" | wc -l)" -eq 1 ]; then
-    if [ "$(echo "$branch_list" | grep -c "remote|origin" )" -eq 1 ]; then
-      echo -n "Remote branch found $happy"
-      is_remote_branch=1
-      is_local_branch=0
-      remote_branch_name="$(echo "$branch_list" | awk '{print $2}' | sed 's/remotes\/origin\///g')"
-      echo -n "Remote branch name: $remote_branch_name"
-    else
-      echo -n "Local branch found $happy"
-      is_local_branch=1
-      is_remote_branch=0
-      local_branch_name="$(echo "$branch_list" | awk '{print $2}')"
-      echo -n "Local branch name: $local_branch_name"
-    fi
+  if [ "$(echo "$branch_list" | wc -l)" -eq "1" ]; then
+    echo "One branch found $happy:"
+    echo "$branch_list" | awk '{print $2}'
   elif [ "$(echo "$branch_list" | wc -l)" -gt 1 ]; then
-    echo -n "Multiple branches found $thinking"
-    if [ "$(echo "$branch_list" | grep -c "remote|origin")" -eq 1 ] || [ "$(echo "$branch_list" | grep -c "remote|origin")" -gt 1 ]; then
-      is_remote_branch=1
+    echo "Multiple branches found $thinking:"
+    # Check if there are local branches, erase remote branches from branch_list
+    if [ "$(echo "$branch_list" | grep -c "remote|origin")" -gt 0 ]; then
+      is_remote_branch="1"
       remote_branch_list="$(echo "$branch_list" | grep -i "remote|origin")"
-      echo -n "Remote branches:"
-      echo -n "$remote_branch_list"
+      #      echo "Remote branches:"
+      echo "$remote_branch_list" | awk '{print $2}'
     fi
 
-    # Check if there are local branches, erase remote branches from branch_list
-    if [ "$(echo "$branch_list" | grep -c "remote|origin")" -eq 1 ] || [ "$(echo "$branch_list" | grep -c "remote|origin")" -gt 1 ]; then
-      is_local_branch=1
+    if [ "$(echo "$branch_list" | grep -c "remote|origin")" -eq "0" ]; then
+      is_local_branch="1"
       local_branch_list="$(echo "$branch_list" | grep -v -i "remote|origin")"
-      echo -n "Local branches:"
-      echo -n "$local_branch_list"
+      #      echo "Local branches:"
+      echo "$local_branch_list" | awk '{print $2}'
     fi
   else
-    echo -n "No branches found $unhappy"
+    echo "No branches found $unhappy"
     return 1
   fi
-  return 1
+
+  local branch_type
+  # Ask user to select remote or local branch if both exist
+  if [ "$(echo "$local_branch_list" | wc -l)" -gt 0  ] && [ "$(echo "$remote_branch_list" | wc -l)" -gt 0  ]; then
+    echo "Select branch type:"
+    echo "0 Local"
+    echo "1 Remote"
+    read -r branch_type
+    if [ "$branch_type" -eq "0" ]; then
+      branch_list="$local_branch_list"
+    elif [ "$branch_type" -eq "1" ]; then
+      branch_list="$remote_branch_list"
+    else
+      echo "Invalid branch type $unhappy"
+      return 1
+    fi
+  fi
+
+  local branch_index
+  local branch_name
+  # Display a prompt to select a local or remote branch depending on the branch list
+  # If there are only remote branches, create a local branch from the remote branch
+  if [ "$is_local_branch" -eq "0" ] && [ "$is_remote_branch" -eq "1" ]; then
+    echo "Select branch to create:"
+    echo "$branch_list"
+    read -r branch_index
+    branch_name=$(echo "$branch_list" | awk -v branch_index="$branch_index" 'NR==branch_index+1 {print $2}')
+    git checkout -b "$branch_name" "origin/$branch_name"
+    return 0
+  fi
 }
 
 alias checkout_branch_handler="checkout_branch_handler"
