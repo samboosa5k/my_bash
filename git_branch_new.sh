@@ -39,6 +39,7 @@ function git_branch_new() {
   local commit_message
   local new_branch
   local source_branch
+  local source_is_remote
 
   new_branch=$1
 
@@ -65,9 +66,24 @@ function git_branch_new() {
     echo "Invalid index"
     return 1
   else
-    # Set source branch
-    source_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
-    echo "Source branch set to $source_branch"
+    # Check if branch is origin/remote/*
+    if [[ "$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')" == "origin/"* ]]; then
+      source_is_remote=true
+    else
+      source_is_remote=false
+    fi
+    # If source branch is remote, make a local copy and set source branch to local copy, otherwise set source branch to the branch name
+    if [ "$source_is_remote" == true ]; then
+      echo "Source branch is remote"
+      source_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}' | sed 's/origin\///g')
+      echo "Checking out remote branch $source_branch..."
+      git checkout -b "$source_branch" "origin/$source_branch"
+    else
+      echo "Source branch is local"
+      # Set source branch
+      source_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')
+      echo "Source branch set to $source_branch"
+    fi
   fi
 
   untracked_handler
