@@ -75,7 +75,8 @@ function git_branch_new() {
     # If source branch is remote, make a local copy and set source branch to local copy, otherwise set source branch to the branch name
     if [ "$source_is_remote" == true ]; then
       echo "Source branch is remote"
-      source_branch=$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}' | sed 's/origin\///g')
+      # sed strip origin/ or origin/remote or remotes/origin/ from branch name
+      source_branch="$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}' | sed 's/origin\///g' | sed 's/remotes\/origin\///g' | sed 's/remotes\/origin\///g')"
     else
       echo "Source branch is local"
       # Set source branch
