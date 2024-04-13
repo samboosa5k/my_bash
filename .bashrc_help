@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# List of aliases from .bash_aliases grouped under # "title", with the list of that group ending with a blank line.
+
+# colors
+
+BACKGROUND_COLOR_FILL="\e[44m"        # blue
+GROUP_TITLE_COLOR="\e[1;33m"          # yellow
+ALIAS_COLOR="\e[1;32m"                # green
+ALIAS_COMMAND_COLOR_ORANGE="\e[1;33m" # orange
+
+# variables
+group_title=""
+
+# read the file
+while IFS= read -r line; do
+    if [[ $line == "# Group"* ]]; then
+        # If group title is already set, print a horizontal line of '=' of 80 characters
+        if [[ $group_title != "" ]]; then
+            printf '=%.0s' {1..80}
+            echo ""
+        fi
+        group_title=$(echo "$line" | cut -c 2-)
+        echo -e "${BACKGROUND_COLOR_FILL}${GROUP_TITLE_COLOR}${group_title}\e[0m"
+    elif [[ $line == "alias"* ]]; then
+        alias_name=$(echo $line | cut -d "=" -f 1 | cut -d " " -f 2)
+        alias_command=$(echo $line | cut -d "=" -f 2)
+        echo -e "${ALIAS_COLOR}${alias_name}\e[0m=${ALIAS_COMMAND_COLOR_ORANGE}${alias_command}\e[0m"
+    fi
+
+done <.bash_aliases

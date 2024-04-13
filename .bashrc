@@ -40,8 +40,7 @@ PS1="$chicken\n$ps1_username_styled $ps1_at $ps1_hostname ($ps1_cat_emoji) $ps1_
 
 eval "$(dircolors -b)"
 export alias ls="ls -a1 --color=auto"
-export alias dnf="sudo dnf"
-
+# export alias dnf="sudo dnf"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
