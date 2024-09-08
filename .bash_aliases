@@ -85,3 +85,7 @@ alias imgidx="/home/jasper/_WEB/my_bash/json_index.sh"
 alias flatidx="/home/jasper/_WEB/my_bash/flat_index.sh"
 alias mkthumbs="/home/jasper/_WEB/my_bash/create_thumbnails.sh"
 alias linenr="/home/jasper/_WEB/my_bash/prepend.sh"
+alias capture="/home/jasper/_WEB/my_bash/util/capture.sh"
+
+# Group - Other dependencies and cli packages
+alias rip="/home/jasper/.local/bin/rip"
