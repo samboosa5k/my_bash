@@ -7,8 +7,8 @@ git add . && git commit -m "[script] Capture terminal command and script output 
 ```
 
 ```bash
-[feat/logging_and_backup d454f1b] [script] Capture terminal command and script output in txt
- 2 files changed, 7 insertions(+), 5 deletions(-)
+[feat/logging_and_backup e21b41e] [script] Capture terminal command and script output in txt
+ 2 files changed, 4 insertions(+), 5 deletions(-)
 To github.com:samboosa5k/my_bash.git
-   de80b83..d454f1b  feat/logging_and_backup -> feat/logging_and_backup
+   d454f1b..e21b41e  feat/logging_and_backup -> feat/logging_and_backup
 ```
