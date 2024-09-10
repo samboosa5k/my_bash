@@ -85,8 +85,8 @@ alias imgidx='$HOME/bash.conf.d/json_index.sh'
 alias flatidx='$HOME/bash.conf.d/flat_index.sh'
 alias mkthumbs='$HOME/bash.conf.d/create_thumbnails.sh'
 alias linenr='$HOME/bash.conf.d/prepend.sh'
-alias capture='$HOME/bash.conf.d/util/capture.sh'
-alias cap='$HOME/bash.conf.d/util/capture.sh'
+alias capture='$HOME/bash.conf.d/capture.sh'
+alias cap='$HOME/bash.conf.d/capture.sh'
 
 # Group - Other dependencies and cli packages
 alias rip='/home/jasper/.local/bin/rip'

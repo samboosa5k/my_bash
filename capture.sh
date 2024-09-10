@@ -21,18 +21,14 @@ function capture() {
         read -r cmd
     done
 
-    initial_cmd=$(echo "$cmd" | cut -d' ' -f1)
+    initial_cmd="$(echo "$cmd" | awk '{print $1}')"
     cmd_location="$(pwd)"
-    if [ -z "$cmd" ]; then
-        echo "Usage: capture 'command'"
-        return 1
-    fi
 
     output_location="$HOME/Logs"
     output_captured_count="$(find "$output_location" -maxdepth 1 -iname "*$initial_cmd*" | wc -l)"
     # increment the count
     output_captured_count=$((output_captured_count + 1))
-    output_file="$(basename "$0" .sh)_output_$output_captured_count.md"
+    output_file="${initial_cmd}_output_$output_captured_count.md"
 
     # Markdown formatting
     cmd_header="# Command log and output:"
