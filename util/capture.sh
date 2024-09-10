@@ -32,6 +32,7 @@ function capture() {
     cmd_wrapper="$cmd_wrapper\n$cmd\n\`\`\`"
 
     cmd_result=$(eval "$cmd" 2>&1)
+    cmd_result="\`\`\`bash\n$cmd_result\n\`\`\`"
 
     output_content="$cmd_header\n\n$cmd_subheader\n\n$cmd_wrapper\n\n$cmd_result"
 
