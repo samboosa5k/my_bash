@@ -1,0 +1,6 @@
+# Command: find ../../../Downloads -maxdepth 2 -iname *.conf
+
+    # Called from: /home/jasper/_WEB/my_bash/util
+
+../../../Downloads/wg-NL-327.conf
+../../../Downloads/platform-tools/mke2fs.conf

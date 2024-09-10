@@ -1,897 +1,176 @@
-Command: dnf history
+Command: sudo dnf update --refresh --best --allowerasing -x grub2-pc -y && flatpak update -y
 
     Called from: 
 
-ID     | Command line                                                                                                                          | Date and time    | Action(s)      | Altered
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-   891 | install --refresh proton-vpn-gnome-desktop -y                                                                                         | 2024-09-08 14:14 | Install        |   17   
-   890 | install ./protonvpn-beta-release-1.0.1-2.noarch.rpm                                                                                   | 2024-09-08 14:13 | Install        |    1   
-   889 | remove protonvpn* proton-vpn-gnome-desktop                                                                                            | 2024-09-08 14:13 | Removed        |   18   
-   888 | install --refresh proton-*                                                                                                            | 2024-09-08 14:10 | Install        |   34   
-   887 | install ./protonvpn-beta-release-1.0.1-2.noarch.rpm                                                                                   | 2024-09-08 14:10 | Install        |    1   
-   886 | remove proton-vpn*                                                                                                                    | 2024-09-08 14:08 | Removed        |   34   
-   885 | remove protonvpn*                                                                                                                     | 2024-09-08 14:08 | Removed        |    1   
-   884 | group install workstation-product-environment -y                                                                                      | 2024-09-08 13:45 | Install        |  206 EE
-   883 | install dbus* -y --best --allowerasing                                                                                                | 2024-09-08 13:33 | Install        |   40 EE
-   882 | group install Multimedia                                                                                                              | 2024-09-08 13:23 | Install        |    1   
-   881 | group install kde-desktop kde-desktop-environment                                                                                     | 2024-09-08 13:00 | Install        |   15   
-   880 | group upgrade kde-desktop kde-desktop-environment                                                                                     | 2024-09-08 13:00 | Upgrade        |   15   
-   879 | group update kde-desktop kde-desktop-environment                                                                                      | 2024-09-08 13:00 | Upgrade        |   15   
-   878 | reinstall fedora-release-kde --best --debugsolver --allowerasing -y                                                                   | 2024-09-08 12:59 | R              |    2   
-   877 | reinstall fedora-release* --best --allowerasing -y                                                                                    | 2024-09-08 12:49 | R              |   10   
-   876 | install kde-l10n-ja.noarch                                                                                                            | 2024-09-08 12:34 | Install        |    1   
-   875 | install kde-l10n-it.noarch                                                                                                            | 2024-09-08 12:27 | Install        |    1   
-   874 | install kde-l10n-is.noarch                                                                                                            | 2024-09-08 12:26 | Install        |    1   
-   873 | install kde-l10n-id.noarch                                                                                                            | 2024-09-08 12:26 | Install        |    1   
-   872 | install kde-l10n-ia.noarch                                                                                                            | 2024-09-08 12:26 | Install        |    1   
-   871 | install kde-l10n-hu.noarch                                                                                                            | 2024-09-08 12:26 | Install        |    1   
-   870 | install kde-l10n-hr.noarch                                                                                                            | 2024-09-08 12:26 | Install        |    1   
-   869 | install kde-l10n-hi.noarch                                                                                                            | 2024-09-08 12:25 | Install        |    1   
-   868 | install kde-l10n-he.noarch                                                                                                            | 2024-09-08 12:25 | Install        |    1   
-   867 | install kde-l10n-gl.noarch                                                                                                            | 2024-09-08 12:25 | Install        |    1   
-   866 | install kde-l10n-ga.noarch                                                                                                            | 2024-09-08 12:25 | Install        |    1   
-   865 | install kde-l10n-fr.noarch                                                                                                            | 2024-09-08 12:25 | Install        |    1   
-   864 | install kde-l10n-fi.noarch                                                                                                            | 2024-09-08 12:24 | Install        |    1   
-   863 | install kde-l10n-fa.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   862 | install kde-l10n-eu.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   861 | install kde-l10n-et.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   860 | install kde-l10n-es.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   859 | install kde-l10n-eo.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   858 | install kde-l10n-en_GB.noarch                                                                                                         | 2024-09-08 12:22 | Install        |    1   
-   857 | install kde-l10n-el.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   856 | install kde-l10n-de.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   855 | install kde-l10n-da.noarch                                                                                                            | 2024-09-08 12:22 | Install        |    1   
-   854 | install kde-l10n-cs.noarch                                                                                                            | 2024-09-08 12:21 | Install        |    1   
-   853 | install kde-l10n-ca.noarch                                                                                                            | 2024-09-08 12:21 | Install        |    1   
-   852 | install kde-l10n-bs.noarch                                                                                                            | 2024-09-08 12:21 | Install        |    1   
-   851 | install kde-l10n-bg.noarch                                                                                                            | 2024-09-08 12:21 | Install        |    1   
-   850 | install kde-l10n-ast.noarch                                                                                                           | 2024-09-08 12:21 | Install        |    1   
-   849 | install kde-l10n-ar.noarch                                                                                                            | 2024-09-08 12:21 | Install        |    1   
-   848 | install kde-l10n.noarch                                                                                                               | 2024-09-08 12:21 | Install        |    1   
-   847 | install kde-inotify-survey.i686                                                                                                       | 2024-09-08 12:21 | Install        |    1   
-   846 | install kde-i18n-Ukrainian.noarch                                                                                                     | 2024-09-08 12:21 | Install        |    1   
-   845 | install kde-i18n-Turkish.noarch                                                                                                       | 2024-09-08 12:21 | Install        |    1   
-   844 | install kde-i18n-Tamil.noarch                                                                                                         | 2024-09-08 12:21 | Install        |    1   
-   843 | install kde-i18n-Swedish.noarch                                                                                                       | 2024-09-08 12:21 | Install        |    1   
-   842 | install kde-i18n-Spanish.noarch                                                                                                       | 2024-09-08 12:21 | Install        |    1   
-   841 | install kde-i18n-Slovenian.noarch                                                                                                     | 2024-09-08 12:20 | Install        |    1   
-   840 | install kde-i18n-Slovak.noarch                                                                                                        | 2024-09-08 12:20 | Install        |    1   
-   839 | install kde-i18n-Serbian.noarch                                                                                                       | 2024-09-08 12:20 | Install        |    1   
-   838 | install kde-i18n-Russian.noarch                                                                                                       | 2024-09-08 12:20 | Install        |    1   
-   837 | install kde-i18n-Romanian.noarch                                                                                                      | 2024-09-08 12:20 | Install        |    1   
-   836 | install kde-i18n-Punjabi.noarch                                                                                                       | 2024-09-08 12:20 | Install        |    1   
-   835 | install kde-i18n-Portuguese.noarch                                                                                                    | 2024-09-08 12:20 | Install        |    1   
-   834 | install kde-i18n-Polish.noarch                                                                                                        | 2024-09-08 12:20 | Install        |    1   
-   833 | install kde-i18n-Norwegian-Nynorsk.noarch                                                                                             | 2024-09-08 12:20 | Install        |    1   
-   832 | install kde-i18n-Norwegian.noarch                                                                                                     | 2024-09-08 12:20 | Install        |    1   
-   831 | install kde-i18n-Lithuanian.noarch                                                                                                    | 2024-09-08 12:20 | Install        |    1   
-   830 | install kde-i18n-Korean.noarch                                                                                                        | 2024-09-08 12:20 | Install        |    1   
-   829 | install kde-i18n-Japanese.noarch                                                                                                      | 2024-09-08 12:19 | Install        |    1   
-   828 | install kde-i18n-Italian.noarch                                                                                                       | 2024-09-08 12:19 | Install        |    1   
-   827 | install kde-i18n-Icelandic.noarch                                                                                                     | 2024-09-08 12:19 | Install        |    1   
-   826 | install kde-i18n-Hungarian.noarch                                                                                                     | 2024-09-08 12:19 | Install        |    1   
-   825 | install kde-i18n-Hindi.noarch                                                                                                         | 2024-09-08 12:19 | Install        |    1   
-   824 | install kde-i18n-Hebrew.noarch                                                                                                        | 2024-09-08 12:19 | Install        |    1   
-   823 | install kde-i18n-Greek.noarch                                                                                                         | 2024-09-08 12:19 | Install        |    1   
-   822 | install kde-i18n-German.noarch                                                                                                        | 2024-09-08 12:19 | Install        |    1   
-   821 | install kde-i18n-French.noarch                                                                                                        | 2024-09-08 12:19 | Install        |    1   
-   820 | install kde-i18n-Finnish.noarch                                                                                                       | 2024-09-08 12:19 | Install        |    1   
-   819 | install kde-i18n-Estonian.noarch                                                                                                      | 2024-09-08 12:19 | Install        |    1   
-   818 | install kde-i18n-Dutch.noarch                                                                                                         | 2024-09-08 12:19 | Install        |    1   
-   817 | install kde-i18n-Danish.noarch                                                                                                        | 2024-09-08 12:18 | Install        |    1   
-   816 | install kde-i18n-Czech.noarch                                                                                                         | 2024-09-08 12:18 | Install        |    1   
-   815 | install kde-i18n-Chinese-Big5.noarch                                                                                                  | 2024-09-08 12:18 | Install        |    1   
-   814 | install kde-i18n-Chinese.noarch                                                                                                       | 2024-09-08 12:18 | Install        |    1   
-   813 | install kde-i18n-Catalan.noarch                                                                                                       | 2024-09-08 12:18 | Install        |    1   
-   812 | install kde-i18n-Bulgarian.noarch                                                                                                     | 2024-09-08 12:18 | Install        |    1   
-   811 | install kde-i18n-British.noarch                                                                                                       | 2024-09-08 12:18 | Install        |    1   
-   810 | install kde-i18n-Brazil.noarch                                                                                                        | 2024-09-08 12:18 | Install        |    1   
-   809 | install kde-i18n-Bengali.noarch                                                                                                       | 2024-09-08 12:18 | Install        |    1   
-   808 | install kde-i18n-Arabic.noarch                                                                                                        | 2024-09-08 12:18 | Install        |    1   
-   807 | install kde-i18n.noarch                                                                                                               | 2024-09-08 12:18 | Install        |    1   
-   806 | install kde-gtk-config.i686                                                                                                           | 2024-09-08 12:18 | Install        |    2   
-   805 | install kde-dev-utils.x86_64                                                                                                          | 2024-09-08 12:17 | Install        |    4   
-   804 | install kde-dev-scripts.noarch                                                                                                        | 2024-09-08 12:17 | Install        |    5   
-   803 | install kde-connect-nautilus.x86_64                                                                                                   | 2024-09-08 12:17 | Install        |    3   
-   802 | install kde-connect.i686                                                                                                              | 2024-09-08 12:17 | Install        |   45   
-   801 | install kde-cli-tools.i686                                                                                                            | 2024-09-08 12:17 | Install        |   80   
-   800 | install kde-baseapps.noarch                                                                                                           | 2024-09-08 12:16 | Install        |    2   
-   799 | install kde-apps-rpm-macros.noarch                                                                                                    | 2024-09-08 12:16 | Install        |    1   
-   798 | install kde-wallpapers.noarch                                                                                                         | 2024-09-08 12:16 | Install        |    1   
-   797 | install @kde-desktop-environment --best --allowerasing                                                                                | 2024-09-08 11:39 | Install        |   15   
-   796 | swap @workstation-product-environment @server-product-environment                                                                     | 2024-09-08 10:33 | C, E, I        |  161 EE
-   795 | swap fedora-release-workstation fedora-release-server                                                                                 | 2024-09-08 10:32 | E, I           |    2   
-   794 | install switchdesk switchdesk-gui                                                                                                     | 2024-09-08 10:30 | Install        |    2   
-   793 | install @kde-desktop-environment                                                                                                      | 2024-09-08 10:30 | Install        |   17   
-   792 | erase lightdm                                                                                                                         | 2024-09-08 04:58 | Removed        |    6   
-   791 | erase gdm                                                                                                                             | 2024-09-08 04:58 | Removed        |   39 EE
-   790 | install slick-greeter                                                                                                                 | 2024-09-08 04:50 | Install        |    6 EE
-   789 | group upgrade kde-desktop                                                                                                             | 2024-09-08 04:49 | Upgrade        |    1   
-   788 | group upgrade kde-desktop-environment                                                                                                 | 2024-09-08 04:49 | Upgrade        |   17   
-   787 | group install kde-desktop-environment                                                                                                 | 2024-09-08 04:48 | Install        |   15   
-   786 | group install kde-desktop                                                                                                             | 2024-09-08 04:48 | Install        |    1   
-   785 | install -y --best --allowerasing --skip-broken plasma-browser-integration plasma-activities plasma-activities-devel plasma-activities | 2024-09-08 04:33 | Install        |   82 EE
-   784 | reinstall fedora-release-identity-kde fedora-release-kde --best --allowerasing --refresh -y                                           | 2024-09-08 04:24 | R              |    4   
-   783 | group install kde-desktop --refresh -y --allowerasing                                                                                 | 2024-09-08 04:18 | Install        |    1   
-   782 | group install kde-desktop-environment --refresh -y --allowerasing                                                                     | 2024-09-08 04:17 | Install        |   15   
-   781 | erase cinnamon -y                                                                                                                     | 2024-09-08 04:08 | Removed        |   53   
-   780 | group update kde-desktop-environment --best --allowerasing -x grub2-pc -y                                                             | 2024-09-08 03:27 | Upgrade        |   17   
-   779 | group install kde-desktop-environment --best --allowerasing -x grub2-pc -y                                                            | 2024-09-08 03:27 | Install        |   17   
-   778 | erase fedora-release-cinnamon                                                                                                         | 2024-09-08 03:21 | Removed        |    1   
-   777 | remove -y kernel-0:6.10.5-200.fc40.x86_64 kernel-core-0:6.10.5-200.fc40.x86_64 kernel-devel-0:6.10.5-200.fc40.x86_64 kernel-modules-0 | 2024-09-08 03:10 | C, E           |   14 EE
-   776 | autoremove -x grub2-pc                                                                                                                | 2024-09-08 03:08 | Removed        |    2   
-   775 | groupinstall kf6-software-development -y                                                                                              | 2024-09-08 03:07 | Install        |  167   
-   774 | group install KDE Plasma Workspaces                                                                                                   | 2024-09-08 03:05 | Install        |   20   
-   773 | groupremove Cinnamon Desktop -x shotwell                                                                                              | 2024-09-08 03:03 | C, E           |   91 EE
-   772 | update --refresh --best --allowerasing -y                                                                                             | 2024-09-07 17:20 | I, U           |   53   
-   771 | install wine                                                                                                                          | 2024-09-05 23:33 | Install        |   84   
-   770 | erase winetricks wine -y                                                                                                              | 2024-09-05 23:21 | Removed        |   84   
-   769 | erase winetricks                                                                                                                      | 2024-09-05 23:11 | Removed        |    1   
-   768 | install winetricks --best -y                                                                                                          | 2024-09-05 23:00 | Install        |    1   
-   767 | reinstall --best --allowerasing -y mingw32-wine-gecko.noarch mingw64-wine-gecko.noarch wine-alsa.i686 wine-alsa.x86_64 wine-arial-fon | 2024-09-05 22:30 | R              |   80   
-   766 | reinstall --refresh --best --allowerasing wine                                                                                        | 2024-09-05 22:27 | R              |    2   
-   765 | erase winetricks -y                                                                                                                   | 2024-09-05 22:20 | Removed        |    1   
-   764 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.jjgrYALp/results/kmod-wl-6.10.7-200.fc40.x86_64-6.30.223.271-53.fc40.x86_64.rpm   | 2024-09-05 21:54 | Install        |    1   
-   763 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.Ht1kG1tL/results/kmod-nvidia-6.10.7-200.fc40.x86_64-560.35.03-1.fc40.x86_64.rpm   | 2024-09-05 21:54 | Install        |    1   
-   762 | update --refresh --best --allowerasing -y                                                                                             | 2024-09-05 21:51 | C, E, I, U     |   33 EE
-   761 | update --refresh --best --allowerasing -y                                                                                             | 2024-09-04 19:36 | Upgrade        |   64   
-   760 | update --refresh --best --allowerasing -y                                                                                             | 2024-09-03 18:21 | Upgrade        |   32   
-   759 | update --refresh --best --allowerasing -y                                                                                             | 2024-09-02 22:44 | Upgrade        |    9   
-   758 | update --refresh --best --allowerasing -y                                                                                             | 2024-09-01 13:31 | Upgrade        |   12   
-   757 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-30 23:23 | Upgrade        |   14   
-   756 | autoremove -x grub2-pc                                                                                                                | 2024-08-29 23:20 | Removed        |   10   
-   755 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.j0lNd2Ke/results/kmod-nvidia-6.10.6-200.fc40.x86_64-560.35.03-1.fc40.x86_64.rpm   | 2024-08-29 19:45 | Upgrade        |    1   
-   754 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.f14gJy0F/results/kmod-wl-6.10.6-200.fc40.x86_64-6.30.223.271-53.fc40.x86_64.rpm   | 2024-08-29 19:43 | Upgrade        |    1   
-   753 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-29 19:43 | I, U           |   15   
-   752 | install arc-kde materia-kde plasma-breeze plasma-browser-integration --best --allowerasing -y                                         | 2024-08-29 19:39 | Install        |   16   
-   751 | distro-sync --best --allowerasing -y                                                                                                  | 2024-08-29 19:28 | Upgrade        |  160 EE
-   750 | remove kontact akregator kaddressbook dragon contactthemeeditor elisa kmail kmoustool kgpg kmahjongg kmines kmouth konversation kolou | 2024-08-27 18:57 | Removed        |    1   
-   749 | autoremove -x grub2-pc                                                                                                                | 2024-08-27 17:01 | Removed        |   22   
-   748 | group install kde-desktop-environment -y                                                                                              | 2024-08-26 21:24 | Install        |   15   
-   747 | group install kde-desktop-environment                                                                                                 | 2024-08-26 21:20 | Install        |  405 EE
-   746 | install fedora-release-identity-kde --best --allowerasing -y                                                                          | 2024-08-26 21:18 | E, I           |    2   
-   745 | install fedora-release-kde                                                                                                            | 2024-08-26 21:17 | Install        |    1   
-   744 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-26 19:39 | Upgrade        |    8   
-   743 | install winetricks                                                                                                                    | 2024-08-25 00:17 | Install        |    1   
-   742 | install bottles --best                                                                                                                | 2024-08-24 23:54 | Install        |   34   
-   741 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-24 20:34 | Upgrade        |   27   
-   740 | groupupdate sound-and-video                                                                                                           | 2024-08-24 20:33 | Install        |    1   
-   739 | groupupdate multimedia --setop=install_weak_deps=False --exclude=PackageKit-gstreamer-plugin                                          | 2024-08-24 20:33 | Install        |    1   
-   738 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.keGHWvhZ/results/kmod-wl-6.10.6-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-08-23 20:24 | Install        |    1   
-   737 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.R2Di8f8P/results/kmod-nvidia-6.10.6-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-08-23 20:23 | Install        |    1   
-   736 | upgrade --refresh --best --allowerasing -y                                                                                            | 2024-08-23 20:19 | C, E, I, U     |   93 EE
-   735 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.fNxyXycn/results/kmod-wl-6.10.5-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-08-22 22:15 | Install        |    1   
-   734 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.HxzZXuYL/results/kmod-nvidia-6.10.5-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-08-22 22:14 | Install        |    1   
-   733 | distro-sync --refresh --best --allowerasing -y                                                                                        | 2024-08-22 22:11 | C, E, I, U     |   91 E<
-   732 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-19 21:00 | Upgrade        |   28 > 
-   731 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-16 19:38 | Upgrade        |   15   
-   730 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.M4EMyt8B/results/kmod-wl-6.10.4-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-08-15 17:04 | Install        |    1   
-   729 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.4ZiMlXsJ/results/kmod-nvidia-6.10.4-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-08-15 17:03 | Install        |    1   
-   728 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-15 17:00 | C, E, I, U     |   37 EE
-   727 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-14 20:26 | Upgrade        |   20   
-   726 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-13 22:10 | Upgrade        |   25   
-   725 | upgrade --refresh --best --allowerasing -y                                                                                            | 2024-08-12 19:07 | Upgrade        |   29 EE
-   724 | update --refresh --allowerasing --best -y                                                                                             | 2024-08-11 15:12 | Upgrade        |   45 EE
-   723 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.nBMI2nes/results/kmod-wl-6.10.3-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-08-10 01:11 | Install        |    1   
-   722 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.fIglrnq0/results/kmod-nvidia-6.10.3-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-08-10 01:11 | Install        |    1   
-   721 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-10 01:08 | C, E, I, U     |   66 EE
-   720 | upgrade --refresh --best --allowerasing -y                                                                                            | 2024-08-08 21:19 | I, U           |   54   
-   719 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-07 20:32 | Upgrade        |   18   
-   718 | update --refresh --allowerasing --best -y                                                                                             | 2024-08-05 19:23 | Upgrade        |   23   
-   717 | update --refresh --best --allowerasing -y                                                                                             | 2024-08-04 17:01 | O, U           |   54   
-   716 | update --refresh -y --allowerasing --best                                                                                             | 2024-08-02 19:43 | Upgrade        |    7   
-   715 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.Pm5pOvSl/results/kmod-wl-6.9.12-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-08-01 23:08 | Install        |    1   
-   714 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.tvMYGhLC/results/kmod-nvidia-6.9.12-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-08-01 23:08 | Install        |    1   
-   713 | upgrade --refresh --best --allowerasing -y                                                                                            | 2024-08-01 23:05 | C, E, I, U     |   40 EE
-   712 | update --best --allowerasing -y                                                                                                       | 2024-07-31 20:35 | I, O, U        |   55 EE
-   711 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.PaQUKgo4/results/kmod-wl-6.9.11-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-07-30 01:30 | Install        |    1   
-   710 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.zz6KMAWo/results/kmod-nvidia-6.9.11-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-07-30 01:30 | Install        |    1   
-   709 | update --refresh --allowerasing --best -y                                                                                             | 2024-07-30 01:26 | C, E, I, U     |   47 EE
-   708 | group upgrade Fedora Workstation                                                                                                      | 2024-07-30 01:26 | Upgrade        |   15   
-   707 | group upgrade Cinnamon Desktop                                                                                                        | 2024-07-30 01:25 | Upgrade        |   30   
-   706 | distro-sync --refresh -y                                                                                                              | 2024-07-27 14:16 | Upgrade        |   20   
-   705 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.3nXbxj3d/results/kmod-wl-6.9.10-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm   | 2024-07-26 22:51 | Install        |    1   
-   704 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.XAyXxsz5/results/kmod-nvidia-6.9.10-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm   | 2024-07-26 22:50 | Install        |    1   
-   703 | update --refresh --best --allowerasing -y                                                                                             | 2024-07-26 22:47 | C, E, I, U     |  139 EE
-   702 | upgrade --refresh -y --allowerasing --best                                                                                            | 2024-07-23 21:45 | Upgrade        |   34 EE
-   701 |                                                                                                                                       | 2024-07-21 21:09 | Upgrade        |    1   
-   700 | upgrade --refresh -y --best --allowerasing                                                                                            | 2024-07-21 14:08 | Upgrade        |    8   
-   699 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.uwT0JPIi/results/kmod-wl-6.9.9-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm    | 2024-07-20 21:58 | Install        |    1   
-   698 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.9PA0Rd2q/results/kmod-nvidia-6.9.9-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm    | 2024-07-20 21:57 | Install        |    1   
-   697 | update --refresh --best --allowerasing -y                                                                                             | 2024-07-20 21:54 | C, E, I, U     |  165 EE
-   696 |                                                                                                                                       | 2024-07-19 13:06 | Install        |   42   
-   695 | install librecad --forcearch=x86_64                                                                                                   | 2024-07-14 19:39 | Install        |    7   
-   694 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.tkmoBDCu/results/kmod-wl-6.9.8-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm    | 2024-07-14 19:30 | Install        |    1   
-   693 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.29YUWEmh/results/kmod-nvidia-6.9.8-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm    | 2024-07-14 19:30 | Install        |    1  <
-   692 | upgrade --refresh --best --allowerasing -y                                                                                            | 2024-07-11 21:38 | Upgrade        |   19 > 
-   691 | erase hqplayer5desktop                                                                                                                | 2024-07-10 21:48 | Removed        |   10   
-   690 | install ./hqplayer5desktop-5.7.2-19.fc39.x86_64.rpm                                                                                   | 2024-07-10 21:47 | Install        |   11 EE
-   689 | install deadbeef                                                                                                                      | 2024-07-10 21:44 | Install        |    4   
-   688 | upgrade --best --allowerasing -y                                                                                                      | 2024-07-10 19:32 | Upgrade        |  102 EE
-   687 | install sayonara                                                                                                                      | 2024-07-08 20:57 | Install        |    1   
-   686 | remove rhythmbox                                                                                                                      | 2024-07-08 20:57 | Removed        |   11  <
-   685 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.HwOEr9xU/results/kmod-nvidia-6.9.7-200.fc40.x86_64-555.58.02-1.fc40.x86_64.rpm    | 2024-07-06 10:25 | Upgrade        |    1 > 
-   684 | distro-sync                                                                                                                           | 2024-07-06 10:24 | Upgrade        |   12  <
-   683 | remove krusader                                                                                                                       | 2024-07-06 10:20 | Removed        |   70 ><
-   682 | install --refresh proton-vpn-gnome-desktop                                                                                            | 2024-07-02 00:08 | Install        |   35 > 
-   681 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.d7BNqZ4R/results/kmod-nvidia-6.9.7-200.fc40.x86_64-550.90.07-1.fc40.x86_64.rpm    | 2024-07-01 23:51 | Install        |    1  <
-   680 |                                                                                                                                       | 2024-07-01 23:09 | Removed        |   23 ><
-   679 | distro-sync                                                                                                                           | 2024-06-30 21:55 | D, O, U        |   13 ><
-   678 | reinstall dnf5 --refresh --best --allowerasing -y                                                                                     | 2024-06-30 21:41 | R              |    2 > 
-   677 | install dnf5-plugin-automatic --allowerasing                                                                                          | 2024-06-30 21:38 | D, E, I        |   12 EE
-   676 | autoremove                                                                                                                            | 2024-06-30 21:36 | Removed        |    2   
-   675 | group upgrade cinnamon-desktop-environment                                                                                            | 2024-06-30 21:35 | Upgrade        |   15   
-   674 | group install cinnamon-desktop-environment                                                                                            | 2024-06-30 21:34 | Install        |   16   
-   673 | group mark cinnamon-desktop-environment                                                                                               | 2024-06-30 21:33 | Install        |   14   
-   672 | group mark cinnamon-desktop                                                                                                           | 2024-06-30 21:33 | Install        |    1   
-   671 | autoremove                                                                                                                            | 2024-06-30 21:29 | Removed        |   32   
-   670 | update --allowerasing                                                                                                                 | 2024-06-30 16:11 | Upgrade        |   41   
-   669 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.krToIpaq/results/kmod-wl-6.9.7-100.fc39.x86_64-6.30.223.271-51.fc40.x86_64.rpm    | 2024-06-30 16:05 | Upgrade        |    1   
-   668 | remove python3-sphinxcontrib-jsmath                                                                                                   | 2024-06-29 23:47 | Removed        |    1   
-   667 | remove python3-sphinxcontrib-applehelp                                                                                                | 2024-06-29 23:47 | Removed        |    1   
-   666 | remove protonvpn                                                                                                                      | 2024-06-29 23:47 | Removed        |   36   
-   665 | remove podman-plugins                                                                                                                 | 2024-06-29 23:47 | Removed        |    1   
-   664 | remove cockpit-file-sharing                                                                                                           | 2024-06-29 23:46 | Removed        |    1   
-   663 | remove anaconda-user-help                                                                                                             | 2024-06-29 23:46 | Removed        |    1   
-   662 | remove -y kernel-0:6.9.5-100.fc39.x86_64 kernel-0:6.9.6-100.fc39.x86_64 kernel-core-0:6.9.5-100.fc39.x86_64 kernel-core-0:6.9.6-100.f | 2024-06-29 23:09 | C, E           |   22 EE
-   661 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.NzTo57xd/results/kmod-wl-6.9.6-200.fc40.x86_64-6.30.223.271-51.fc40.x86_64.rpm    | 2024-06-29 23:04 | Install        |    1  <
-   660 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.EWAaZMJ8/results/kmod-nvidia-6.9.6-200.fc40.x86_64-550.90.07-1.fc40.x86_64.rpm    | 2024-06-29 23:02 | Install        |    1 >#
-   659 | system-upgrade upgrade                                                                                                                | 2024-06-29 22:43 | D, E, I, O, U  | 3824 E<
-   658 | distro-sync                                                                                                                           | 2024-06-29 22:25 | Downgrade      |   77 > 
-   657 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.f65AOQ0e/results/kmod-wl-6.9.7-100.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-06-29 22:25 | Install        |    1   
-   656 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.pZ6vLFgm/results/kmod-nvidia-6.9.7-100.fc39.x86_64-550.90.07-1.fc39.x86_64.rpm    | 2024-06-29 22:25 | Install        |    1   
-   655 | update --enablerepo=updates-testing                                                                                                   | 2024-06-29 22:22 | I, U           |   83 EE
-   654 | group update Cinnamon Desktop                                                                                                         | 2024-06-29 22:13 | Upgrade        |   14   
-   653 | group update Fedora Workstation                                                                                                       | 2024-06-29 22:12 | Upgrade        |   14   
-   652 | reinstall dnf5-plugins                                                                                                                | 2024-06-29 22:10 | R              |    2   
-   651 | reinstall dnf5                                                                                                                        | 2024-06-29 22:10 | R              |    2   
-   650 | reinstall librepo                                                                                                                     | 2024-06-29 22:10 | R              |    2   
-   649 | reinstall dnf                                                                                                                         | 2024-06-29 22:09 | R              |    2   
-   648 | reinstall dnf5 dnf5-plugins libdnf5 libdnf5-cli python3-libdnf5 librepo --best --allowerasing -y                                      | 2024-06-29 22:07 | R              |   12   
-   647 | remove -y kernel-0:6.8.11-200.fc39.x86_64 kernel-core-0:6.8.11-200.fc39.x86_64 kernel-devel-0:6.8.11-200.fc39.x86_64 kernel-modules-0 | 2024-06-29 22:04 | C, E           |   14 EE
-   646 | upgrade --refresh                                                                                                                     | 2024-06-29 22:01 | Upgrade        |    5   
-   645 | remove darktable                                                                                                                      | 2024-06-29 21:25 | Removed        |    7   
-   644 | install libdnf5 --enhancement --best --allowerasing                                                                                   | 2024-06-29 21:21 | Downgrade      |    5   
-   643 | reinstall darktable --best                                                                                                            | 2024-06-29 21:17 | R              |    2   
-   642 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.MnIvymo4/results/kmod-wl-6.9.6-100.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-06-29 20:04 | Install        |    1   
-   641 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.OWazSGlf/results/kmod-nvidia-6.9.6-100.fc39.x86_64-550.90.07-1.fc39.x86_64.rpm    | 2024-06-29 20:04 | Install        |    1   
-   640 | update --refresh                                                                                                                      | 2024-06-29 20:01 | I, U           |   35 EE
-   639 | update                                                                                                                                | 2024-06-26 00:04 | Upgrade        |   40   
-   638 | autoremove                                                                                                                            | 2024-06-24 21:02 | Removed        |    3   
-   637 | group install Administration Tools C Development Tools and Libraries Container Management Development Tools Editors Headless Manageme | 2024-06-24 20:55 | Install        |   24   
-   636 | group install Fedora Workstation Cinnamon Desktop                                                                                     | 2024-06-24 20:55 | Install        |   86 EE
-   635 | group upgrade Fedora Workstation Cinnamon Desktop                                                                                     | 2024-06-24 20:54 | Upgrade        |   19   
-   634 | group upgrade Administration Tools C Development Tools and Libraries Container Management Development Tools Editors Headless Manageme | 2024-06-24 20:54 | Upgrade        |   11   
-   633 | group update Administration Tools C Development Tools and Libraries Container Management Development Tools Editors Headless Managemen | 2024-06-24 20:53 | Upgrade        |   11   
-   632 | group mark Administration Tools C Development Tools and Libraries Container Management Development Tools Editors Headless Management  | 2024-06-24 20:53 | Install        |   11   
-   631 | group mark Fedora Workstation Cinnamon Desktop                                                                                        | 2024-06-24 20:52 | Install        |   19   
-   630 | remove --oldinstallonly                                                                                                               | 2024-06-24 20:48 | C, E           |   54 EE
-   629 | autoremove -y                                                                                                                         | 2024-06-24 20:22 | Removed        |   49   
-   628 | install intltool                                                                                                                      | 2024-06-24 20:09 | Install        |    3   
-   627 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.XyDN6T3F/results/kmod-nvidia-6.8.11-200.fc39.x86_64-550.90.07-1.fc39.x86_64.rpm   | 2024-06-24 19:42 | Upgrade        |    1   
-   626 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.Wf3R2zC1/results/kmod-wl-6.9.5-100.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-06-24 19:41 | Install        |    1   
-   625 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.SfEf9dCM/results/kmod-nvidia-6.9.5-100.fc39.x86_64-550.90.07-1.fc39.x86_64.rpm    | 2024-06-24 19:41 | Install        |    1   
-   624 | upgrade --best --refresh                                                                                                              | 2024-06-24 19:36 | I, O, U        |  244 E<
-   623 |                                                                                                                                       | 2024-06-09 11:44 | Install        |    1 >#
-   622 |                                                                                                                                       | 2024-06-09 11:43 | Upgrade        |    1   
-   621 | update --refresh --best --allowerasing -y                                                                                             | 2024-06-09 11:42 | I, U           |   83  <
-   620 |                                                                                                                                       | 2024-06-09 11:41 | Install        |    1 ><
-   619 |                                                                                                                                       | 2024-06-09 11:40 | Install        |    1 >#
-   618 | remove dolphin                                                                                                                        | 2024-06-06 23:24 | Removed        |   30   
-   617 | install dolphin                                                                                                                       | 2024-06-06 22:56 | Install        |   30   
-   616 | install krusader                                                                                                                      | 2024-06-06 22:56 | Install        |   58   
-   615 | install dconf-editor                                                                                                                  | 2024-06-02 11:07 | Install        |    1   
-   614 | distro-sync -y                                                                                                                        | 2024-06-01 21:01 | R              |    2   
-   613 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.vsrLs495/results/kmod-wl-6.8.11-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm   | 2024-06-01 20:22 | Install        |    1   
-   612 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.oMCoQG73/results/kmod-nvidia-6.8.11-200.fc39.x86_64-550.78-1.fc39.x86_64.rpm      | 2024-06-01 20:22 | Install        |    1   
-   611 | update -y                                                                                                                             | 2024-06-01 20:19 | I, U           |   21 EE
-   610 |                                                                                                                                       | 2024-05-31 18:50 | Upgrade        |   53   
-   609 |                                                                                                                                       | 2024-05-31 18:50 | Install        |    1   
-   608 | install tigervnc-server                                                                                                               | 2024-05-31 18:15 | Install        |    2   
-   607 |                                                                                                                                       | 2024-05-31 18:05 | Upgrade        |    2   
-   606 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.Qly3CxsO/results/kmod-wl-6.8.10-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm   | 2024-05-27 22:48 | Install        |    1   
-   605 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.YsW9duGS/results/kmod-nvidia-6.8.10-200.fc39.x86_64-550.78-1.fc39.x86_64.rpm      | 2024-05-27 22:48 | Install        |    1   
-   604 | update --refresh --best --allowerasing                                                                                                | 2024-05-27 22:44 | I, U           |  162 EE
-   603 | remove cups cups-pdf -y                                                                                                               | 2024-05-18 23:31 | Removed        |   24 EE
-   602 | install cups cups-pdf                                                                                                                 | 2024-05-18 23:30 | Install        |    1 EE
-   601 |                                                                                                                                       | 2024-05-18 23:12 | Install        |    1   
-   600 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.b5V5V2KM/results/kmod-nvidia-6.8.7-200.fc39.x86_64-550.78-1.fc39.x86_64.rpm       | 2024-05-18 22:55 | Upgrade        |    1   
-   599 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.gidXgTNK/results/kmod-wl-6.8.9-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-05-18 22:54 | Install        |    1   
-   598 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.ueEQDfNL/results/kmod-nvidia-6.8.9-200.fc39.x86_64-550.78-1.fc39.x86_64.rpm       | 2024-05-18 22:54 | Install        |    1   
-   597 | update --best --allowerasing -y                                                                                                       | 2024-05-18 22:50 | I, O, U        |  207 EE
-   596 | install wine                                                                                                                          | 2024-05-18 22:46 | Install        |   85   
-   595 | erase wine                                                                                                                            | 2024-05-18 22:44 | Removed        |   85   
-   594 | remove lprint                                                                                                                         | 2024-05-18 18:50 | Removed        |    2   
-   593 | install lprint                                                                                                                        | 2024-05-18 18:41 | Install        |    2   
-   592 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.AGxJ1BPV/results/kmod-nvidia-6.8.7-200.fc39.x86_64-550.76-1.fc39.x86_64.rpm       | 2024-05-02 00:32 | Upgrade        |    1   
-   591 | upgrade --refresh -y --allowerasing --best                                                                                            | 2024-05-02 00:30 | I, U           |  149   
-   590 | install android-tools                                                                                                                 | 2024-05-01 20:24 | Install        |    1   
-   589 | install chromium                                                                                                                      | 2024-05-01 19:34 | Install        |    5   
-   588 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.PV2llg0v/results/kmod-wl-6.8.7-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-04-23 18:45 | Install        |    1   
-   587 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.sqjnLF6B/results/kmod-nvidia-6.8.7-200.fc39.x86_64-550.67-1.fc39.x86_64.rpm       | 2024-04-23 18:45 | Install        |    1   
-   586 |                                                                                                                                       | 2024-04-23 18:42 | I, U           |  203 EE
-   585 |                                                                                                                                       | 2024-04-23 18:40 | Install        |    1   
-   584 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.O15WRuQP/results/kmod-wl-6.8.5-201.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-04-14 19:08 | Install        |    1   
-   583 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.z0Myo8oc/results/kmod-nvidia-6.8.5-201.fc39.x86_64-550.67-1.fc39.x86_64.rpm       | 2024-04-14 19:08 | Install        |    1   
-   582 | update                                                                                                                                | 2024-04-14 19:05 | I, U           |  110 EE
-   581 | remove -y kernel-0:6.6.11-200.fc39.x86_64 kernel-0:6.6.13-200.fc39.x86_64 kernel-0:6.6.14-200.fc39.x86_64 kernel-0:6.7.3-200.fc39.x86 | 2024-04-13 21:45 | C, E           |   62 EE
-   580 | install cpu-x                                                                                                                         | 2024-04-13 14:24 | Install        |    4   
-   579 | remove terminator                                                                                                                     | 2024-04-13 14:24 | Removed        |    2   
-   578 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.sqeZXBrN/results/kmod-wl-6.8.4-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-04-09 21:06 | Install        |    1   
-   577 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.SB9k80RN/results/kmod-nvidia-6.8.4-200.fc39.x86_64-550.67-1.fc39.x86_64.rpm       | 2024-04-09 21:06 | Install        |    1   
-   576 | update --refresh -y --allowerasing --best                                                                                             | 2024-04-09 21:03 | I, U           |  111 EE
-   575 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.E63ci4nL/results/kmod-nvidia-6.7.6-200.fc39.x86_64-550.67-1.fc39.x86_64.rpm       | 2024-03-31 18:12 | Upgrade        |    1   
-   574 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.7ijVa1ML/results/kmod-wl-6.7.10-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm   | 2024-03-31 18:10 | Install        |    1   
-   573 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.fdHK2IRm/results/kmod-nvidia-6.7.10-200.fc39.x86_64-550.67-1.fc39.x86_64.rpm      | 2024-03-31 18:10 | Install        |    1   
-   572 | update                                                                                                                                | 2024-03-31 18:02 | I, O, U        |  575 EE
-   571 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.eSTeq7uE/results/kmod-wl-6.7.6-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-03-03 22:52 | Install        |    1   
-   570 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.Lp8faNCe/results/kmod-nvidia-6.7.6-200.fc39.x86_64-545.29.06-3.fc39.x86_64.rpm    | 2024-03-03 22:51 | Install        |    1   
-   569 | update --best --allowerasing --security --enhancement -y                                                                              | 2024-03-03 22:49 | I, U           |   51 EE
-   568 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.jhlgpa4l/results/kmod-wl-6.7.5-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-02-24 10:27 | Install        |    1   
-   567 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.gM0FHMWK/results/kmod-nvidia-6.7.5-200.fc39.x86_64-545.29.06-3.fc39.x86_64.rpm    | 2024-02-24 10:26 | Install        |    1   
-   566 | update                                                                                                                                | 2024-02-24 10:24 | I, O, U        |  190 EE
-   565 | group update Fedora Workstation Cinnamon Desktop                                                                                      | 2024-02-24 10:23 | Upgrade        |   19   
-   564 | group upgrade Fedora Workstation Cinnamon Desktop                                                                                     | 2024-02-24 10:23 | Upgrade        |   19   
-   563 | group update Fedora Workstation Cinnamon Desktop                                                                                      | 2024-02-24 10:22 | Upgrade        |   85   
-   562 | reinstall --refresh --best gnome-boxes -y                                                                                             | 2024-02-24 10:19 | R              |    2   
-   561 | reinstall --best codium                                                                                                               | 2024-02-22 21:09 | R              |    2   
-   560 | update codium                                                                                                                         | 2024-02-22 21:08 | Upgrade        |    1   
-   559 | update --refresh --best --allowerasing -y                                                                                             | 2024-02-19 21:35 | Upgrade        |   90   
-   558 | upgrade --refresh --allowerasing --best -y                                                                                            | 2024-02-15 22:20 | Upgrade        |   35   
-   557 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.uo7xn43A/results/kmod-wl-6.7.4-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-02-13 21:55 | Install        |    1   
-   556 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.pBxcwItp/results/kmod-nvidia-6.7.4-200.fc39.x86_64-545.29.06-3.fc39.x86_64.rpm    | 2024-02-13 21:54 | Install        |    1   
-   555 | update --refresh --best --allowerasing -y                                                                                             | 2024-02-13 21:51 | I, U           |  155 EE
-   554 | update --refresh --best --allowerasing -y                                                                                             | 2024-02-08 21:24 | Upgrade        |   10   
-   553 | group update Cinnamon                                                                                                                 | 2024-02-07 00:48 | Upgrade        |    1   
-   552 | group update Cinnamon Desktop                                                                                                         | 2024-02-07 00:48 | I, U           |   15   
-   551 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.VaqhiqjV/results/kmod-wl-6.7.3-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-02-07 00:11 | Install        |    1   
-   550 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.ZgXRGOnf/results/kmod-nvidia-6.7.3-200.fc39.x86_64-545.29.06-3.fc39.x86_64.rpm    | 2024-02-07 00:11 | Install        |    1   
-   549 | update --refresh -y                                                                                                                   | 2024-02-07 00:08 | I, U           |  199 EE
-   548 | remove podman --noautoremove                                                                                                          | 2024-02-07 00:07 | Removed        |    7   
-   547 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.iNoc2FCQ/results/kmod-nvidia-6.6.13-200.fc39.x86_64-545.29.06-3.fc39.x86_64.rpm   | 2024-02-04 00:46 | Upgrade        |    1   
-   546 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.uCq0P2th/results/kmod-wl-6.6.14-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm   | 2024-02-04 00:44 | Install        |    1   
-   545 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.DGYpVEih/results/kmod-nvidia-6.6.14-200.fc39.x86_64-545.29.06-3.fc39.x86_64.rpm   | 2024-02-04 00:44 | Install        |    1   
-   544 |                                                                                                                                       | 2024-02-04 00:42 | I, U           |   42 EE
-   543 | remove -y kernel-0:6.6.4-200.fc39.x86_64 kernel-0:6.6.6-200.fc39.x86_64 kernel-0:6.6.8-200.fc39.x86_64 kernel-0:6.6.9-200.fc39.x86_64 | 2024-02-04 00:10 | C, E           |   33 EE
-   542 | autoremove                                                                                                                            | 2024-02-04 00:09 | Removed        |   10   
-   541 | install blender                                                                                                                       | 2024-02-03 15:12 | Install        |   86   
-   540 | erase winetricks                                                                                                                      | 2024-02-03 14:04 | Removed        |    6   
-   539 | reinstall --refresh --best --allowerasing winetricks* -y                                                                              | 2024-02-03 14:03 | R              |    2   
-   538 | reinstall --refresh flatpak --allowerasing -b -y                                                                                      | 2024-02-01 23:17 | R              |    2   
-   537 | update --refresh                                                                                                                      | 2024-02-01 23:11 | Upgrade        |   93 EE
-   536 | erase lighttable                                                                                                                      | 2024-01-27 15:45 | Removed        |    3   
-   535 | upgrade --refresh --best --allowerasing -y                                                                                            | 2024-01-27 15:01 | I, U           |  164   
-   534 | install lighttable --nogpgcheck                                                                                                       | 2024-01-27 14:54 | Install        |    3   
-   533 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.hc3fhsL5/results/kmod-wl-6.6.13-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm   | 2024-01-26 22:58 | Install        |    1   
-   532 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.DMskOGUM/results/kmod-nvidia-6.6.13-200.fc39.x86_64-545.29.06-2.fc39.x86_64.rpm   | 2024-01-26 22:58 | Install        |    1   
-   531 | update --refresh --allowerasing --best -y                                                                                             | 2024-01-26 22:55 | I, U           |  239 EE
-   530 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.SqHvfidV/results/kmod-wl-6.6.11-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm   | 2024-01-21 20:14 | Install        |    1   
-   529 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.WqHDsV2m/results/kmod-nvidia-6.6.11-200.fc39.x86_64-545.29.06-2.fc39.x86_64.rpm   | 2024-01-21 20:14 | Install        |    1   
-   528 | update --allowerasing -y                                                                                                              | 2024-01-21 20:10 | I, U           |  157 EE
-   527 | update --refresh --best --allowerasing -y                                                                                             | 2024-01-15 23:29 | Upgrade        |   54   
-   526 | upgrade --refresh --allowerasing --best -y                                                                                            | 2024-01-12 22:47 | Upgrade        |   33   
-   525 | update --refresh --best --allowerasing -y                                                                                             | 2024-01-11 19:05 | Upgrade        |   41   
-   524 | autoremove                                                                                                                            | 2024-01-09 22:05 | Removed        |    1   
-   523 | update --refresh --best --allowerasing -y                                                                                             | 2024-01-09 21:56 | Upgrade        |   94   
-   522 | update --refresh --allowerasing --best -y                                                                                             | 2024-01-07 17:53 | Upgrade        |    6   
-   521 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.6uVlrKZF/results/kmod-wl-6.6.9-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2024-01-06 23:26 | Install        |    1   
-   520 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.K1mdrLSJ/results/kmod-nvidia-6.6.9-200.fc39.x86_64-545.29.06-2.fc39.x86_64.rpm    | 2024-01-06 23:26 | Install        |    1   
-   519 | update --refresh --best --allowerasing -y                                                                                             | 2024-01-06 23:24 | I, U           |   61 EE
-   518 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.TlgXIYMg/results/kmod-nvidia-6.6.8-200.fc39.x86_64-545.29.06-2.fc39.x86_64.rpm    | 2024-01-01 02:25 | Upgrade        |    1   
-   517 | upgrade --refresh -y --best                                                                                                           | 2024-01-01 02:24 | I, U           |   46 EE
-   516 |                                                                                                                                       | 2023-12-31 19:03 | Install        |    1   
-   515 | install make cmake clang bison dbus-devel flex glibc-devel.i686 fuse-devel systemd-devel elfutils-libelf-devel cairo-devel freetype-d | 2023-12-29 17:57 | Install        |   22 EE
-   514 | install libva-vdpau-driver                                                                                                            | 2023-12-29 13:10 | Install        |    1   
-   513 | reinstall libva-* --refresh --allowerasing --best -y                                                                                  | 2023-12-29 12:56 | R              |    2   
-   512 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.eqExJ3Wg/results/kmod-wl-6.6.8-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2023-12-27 08:56 | Install        |    1   
-   511 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.FLVIm8Sw/results/kmod-nvidia-6.6.8-200.fc39.x86_64-545.29.06-1.fc39.x86_64.rpm    | 2023-12-27 08:55 | Install        |    1   
-   510 | update --refresh -y --allowerasing --skip-broken                                                                                      | 2023-12-27 08:53 | I, U           |  134 EE
-   509 | install inotify-tools                                                                                                                 | 2023-12-26 21:44 | Install        |    1   
-   508 |                                                                                                                                       | 2023-12-24 20:08 | Install        |    1   
-   507 | autoremove                                                                                                                            | 2023-12-23 10:00 | C, E           |   16   
-   506 | remove -y kernel-0:6.5.10-200.fc38.x86_64 kernel-0:6.5.11-300.fc39.x86_64 kernel-0:6.5.12-300.fc39.x86_64 kernel-0:6.5.7-200.fc38.x86 | 2023-12-23 09:56 | C, E           |   51 EE
-   505 | remove bottles                                                                                                                        | 2023-12-22 16:29 | Removed        |   33   
-   504 | install bottles                                                                                                                       | 2023-12-22 16:25 | Install        |   33   
-   503 | erase libpinyin                                                                                                                       | 2023-12-22 15:50 | Removed        |    6   
-   502 | update --refresh --best --allowerasing -y                                                                                             | 2023-12-20 23:41 | Upgrade        |  168   
-   501 | update --all --allowerasing --best -y                                                                                                 | 2023-12-18 23:32 | I, O, U        |   70   
-   500 | erase steam                                                                                                                           | 2023-12-18 23:29 | C, E           |   14   
-   499 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.J8OxYIrp/results/kmod-wl-6.6.6-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm    | 2023-12-16 20:53 | Install        |    1   
-   498 | -y install --nogpgcheck --disablerepo=* /tmp/akmods.WUb3Zc6m/results/kmod-nvidia-6.6.6-200.fc39.x86_64-545.29.06-1.fc39.x86_64.rpm    | 2023-12-16 20:52 | Install        |    1   
-   497 | update --refresh -y --best --allowerasing                                                                                             | 2023-12-16 20:49 | I, U           |  137 EE
-   496 | install vim                                                                                                                           | 2023-12-16 13:34 | Install        |    3   
-   495 | erase vim neovim                                                                                                                      | 2023-12-16 13:30 | Removed        |   19   
-   494 | install *neovim*                                                                                                                      | 2023-12-16 13:22 | Install        |    6   
-   493 | install vim                                                                                                                           | 2023-12-16 13:11 | Install        |    3   
-   492 | install --refresh neovim                                                                                                              | 2023-12-16 13:06 | Install        |   11   
-   491 | erase vim neovim -y                                                                                                                   | 2023-12-16 13:05 | Removed        |   15   
-   490 | install neovim                                                                                                                        | 2023-12-16 13:00 | Install        |   11   
-   489 | remove neovim                                                                                                                         | 2023-12-16 12:59 | Removed        |   11   
-   488 | install neovim                                                                                                                        | 2023-12-16 12:56 | Install        |   11   
-   487 | -y install --disablerepo=* /tmp/akmods.U4uzlbQC/results/kmod-wl-6.6.4-200.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm                 | 2023-12-11 20:26 | Install        |    1   
-   486 | -y install --disablerepo=* /tmp/akmods.Bkv7yZpB/results/kmod-nvidia-6.6.4-200.fc39.x86_64-545.29.06-1.fc39.x86_64.rpm                 | 2023-12-11 20:25 | Install        |    1   
-   485 | update --refresh -b -y                                                                                                                | 2023-12-11 20:20 | I, U           |  263 EE
-   484 | erase luminance-hdr                                                                                                                   | 2023-12-03 11:42 | Removed        |   12   
-   483 | install luminance-hdr                                                                                                                 | 2023-12-03 11:34 | Install        |   12   
-   482 | update --refresh --best --allowerasing                                                                                                | 2023-12-03 10:53 | I, U           |  117 EE
-   481 | group upgrade hardware-support                                                                                                        | 2023-12-03 10:52 | Upgrade        |    1   
-   480 | group update hardware-support                                                                                                         | 2023-12-03 10:52 | Upgrade        |    1   
-   479 | group mark hardware-support                                                                                                           | 2023-12-03 10:52 | Install        |    1   
-   478 | remove -y kmod-nvidia-6.5.11-300.fc39.x86_64.x86_64 kmod-nvidia-6.5.12-300.fc39.x86_64.x86_64                                         | 2023-12-03 10:50 | Removed        |    2   
-   477 | upgrade --refresh *nvidia-cuda* --best --allowerasing -y                                                                              | 2023-12-03 10:49 | Upgrade        |    4   
-   476 | -y install --disablerepo=* /tmp/akmods.XiZximgh/results/kmod-nvidia-6.6.2-201.fc39.x86_64-545.29.06-1.fc39.x86_64.rpm                 | 2023-12-03 10:44 | Upgrade        |    1   
-   475 | upgrade --refresh nvidia-settings                                                                                                     | 2023-12-03 10:43 | I, U           |    8   
-   474 | install colord-extra*                                                                                                                 | 2023-12-03 10:37 | Install        |    1   
-   473 | -y install --disablerepo=* /tmp/akmods.sMhgr9tf/results/kmod-wl-6.6.2-201.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm                 | 2023-11-29 22:01 | Install        |    1   
-   472 | -y install --disablerepo=* /tmp/akmods.0MGdRtxo/results/kmod-nvidia-6.6.2-201.fc39.x86_64-535.129.03-1.fc39.x86_64.rpm                | 2023-11-29 22:01 | Install        |    1   
-   471 | update --refresh -y -b                                                                                                                | 2023-11-29 21:59 | I, U           |   57 EE
-   470 | remove -y kmod-nvidia-6.5.10-200.fc38.x86_64.x86_64 kmod-nvidia-6.5.7-200.fc38.x86_64.x86_64 kmod-nvidia-6.5.8-200.fc38.x86_64.x86_64 | 2023-11-27 21:29 | Removed        |    4   
-   469 | upgrade --refresh --allowerasing -y                                                                                                   | 2023-11-27 21:27 | Upgrade        |   17   
-   468 | update -y                                                                                                                             | 2023-11-25 17:25 | Upgrade        |   59   
-   467 | -y install --disablerepo=* /tmp/akmods.TkrZj0yA/results/kmod-wl-6.5.12-300.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm                | 2023-11-23 17:49 | Install        |    1   
-   466 | -y install --disablerepo=* /tmp/akmods.WnmqUupk/results/kmod-nvidia-6.5.12-300.fc39.x86_64-535.129.03-1.fc39.x86_64.rpm               | 2023-11-23 17:49 | Install        |    1   
-   465 | update --refresh -y                                                                                                                   | 2023-11-23 17:46 | I, U           |  135 EE
-   464 | install python3-vapoursynth vapoursynth-tools --best --allowerasing -y                                                                | 2023-11-19 19:55 | Install        |    2   
-   463 | update --refresh codium                                                                                                               | 2023-11-19 12:58 | Upgrade        |    1   
-   462 | install codium codium-insiders                                                                                                        | 2023-11-19 12:56 | Install        |    1   
-   461 | update --refresh -y --best                                                                                                            | 2023-11-18 19:00 | I, U           |  161   
-   460 | install smplayer-themes -y                                                                                                            | 2023-11-14 23:07 | Install        |    1   
-   459 | install smplayer                                                                                                                      | 2023-11-14 23:03 | Install        |    8   
-   458 | install vlc                                                                                                                           | 2023-11-14 21:49 | Install        |   22   
-   457 | update --refresh                                                                                                                      | 2023-11-14 21:44 | I, U           |   20   
-   456 | autoremove                                                                                                                            | 2023-11-14 21:43 | C, E           |   63   
-   455 | builddep libplacebo                                                                                                                   | 2023-11-14 21:37 | Install        |    4   
-   454 | builddep cmake                                                                                                                        | 2023-11-14 21:36 | Install        |   30   
-   453 | install cmake                                                                                                                         | 2023-11-14 21:35 | Install        |    4   
-   452 | builddep mpv                                                                                                                          | 2023-11-14 21:30 | Install        |   58   
-   451 | update                                                                                                                                | 2023-11-14 01:11 | I, U           |   22   
-   450 | -y install --disablerepo=* /tmp/akmods.PFDYE420/results/kmod-wl-6.5.11-300.fc39.x86_64-6.30.223.271-49.fc39.x86_64.rpm                | 2023-11-11 20:32 | Install        |    1  <
-   449 | -y install --disablerepo=* /tmp/akmods.6FsQqf1i/results/kmod-nvidia-6.5.11-300.fc39.x86_64-535.129.03-1.fc39.x86_64.rpm               | 2023-11-11 20:31 | Install        |    1 >#
-   448 | system-upgrade upgrade                                                                                                                | 2023-11-11 20:15 | D, E, I, O, R, | 3436 E<
-   447 | groupinstall Fedora Workstation Cinnamon Desktop --exclude fedora-release*                                                            | 2023-11-11 20:05 | Install        |  122 > 
-   446 | -y install --disablerepo=* /tmp/akmods.adVhLPHn/results/kmod-wl-6.5.10-200.fc38.x86_64-6.30.223.271-49.fc38.x86_64.rpm                | 2023-11-11 18:03 | Install        |    1   
-   445 | -y install --disablerepo=* /tmp/akmods.z8extmt0/results/kmod-nvidia-6.5.10-200.fc38.x86_64-535.129.03-1.fc38.x86_64.rpm               | 2023-11-11 18:02 | Install        |    1   
-   444 | upgrade --refresh                                                                                                                     | 2023-11-11 17:58 | I, U           |   63 EE
-   443 | update --refresh --allowerasing --best -y                                                                                             | 2023-11-07 18:16 | Upgrade        |   15   
-   442 | -y install --disablerepo=* /tmp/akmods.tSeceTgm/results/kmod-wl-6.5.9-200.fc38.x86_64-6.30.223.271-49.fc38.x86_64.rpm                 | 2023-11-07 00:51 | Install        |    1   
-   441 | -y install --disablerepo=* /tmp/akmods.FMN67zJa/results/kmod-nvidia-6.5.9-200.fc38.x86_64-535.113.01-1.fc38.x86_64.rpm                | 2023-11-07 00:51 | Install        |    1   
-   440 | update --refresh --allowerasing -b -y                                                                                                 | 2023-11-07 00:48 | I, U           |  107 EE
-   439 | install piper                                                                                                                         | 2023-11-04 01:01 | Install        |    3   
-   438 | remove --oldinstallonly                                                                                                               | 2023-11-03 20:06 | C, E           |   58 EE
-   437 | -y install --disablerepo=* /tmp/akmods.OWItQRcc/results/kmod-wl-6.5.8-200.fc38.x86_64-6.30.223.271-49.fc38.x86_64.rpm                 | 2023-11-03 19:58 | Install        |    1   
-   436 | -y install --disablerepo=* /tmp/akmods.vODqEfGc/results/kmod-nvidia-6.5.8-200.fc38.x86_64-535.113.01-1.fc38.x86_64.rpm                | 2023-11-03 19:58 | Install        |    1   
-   435 | upgrade --refresh                                                                                                                     | 2023-11-03 18:32 | C, E, I, U     |  168 EE
-   434 | install jdupes                                                                                                                        | 2023-10-29 13:47 | Install        |    1   
-   433 | install --refresh samba.x86_64                                                                                                        | 2023-10-29 13:24 | Install        |    1   
-   432 | update --refresh --best --allowerasing -y                                                                                             | 2023-10-26 00:04 | Upgrade        |    6   
-   431 | upgrade --refresh -b --allowerasing -y                                                                                                | 2023-10-24 18:45 | Upgrade        |  108   
-   430 | -y install --disablerepo=* /tmp/akmods.OttDAYQx/results/kmod-wl-6.5.7-200.fc38.x86_64-6.30.223.271-49.fc38.x86_64.rpm                 | 2023-10-22 22:38 | Install        |    1   
-   429 | -y install --disablerepo=* /tmp/akmods.w20Hs5Lx/results/kmod-nvidia-6.5.7-200.fc38.x86_64-535.113.01-1.fc38.x86_64.rpm                | 2023-10-22 22:38 | Install        |    1   
-   428 | upgrade --refresh -y --best --allowerasing                                                                                            | 2023-10-22 22:32 | C, E, I, U     |   79 EE
-   427 | update --refresh --allowerasing -b -y                                                                                                 | 2023-10-17 19:59 | Upgrade        |   22   
-   426 | update --refresh -y -b --allowerasing                                                                                                 | 2023-10-14 20:09 | I, U           |   81   
-   425 | -y install --disablerepo=* /tmp/akmods.IcA9dabZ/results/kmod-wl-6.5.6-200.fc38.x86_64-6.30.223.271-49.fc38.x86_64.rpm                 | 2023-10-12 00:57 | Install        |    1   
-   424 | -y install --disablerepo=* /tmp/akmods.zWOMRgQc/results/kmod-nvidia-6.5.6-200.fc38.x86_64-535.113.01-1.fc38.x86_64.rpm                | 2023-10-12 00:57 | Install        |    1   
-   423 | upgrade --refresh --best -y --allowerasing                                                                                            | 2023-10-12 00:55 | C, E, I, O, U  |  101 EE
-   422 | install --refresh gnome-system-monitor                                                                                                | 2023-10-11 20:53 | Install        |    1   
-   421 | update --refresh --best --allowerasing -y                                                                                             | 2023-10-08 21:15 | Upgrade        |    5   
-   420 | -y install --disablerepo=* /tmp/akmods.mDafUyZE/results/kmod-wl-6.5.5-200.fc38.x86_64-6.30.223.271-49.fc38.x86_64.rpm                 | 2023-10-07 23:19 | Upgrade        |    1   
-   419 | upgrade --refresh -y --best --allowerasing                                                                                            | 2023-10-07 23:19 | Upgrade        |    1   
-   418 | update                                                                                                                                | 2023-10-07 22:11 | Upgrade        |   23 EE
-   417 | update --refresh                                                                                                                      | 2023-10-06 22:59 | Upgrade        |  146   
-   416 | group upgrade admin-tools system-tools                                                                                                | 2023-09-30 14:22 | Upgrade        |    2   
-   415 | group upgrade cinnamon-desktop-environment                                                                                            | 2023-09-30 14:22 | Upgrade        |   14   
-   414 | group mark cinnamon-desktop-environment system-tools admin-tools                                                                      | 2023-09-30 14:22 | Install        |   15   
-   413 | group update system-tools                                                                                                             | 2023-09-30 14:21 | Upgrade        |    1   
-   412 | upgrade --refresh --best --allowerasing -y                                                                                            | 2023-09-30 13:48 | Upgrade        |  183   
-   411 | reinstall --refresh gnome-color-manager --best --allowerasing -y                                                                      | 2023-09-30 13:47 | R              |    2   
-   410 | install --refresh --best --allowerasing android-file-transfer                                                                         | 2023-09-28 21:50 | Install        |    1   
-   409 | reinstall --refresh libmtp --allowerasing --best -y                                                                                   | 2023-09-28 21:50 | R              |    2   
-   408 | -y install --disablerepo=* /tmp/akmods.4JgypLAK/results/kmod-nvidia-6.4.15-200.fc38.x86_64-535.113.01-1.fc38.x86_64.rpm               | 2023-09-28 00:27 | Upgrade        |    1   
-   407 | -y install --disablerepo=* /tmp/akmods.voJKgWyC/results/kmod-wl-6.5.5-200.fc38.x86_64-6.30.223.271-46.fc38.x86_64.rpm                 | 2023-09-28 00:26 | Install        |    1   
-   406 | -y install --disablerepo=* /tmp/akmods.cbX074Zk/results/kmod-nvidia-6.5.5-200.fc38.x86_64-535.113.01-1.fc38.x86_64.rpm                | 2023-09-28 00:25 | Install        |    1   
-   405 | update --refresh -y --best --allowerasing                                                                                             | 2023-09-28 00:23 | C, E, I, U     |   63 EE
-   404 | upgrade --refresh                                                                                                                     | 2023-09-24 21:26 | Upgrade        |   50   
-   403 | update --refresh -b -y --allowerasing                                                                                                 | 2023-09-22 00:15 | I, U           |   87   
-   402 | upgrade --refresh                                                                                                                     | 2023-09-17 01:08 | I, U           |   90   
-   401 | remove -y kernel-core-6.4.6-200.fc38.x86_64 kernel-core-6.4.7-200.fc38.x86_64 kernel-core-6.4.9-200.fc38.x86_64                       | 2023-09-15 21:26 | C, E           |   19   
-   400 | remove kernel-core-6.4.4-200.fc38.x86_64                                                                                              | 2023-09-15 21:22 | C, E           |    6   
-   399 | remove kernel-core-6.3.11-200.fc38.x86_64                                                                                             | 2023-09-15 21:22 | C, E           |    6 EE
-   398 | install gnome-terminal                                                                                                                | 2023-09-13 23:40 | Install        |    1   
-   397 | install openvpn-auth-ldap -y                                                                                                          | 2023-09-13 21:18 | Install        |    2   
-   396 | install NetworkManager-openvpn-gnome -y                                                                                               | 2023-09-13 21:18 | Install        |    1   
-   395 | install protonvpn                                                                                                                     | 2023-09-13 21:06 | Install        |   17   
-   394 | remove protonvpn -y                                                                                                                   | 2023-09-13 21:03 | Removed        |   17   
-   393 | install protonvpn                                                                                                                     | 2023-09-13 20:58 | Install        |   17   
-   392 | -y install --disablerepo=* /tmp/akmods.IjYp2DWp/results/kmod-wl-6.4.15-200.fc38.x86_64-6.30.223.271-46.fc38.x86_64.rpm                | 2023-09-13 20:56 | Install        |    1   
-   391 | -y install --disablerepo=* /tmp/akmods.xJLQ60HL/results/kmod-nvidia-6.4.15-200.fc38.x86_64-535.104.05-1.fc38.x86_64.rpm               | 2023-09-13 20:56 | Install        |    1   
-   390 | update --refresh                                                                                                                      | 2023-09-13 20:53 | I, U           |   19 EE
-   389 | remove protonvpn -y                                                                                                                   | 2023-09-13 20:52 | Removed        |   17 EE
-   388 | install iodine                                                                                                                        | 2023-09-13 20:42 | Install        |    2   
-   387 | group update cinnamon-desktop                                                                                                         | 2023-09-12 22:49 | Upgrade        |    1   
-   386 | reinstall --refresh -b --allowerasing cinnamon-desktop                                                                                | 2023-09-12 22:48 | R              |    2   
-   385 | group update Cinnamon Desktop                                                                                                         | 2023-09-12 22:44 | Upgrade        |   14   
-   384 | group update cinnamon-desktop                                                                                                         | 2023-09-12 22:44 | Upgrade        |    1   
-   383 | group mark cinnamon-desktop                                                                                                           | 2023-09-12 22:43 | Install        |    1   
-   382 | group upgrade cinnamon-desktop                                                                                                        | 2023-09-12 22:43 | Upgrade        |    1   
-   381 | group update workstation-product-environment                                                                                          | 2023-09-12 22:43 | E, U           |   41 EE
-   380 | group mark workstation-product-environment                                                                                            | 2023-09-12 22:42 | Install        |   14   
-   379 | install libappindicator-gtk3 gnome-tweaks gnome-shell-extension-appindicator                                                          | 2023-09-12 22:38 | Install        |    2   
-   378 | install protonvpn                                                                                                                     | 2023-09-12 22:36 | Install        |   17   
-   377 | reinstall /home/jasper/Downloads/protonvpn-stable-release-1.0.1-2.noarch.rpm                                                          | 2023-09-12 22:34 | R              |    2   
-   376 | erase protonvpn                                                                                                                       | 2023-09-12 22:20 | Removed        |   17   
-   375 | group update Cinnamon Desktop -b --allowerasing -y                                                                                    | 2023-09-12 22:14 | Upgrade        |   14   
-   374 | group update Cinnamon Desktop -b --allowerasin -y                                                                                     | 2023-09-12 22:14 | C, E, U        | 1061 EE
-   373 | group mark Cinnamon Desktop                                                                                                           | 2023-09-12 22:13 | Install        |   13   
-   372 | reinstall protonvpn                                                                                                                   | 2023-09-12 22:10 | R              |    2   
-   371 | remove *chromium*                                                                                                                     | 2023-09-12 20:17 | Removed        |    2   
-   370 | remove fedora-release-workstation                                                                                                     | 2023-09-12 20:16 | Removed        |    1   
-   369 | upgrade --refresh --best --allowerasing -y                                                                                            | 2023-09-12 20:13 | Upgrade        |   39   
-   368 | group remove gnome-desktop                                                                                                            | 2023-09-12 20:10 | C, E           |  129   
-   367 | update --best --allowerasing                                                                                                          | 2023-09-11 20:53 | E, U           |    2   
-   366 | upgrade --refresh                                                                                                                     | 2023-09-11 20:52 | Upgrade        |    9   
-   365 | autoremove                                                                                                                            | 2023-09-10 21:09 | Removed        |    4   
-   364 | -y install --disablerepo=* /tmp/akmods.Pq6gj1c0/results/kmod-wl-6.4.14-200.fc38.x86_64-6.30.223.271-46.fc38.x86_64.rpm                | 2023-09-10 21:06 | Install        |    1   
-   363 | -y install --disablerepo=* /tmp/akmods.WZg2dRB9/results/kmod-nvidia-6.4.14-200.fc38.x86_64-535.104.05-1.fc38.x86_64.rpm               | 2023-09-10 21:06 | Install        |    1   
-   362 | update --refresh -y                                                                                                                   | 2023-09-10 21:03 | I, U           |  116 EE
-   361 | -y install --disablerepo=* /tmp/akmods.FmJx8EYz/results/kmod-nvidia-6.4.12-200.fc38.x86_64-535.104.05-1.fc38.x86_64.rpm               | 2023-09-05 23:38 | Upgrade        |    1   
-   360 | -y install --disablerepo=* /tmp/akmods.7PlkXlBQ/results/kmod-wl-6.4.13-200.fc38.x86_64-6.30.223.271-46.fc38.x86_64.rpm                | 2023-09-05 23:37 | Install        |    1   
-   359 | -y install --disablerepo=* /tmp/akmods.uokzSmDV/results/kmod-nvidia-6.4.13-200.fc38.x86_64-535.104.05-1.fc38.x86_64.rpm               | 2023-09-05 23:36 | Install        |    1   
-   358 | update                                                                                                                                | 2023-09-05 23:33 | I, U           |  259 EE
-   357 | install virt-manager                                                                                                                  | 2023-08-31 23:15 | Install        |    1   
-   356 | install clang                                                                                                                         | 2023-08-31 00:40 | Install        |    4   
-   355 | install gnome-extensions-app                                                                                                          | 2023-08-30 21:47 | Install        |    1   
-   354 | install haskell-platform                                                                                                              | 2023-08-30 21:45 | Install        |    6   
-   353 | install ghc                                                                                                                           | 2023-08-30 21:44 | Install        |   68   
-   352 | install stack                                                                                                                         | 2023-08-30 21:41 | Install        |    1   
-   351 | erase easyeffects                                                                                                                     | 2023-08-28 00:50 | Removed        |   14   
-   350 | -y install --disablerepo=* /tmp/akmods.8yPzPReY/results/kmod-wl-6.4.12-200.fc38.x86_64-6.30.223.271-46.fc38.x86_64.rpm                | 2023-08-28 00:41 | Install        |    1   
-   349 | -y install --disablerepo=* /tmp/akmods.mnHmGdBu/results/kmod-nvidia-6.4.12-200.fc38.x86_64-535.98-1.fc38.x86_64.rpm                   | 2023-08-28 00:41 | Install        |    1   
-   348 | upgrade --refresh                                                                                                                     | 2023-08-28 00:38 | I, U           |   94 EE
-   347 | group install Hardware Support                                                                                                        | 2023-08-28 00:19 | Install        |    4   
-   346 |                                                                                                                                       | 2023-08-27 02:22 | Install        |    3   
-   345 | remove blender                                                                                                                        | 2023-08-27 02:18 | Removed        |   84   
-   344 | install blender                                                                                                                       | 2023-08-27 01:00 | Install        |   84   
-   343 | group remove virtualization                                                                                                           | 2023-08-24 01:20 | Removed        |    2   
-   342 | erase virt-manager                                                                                                                    | 2023-08-24 01:19 | Removed        |    1   
-   341 | erase flatpak -y                                                                                                                      | 2023-08-24 01:19 | Removed        |    8 EE
-   340 | erase playonlinux -y                                                                                                                  | 2023-08-24 01:19 | Removed        |    6   
-   339 | upgrade --refresh                                                                                                                     | 2023-08-22 23:37 | I, U           |   44   
-   338 | group install virtualization                                                                                                          | 2023-08-22 23:35 | Install        |    1   
-   337 | install qemu-kvm-core libvirt virt-install cockpit-machines guestfs-tools                                                             | 2023-08-21 22:46 | Install        |   16 EE
-   336 | update --refresh                                                                                                                      | 2023-08-21 22:43 | Upgrade        |   64   
-   335 | autoremove                                                                                                                            | 2023-08-21 22:42 | Removed        |    3   
-   334 |                                                                                                                                       | 2023-08-21 22:10 | Install        |    1   
-   333 | reinstall --refresh libvir* qemu* --best                                                                                              | 2023-08-21 21:08 | R              |  280   
-   332 | install qemu*                                                                                                                         | 2023-08-21 20:43 | Install        |    3   
-   331 | reinstall --refresh virt-install -y                                                                                                   | 2023-08-21 20:37 | R              |    2   
-   330 | -y install --disablerepo=* /tmp/akmods.6r61BJGk/results/kmod-wl-6.4.11-200.fc38.x86_64-6.30.223.271-46.fc38.x86_64.rpm                | 2023-08-21 20:36 | Install        |    1   
-   329 | group install workstation-product-environment --with-optional                                                                         | 2023-08-21 20:34 | Install        | 1322 EE
-   328 | group install --refresh cinnamon-desktop --with-optional                                                                              | 2023-08-21 20:28 | Install        |    1   
-   327 | group update --with-optional cinnamon-desktop                                                                                         | 2023-08-21 20:27 | Upgrade        |    1   
-   326 | group upgrade --with-optional cinnamon-desktop                                                                                        | 2023-08-21 20:27 | Upgrade        |    1   
-   325 | group mark cinnamon-desktop                                                                                                           | 2023-08-21 20:26 | Install        |    1   
-   324 | reinstall libvir*                                                                                                                     | 2023-08-21 20:25 | R              |   48  <
-   323 | reinstall --refresh libvirt*                                                                                                          | 2023-08-21 20:17 | R              |   48 >#
-   322 | install cockpit-*                                                                                                                     | 2023-08-21 20:14 | Install        |   43 EE
-   321 | install playonlinux                                                                                                                   | 2023-08-21 01:22 | Install        |    7   
-   320 | remove bottles                                                                                                                        | 2023-08-21 01:22 | Removed        |   36   
-   319 | autoremove                                                                                                                            | 2023-08-21 00:25 | Removed        |    3   
-   318 | group install --refresh Cinnamon*                                                                                                     | 2023-08-21 00:24 | Install        |   35   
-   317 | install bottles*                                                                                                                      | 2023-08-20 23:55 | Install        |   36   
-   316 | remove bottles                                                                                                                        | 2023-08-20 23:53 | Removed        |   36   
-   315 | install wineglass                                                                                                                     | 2023-08-20 23:51 | Install        |    5   
-   314 | group install Virtualization                                                                                                          | 2023-08-20 23:29 | Install        |   56 EE
-   313 | remove qemu                                                                                                                           | 2023-08-20 23:27 | Removed        |    4   
-   312 | remove *libvirt*                                                                                                                      | 2023-08-20 23:26 | Removed        |  351 EE
-   311 | install *libvirt*                                                                                                                     | 2023-08-20 23:24 | Install        |  263 EE
-   310 | reinstall fedora-release-cinnamon                                                                                                     | 2023-08-20 23:19 | R              |    2   
-   309 | remove gtk-murrine-engine-0.98.2-26.fc38.x86_64                                                                                       | 2023-08-20 23:03 | Removed        |    2   
-   308 | install --refresh fedora-flathub-remote fedora-release fedora-release-cinnamon -y                                                     | 2023-08-20 22:19 | Install        |    1   
-   307 | install --refresh fedora-workstation-repositories fedora-release-workstation -y                                                       | 2023-08-20 22:17 | Install        |    4   
-   306 | install --refresh bottles                                                                                                             | 2023-08-20 22:10 | Install        |   37   
-   305 | install wine                                                                                                                          | 2023-08-20 22:07 | Install        |   92   
-   304 | group upgrade Cinnamon Desktop -b                                                                                                     | 2023-08-20 22:04 | Upgrade        |   13   
-   303 | group update Cinnamon Desktop                                                                                                         | 2023-08-20 22:03 | Upgrade        |   13   
-   302 | install flatpak -b                                                                                                                    | 2023-08-20 22:00 | Install        |    7 EE
-   301 | autoremove                                                                                                                            | 2023-08-20 21:59 | C, E           |    2   
-   300 | erase flatpak*                                                                                                                        | 2023-08-20 21:59 | Removed        |   24 EE
-   299 | erase wine*                                                                                                                           | 2023-08-20 21:55 | C, E           |   95   
-   298 | reinstall --refresh flatpak -y -b                                                                                                     | 2023-08-20 21:52 | R              |    2   
-   297 | install winetricks -b                                                                                                                 | 2023-08-20 21:49 | Install        |    2   
-   296 | install openscad* wine                                                                                                                | 2023-08-20 21:42 | Install        |   98   
-   295 | erase openscad                                                                                                                        | 2023-08-20 21:40 | Removed        |    7   
-   294 | erase wine*                                                                                                                           | 2023-08-20 21:36 | C, E           |   25   
-   293 | install wine-staging --allowerasing                                                                                                   | 2023-08-20 21:36 | E, I           |    3   
-   292 | autoremove                                                                                                                            | 2023-08-20 21:35 | Removed        |   50   
-   291 | update --refresh                                                                                                                      | 2023-08-20 21:30 | Upgrade        |    5   
-   290 | groupinstall Development Tools                                                                                                        | 2023-08-20 21:28 | Install        |    1   
-   289 | groupinstall C Development Tools and Libraries                                                                                        | 2023-08-20 21:28 | Install        |   15   
-   288 | install winehq-staging --allowerasing                                                                                                 | 2023-08-20 21:26 | E, I           |   30  <
-   287 | install --refresh openscad* -y                                                                                                        | 2023-08-20 21:24 | Install        |    7 > 
-   286 | reinstall --refresh virt-manager                                                                                                      | 2023-08-20 20:53 | R              |    2   
-   285 | install wings                                                                                                                         | 2023-08-20 01:11 | Install        |   24   
-   284 | install libvert*                                                                                                                      | 2023-08-19 23:49 | Install        |    5   
-   283 | install qemu*                                                                                                                         | 2023-08-19 23:49 | Install        |   53   
-   282 | reinstall *libvirt* --refresh -y                                                                                                      | 2023-08-19 23:45 | R              |   66   
-   281 | -y install --disablerepo=* /tmp/akmods.yExH8Glw/results/kmod-nvidia-6.4.9-200.fc38.x86_64-535.98-1.fc38.x86_64.rpm                    | 2023-08-19 22:31 | Upgrade        |    1   
-   280 | -y install --disablerepo=* /tmp/akmods.u5bV3YIM/results/kmod-nvidia-6.4.11-200.fc38.x86_64-535.98-1.fc38.x86_64.rpm                   | 2023-08-19 22:30 | Install        |    1   
-   279 | upgrade --refresh -y                                                                                                                  | 2023-08-19 22:27 | I, U           |  116 EE
-   278 | group install Vagrant with libvirt support Headless Virtualization                                                                    | 2023-08-19 21:59 | I, U           |  103   
-   277 | install --refresh virt-manager --best                                                                                                 | 2023-08-19 21:54 | Install        |    1   
-   276 | autoremove                                                                                                                            | 2023-08-19 21:54 | Removed        |   14   
-   275 | erase virt-manager                                                                                                                    | 2023-08-19 21:54 | Removed        |   40   
-   274 | group install --with-optional virtualization                                                                                          | 2023-08-19 19:55 | Install        |   15   
-   273 | install codium                                                                                                                        | 2023-08-19 12:38 | Install        |    1   
-   272 | install dnf5 dnf5-plugins                                                                                                             | 2023-08-15 21:13 | Install        |    4  <
-   271 | upgrade --refresh -y                                                                                                                  | 2023-08-13 14:29 | Upgrade        |   13 > 
-   270 | install gimp                                                                                                                          | 2023-08-13 13:36 | Install        |   13   
-   269 | remove gimp                                                                                                                           | 2023-08-13 13:24 | Removed        |   13   
-   268 | -y install --disablerepo=* /tmp/akmods.dUJVRRti/results/kmod-nvidia-6.4.9-200.fc38.x86_64-535.86.05-1.fc38.x86_64.rpm                 | 2023-08-12 13:21 | Install        |    1   
-   267 | upgrade --refresh                                                                                                                     | 2023-08-12 13:19 | I, O, U        |   41 EE
-   266 | install libvirt                                                                                                                       | 2023-08-12 12:51 | Install        |    5 EE
-   265 | group update Cinnamon Desktop                                                                                                         | 2023-08-12 12:44 | E, U           |   54   
-   264 | group mark Cinnamon Desktop                                                                                                           | 2023-08-12 12:44 | Install        |   13   
-   263 | group update Administration Tools                                                                                                     | 2023-08-12 12:43 | Upgrade        |    1   
-   262 | group update System Tools                                                                                                             | 2023-08-12 12:43 | Upgrade        |    1   
-   261 | install bleachbit                                                                                                                     | 2023-08-12 12:43 | Install        |    1   
-   260 | group update Hardware Support                                                                                                         | 2023-08-12 12:43 | I, O, U        |   13   
-   259 | group update Virtualization                                                                                                           | 2023-08-12 12:42 | Upgrade        |    1   
-   258 | group mark Virtualization Hardware Support                                                                                            | 2023-08-12 12:42 | Install        |    2   
-   257 | group install virtualization                                                                                                          | 2023-08-12 12:40 | Install        |    1   
-   256 | install wine                                                                                                                          | 2023-08-06 23:06 | Install        |   58   
-   255 | groupinstall Development Tools Development Libraries                                                                                  | 2023-08-06 22:54 | Install        |   83   
-   254 | -y install --disablerepo=* /tmp/akmods.FUePAecd/results/kmod-nvidia-6.4.7-200.fc38.x86_64-535.86.05-1.fc38.x86_64.rpm                 | 2023-08-06 22:48 | Install        |    1   
-   253 | update                                                                                                                                | 2023-08-06 22:46 | I, U           |   88 EE
-   252 |                                                                                                                                       | 2023-08-03 03:14 | Install        |    3   
-   251 | install mediawriter-5.0.6-*                                                                                                           | 2023-08-02 23:53 | Install        |    1   
-   250 | install livecd-tools                                                                                                                  | 2023-08-02 23:39 | Install        |   27   
-   249 | install testdisk                                                                                                                      | 2023-08-02 22:19 | Install        |    2   
-   248 | install gpart                                                                                                                         | 2023-08-01 22:59 | Install        |    1   
-   247 | group install Virtualization                                                                                                          | 2023-08-01 22:55 | Install        |    3   
-   246 | erase gnome*boxes                                                                                                                     | 2023-08-01 22:51 | Removed        |    6   
-   245 | install protonvpn                                                                                                                     | 2023-08-01 18:35 | Install        |   18   
-   244 | update                                                                                                                                | 2023-08-01 18:33 | Upgrade        |   10   
-   243 | install protonvpn-stable-release-1.0.1-2.noarch.rpm                                                                                   | 2023-08-01 18:32 | Install        |    1   
-   242 | upgrade                                                                                                                               | 2023-07-31 23:05 | Upgrade        |   13   
-   241 | install steam                                                                                                                         | 2023-07-31 18:35 | Install        |   15   
-   240 |                                                                                                                                       | 2023-07-30 15:14 | Upgrade        |   31   
-   239 | -y install --disablerepo=* /tmp/akmods.Cai4hvUT/results/kmod-nvidia-6.4.6-200.fc38.x86_64-535.86.05-1.fc38.x86_64.rpm                 | 2023-07-29 17:35 | Install        |    1   
-   238 | install akmod-nvidia xorg-x11-drv-nvidia-cuda --refresh                                                                               | 2023-07-29 17:33 | Install        |   31 EE
-   237 | groupupdate core                                                                                                                      | 2023-07-29 17:30 | Install        |    2   
-   236 | install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm                                          | 2023-07-29 17:29 | Install        |    1   
-   235 | install --refresh kernel-headers kernel-devel dkms                                                                                    | 2023-07-29 17:27 | Install        |    2 EE
-   234 | group install Cinnamon Desktop --refresh --allowerasing                                                                               | 2023-07-29 17:18 | E, I           |   44   
-   233 | reinstall fedora-repos fedora-repos-modular fedora-workstation-repositories                                                           | 2023-07-29 17:10 | R              |    4   
-   232 | autoremove nvidia*                                                                                                                    | 2023-07-29 16:02 | Removed        |    3   
-   231 | upgrade --refresh                                                                                                                     | 2023-07-29 15:53 | Upgrade        |    7   
-   230 | group install admin-tools                                                                                                             | 2023-07-29 15:52 | Install        |   13   
-   229 | group mark hardware-support                                                                                                           | 2023-07-29 15:52 | Install        |    1   
-   228 | group mark system-tools                                                                                                               | 2023-07-29 15:52 | Install        |    1   
-   227 | group mark System Tools Hardware Support                                                                                              | 2023-07-29 15:50 | Install        |    2   
-   226 | group --refresh upgrade -y cinnamon-desktop-environment                                                                               | 2023-07-29 15:49 | Upgrade        |   13   
-   225 | group --refresh upgrade -y cinnamon-desktop-environment                                                                               | 2023-07-29 15:48 | E, U           |   27   
-   224 | group mark cinnamon-desktop-environment                                                                                               | 2023-07-29 15:48 | Install        |   13   
-   223 | group remove i3 desktop                                                                                                               | 2023-07-29 15:45 | Removed        |   14   
-   222 | remove akmod-nvidia-3:535.86.05-1.fc38.x86_64 codium-0:1.77.3.23102-el7.x86_64 containerd.io-0:1.6.21-3.1.fc38.x86_64 hyprland-debugi | 2023-07-29 01:18 | C, E           |   60 EE
-   221 | install remove-retired-packages                                                                                                       | 2023-07-29 00:57 | Install        |    1   
-   220 | -y install --disablerepo=* /tmp/akmods.PQ449RYL/results/kmod-nvidia-6.4.6-200.fc38.x86_64-535.86.05-1.fc38.x86_64.rpm                 | 2023-07-29 00:32 | Upgrade        |    1   
-   219 | --refresh upgrade                                                                                                                     | 2023-07-29 00:31 | Upgrade        |   11   
-   218 | autoremove                                                                                                                            | 2023-07-29 00:13 | C, E           |   19   
-   217 | group update Hardware Support                                                                                                         | 2023-07-29 00:11 | Upgrade        |    1   
-   216 | -y install --disablerepo=* /tmp/akmods.KK9200WP/results/kmod-nvidia-6.4.6-200.fc38.x86_64-535.54.03-1.fc38.x86_64.rpm                 | 2023-07-28 23:56 | Install        |    1   
-   215 | upgrade --refresh                                                                                                                     | 2023-07-28 23:54 | I, U           |   48   
-   214 | install blivet-gui                                                                                                                    | 2023-07-27 22:54 | Install        |    8   
-   213 | reinstall --refresh dnfdragora                                                                                                        | 2023-07-27 21:46 | R              |    2   
-   212 | update                                                                                                                                | 2023-07-27 21:17 | Upgrade        |    6   
-   211 | erase steam                                                                                                                           | 2023-07-27 21:17 | C, E           |   14   
-   210 | reinstall --refresh firejail*                                                                                                         | 2023-07-27 00:22 | R              |    2   
-   209 | remove kernel-0:6.2.11-300.fc38.x86_64 kernel-0:6.2.14-300.fc38.x86_64 kernel-0:6.2.15-300.fc38.x86_64 kernel-0:6.3.5-200.fc38.x86_64 | 2023-07-27 00:15 | C, E           |   48 EE
-   208 | group update cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools                | 2023-07-27 00:04 | Upgrade        |    7   
-   207 | group mark cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools                  | 2023-07-27 00:04 | Install        |    7   
-   206 | group update cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools                | 2023-07-27 00:03 | Upgrade        |    6   
-   205 | group upgrade cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools               | 2023-07-27 00:03 | Upgrade        |    6   
-   204 | group update cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools                | 2023-07-27 00:01 | I, U           |    7  <
-   203 | install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-38.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/r | 2023-07-26 23:23 | Install        |    1 > 
-   202 | erase wine                                                                                                                            | 2023-07-26 23:13 | C, E           |   59   
-   201 | reinstall steam                                                                                                                       | 2023-07-26 22:54 | R              |    2   
-   200 | reinstall steam                                                                                                                       | 2023-07-26 22:53 | R              |    2   
-   199 | -y install --disablerepo=* /tmp/akmods.tn796fNU/results/kmod-nvidia-6.4.4-200.fc38.x86_64-535.54.03-1.fc38.x86_64.rpm                 | 2023-07-26 22:53 | Install        |    1   
-   198 |                                                                                                                                       | 2023-07-26 22:47 | I, U           |  242   
-   197 | install pip                                                                                                                           | 2023-07-08 21:30 | Install        |    1   
-   196 | -y install --disablerepo=* /tmp/akmods.xLvxnVFN/results/kmod-nvidia-6.3.11-200.fc38.x86_64-535.54.03-1.fc38.x86_64.rpm                | 2023-07-08 20:30 | Install        |    1   
-   195 | upgrade --refresh                                                                                                                     | 2023-07-08 20:28 | I, O, U        |  141 EE
-   194 |                                                                                                                                       | 2023-07-05 18:45 | I, U           |   11   
-   193 | upgrade --refresh                                                                                                                     | 2023-07-03 20:25 | I, U           |  230 EE
-   192 | -y install --disablerepo=* /tmp/akmods.9Q6TgdqS/results/kmod-nvidia-6.3.8-200.fc38.x86_64-535.54.03-1.fc38.x86_64.rpm                 | 2023-06-25 16:07 | Upgrade        |    1   
-   191 | update -y                                                                                                                             | 2023-06-25 16:06 | Upgrade        |   69   
-   190 | install firefox                                                                                                                       | 2023-06-20 22:14 | Install        |    2   
-   189 | install steam                                                                                                                         | 2023-06-20 21:25 | Install        |   13   
-   188 | erase steam                                                                                                                           | 2023-06-20 21:24 | C, E           |   14   
-   187 | group upgrade administration-tools hardware-support system-tools                                                                      | 2023-06-20 21:23 | Upgrade        |    2   
-   186 | group update administration-tools hardware-support system-tools                                                                       | 2023-06-20 21:23 | Upgrade        |    2   
-   185 | distro-sync -y                                                                                                                        | 2023-06-20 21:22 | Downgrade      |    2   
-   184 | -y install --disablerepo=* /tmp/akmods.9UZQTLxo/results/kmod-nvidia-6.3.8-200.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                 | 2023-06-20 21:22 | Install        |    1   
-   183 | group remove i3 desktop                                                                                                               | 2023-06-20 21:22 | C, E           |   41 EE
-   182 | reinstall steam                                                                                                                       | 2023-06-20 21:21 | R              |    2   
-   181 |                                                                                                                                       | 2023-06-20 21:19 | I, U           |   86   
-   180 | erase arandr                                                                                                                          | 2023-06-14 23:38 | Removed        |    1   
-   179 | install nvidia-xconfig                                                                                                                | 2023-06-14 22:49 | Install        |    1   
-   178 | -y install --disablerepo=* /tmp/akmods.BjBOr3xt/results/kmod-nvidia-6.3.7-200.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                 | 2023-06-14 22:27 | Install        |    1   
-   177 | distro-sync -y                                                                                                                        | 2023-06-14 22:26 | R              |   10  <
-   176 | upgrade -y --refresh                                                                                                                  | 2023-06-14 22:25 | I, U           |   52 >E
-   175 | install arandr                                                                                                                        | 2023-06-11 21:47 | Install        |    1   
-   174 |                                                                                                                                       | 2023-06-10 23:52 | Upgrade        |    1   
-   173 | install nemo-compare nemo-extensions nemo-preview -y                                                                                  | 2023-06-10 22:42 | Install        |    2   
-   172 | install nemo-terminal                                                                                                                 | 2023-06-10 22:40 | Install        |    1   
-   171 | install papirus-icon-theme                                                                                                            | 2023-06-10 20:58 | Install        |    1   
-   170 | install materia-gtk-theme                                                                                                             | 2023-06-10 20:58 | Install        |    1   
-   169 | autoremove -y                                                                                                                         | 2023-06-10 20:00 | Removed        |    2   
-   168 | group remove sway-desktop-environment                                                                                                 | 2023-06-10 19:57 | Removed        |   32 EE
-   167 | group install i3-desktop-environment sway-desktop-environment                                                                         | 2023-06-10 19:46 | Install        |   86   
-   166 | erase hyprland                                                                                                                        | 2023-06-10 19:37 | Removed        |    3   
-   165 | install hyprland-debuginfo                                                                                                            | 2023-06-10 19:30 | Install        |    2   
-   164 | distro-sync -y                                                                                                                        | 2023-06-10 16:55 | Upgrade        |   35 EE
-   163 | group upgrade cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools               | 2023-06-10 16:50 | Upgrade        |    6   
-   162 | group update cinnamon-desktop admin-tools container-management development-tools editors hardware-support system-tools                | 2023-06-10 16:49 | Upgrade        |    6   
-   161 | erase nyancat                                                                                                                         | 2023-06-10 16:47 | Removed        |    1   
-   160 | autoremove                                                                                                                            | 2023-06-09 23:58 | Removed        |   12   
-   159 | -y install --disablerepo=* /tmp/akmods.dnucOSoe/results/kmod-nvidia-6.3.6-200.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                 | 2023-06-09 22:11 | Install        |    1   
-   158 | upgrade --refresh -y                                                                                                                  | 2023-06-09 22:09 | I, U           |   45   
-   157 | install hyprland                                                                                                                      | 2023-06-09 22:05 | Install        |    3  <
-   156 | -y install --disablerepo=* /tmp/akmods.2m4dtxPr/results/kmod-nvidia-6.3.5-200.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                 | 2023-06-07 22:03 | Install        |    1 > 
-   155 | distro-sync -y                                                                                                                        | 2023-06-07 22:00 | I, U           |  148   
-   154 | install *podman* -y                                                                                                                   | 2023-06-03 21:32 | Install        |   91 EE
-   153 | erase *podman* -y                                                                                                                     | 2023-06-03 20:41 | Removed        |   40   
-   152 | install podman-compose                                                                                                                | 2023-06-03 19:38 | Install        |   40   
-   151 | erase *podman* -y                                                                                                                     | 2023-06-03 19:11 | Removed        |   44   
-   150 | install arp-scan                                                                                                                      | 2023-05-30 19:37 | Install        |   27   
-   149 | group update admin-tools hardware-support system-tools                                                                                | 2023-05-30 00:55 | Upgrade        |    3   
-   148 | install imsettings-cinnamon                                                                                                           | 2023-05-30 00:54 | Install        |    1   
-   147 | install arc-theme                                                                                                                     | 2023-05-29 23:01 | Install        |    1   
-   146 | remove *gtk3*theme*                                                                                                                   | 2023-05-29 23:00 | Removed        |    2   
-   145 | remove *gtk2-theme*                                                                                                                   | 2023-05-29 22:59 | Removed        |    3 EE
-   144 | install -y flat-remix-gtk4-theme.noarch mint-themes-gtk4.noarch pop-gtk4-theme.noarch yaru-gtk4-theme.noarch awf-gtk4.x86_64 breeze-g | 2023-05-29 22:57 | Install        |   26   
-   143 | group install cinnamon-desktop                                                                                                        | 2023-05-29 22:50 | Install        |    1   
-   142 | reinstall cinnamon-* *-cinnamon                                                                                                       | 2023-05-29 22:47 | R              |   28   
-   141 | autoremove -y                                                                                                                         | 2023-05-29 22:47 | Removed        |   34 EE
-   140 | group update cinnamon-desktop --best --enhancement                                                                                    | 2023-05-29 22:36 | Upgrade        |    1   
-   139 | group upgrade cinnamon-desktop                                                                                                        | 2023-05-29 22:36 | Upgrade        |    1   
-   138 | group update cinnamon-desktop                                                                                                         | 2023-05-29 22:35 | Upgrade        |    1   
-   137 | group upgrade cinnamon-desktop                                                                                                        | 2023-05-29 22:35 | Upgrade        |    1   
-   136 | group mark cinnamon-desktop                                                                                                           | 2023-05-29 22:35 | Install        |    1   
-   135 | group update cinnamon-desktop --with-optional                                                                                         | 2023-05-29 22:31 | Upgrade        |    1   
-   134 | install rpmconf                                                                                                                       | 2023-05-29 22:21 | Install        |    3   
-   133 | install rpmreaper                                                                                                                     | 2023-05-29 22:19 | Install        |    1   
-   132 | reinstall muffin -y --enhancement --newpackage --best                                                                                 | 2023-05-29 22:13 | R              |    2   
-   131 | remove mutter --noautoremove -y                                                                                                       | 2023-05-29 22:13 | Removed        |    5 EE
-   130 | reinstall muffin                                                                                                                      | 2023-05-29 22:11 | R              |    2   
-   129 | group install cinnamon-desktop-environment -y                                                                                         | 2023-05-29 13:51 | Install        |   29   
-   128 | install cinnamon-session                                                                                                              | 2023-05-29 13:51 | Install        |    1   
-   127 | install cinnamon-desktop* -y                                                                                                          | 2023-05-29 13:50 | Install        |   61   
-   126 | erase gnome-themes-extra --noautoremove                                                                                               | 2023-05-29 13:50 | Removed        |   18   
-   125 | distro-sync                                                                                                                           | 2023-05-29 01:15 | I, U           |   79   
-   124 | group update Cinnamon Desktop                                                                                                         | 2023-05-29 01:05 | Upgrade        |   53   
-   123 | group update Cinnamon                                                                                                                 | 2023-05-29 01:05 | Upgrade        |    1   
-   122 | group update cinnamon-desktop                                                                                                         | 2023-05-29 01:01 | I, U           |    7   
-   121 | reinstall -y fedora-release-cinnamon fedora-release-identity-cinnamon imsettings-cinnamon                                             | 2023-05-29 01:01 | R              |    6   
-   120 | reinstall -y cinnamon-themes                                                                                                          | 2023-05-29 01:00 | R              |    2   
-   119 | install -y fedora-release-cinnamon fedora-release-identity-cinnamon imsettings-cinnamon                                               | 2023-05-29 01:00 | Install        |    1   
-   118 | erase gnome-tweaks                                                                                                                    | 2023-05-28 21:18 | Removed        |    1   
-   117 | install postgresql-server postgresql-contrib                                                                                          | 2023-05-28 01:58 | Install        |    3   
-   116 | install postgresql                                                                                                                    | 2023-05-28 01:55 | Install        |    2   
-   115 | install gnome-tweaks                                                                                                                  | 2023-05-27 21:24 | Install        |   38 EE
-   114 | install cockpit-podman podman-compose podman-docker podman-plugins -y                                                                 | 2023-05-26 22:52 | Install        |    6   
-   113 | install podman                                                                                                                        | 2023-05-26 22:51 | Install        |   33   
-   112 | install mysql-server -y                                                                                                               | 2023-05-26 22:42 | Install        |   14 EE
-   111 | erase certbot python3-certbot-apache                                                                                                  | 2023-05-26 22:32 | Removed        |   10 EE
-   110 | erase httpd                                                                                                                           | 2023-05-26 22:32 | Removed        |   36   
-   109 | install certbot python3-certbot-apache                                                                                                | 2023-05-26 22:29 | Install        |   10 EE
-   108 | install mod_ssl -y                                                                                                                    | 2023-05-26 22:14 | Install        |    1   
-   107 | erase podman                                                                                                                          | 2023-05-26 22:12 | Removed        |   46   
-   106 | install xsensors                                                                                                                      | 2023-05-25 20:10 | Install        |    1   
-   105 | install gtk-murrine-engine                                                                                                            | 2023-05-23 21:03 | Install        |    1   
-   104 | upgrade -y --refresh                                                                                                                  | 2023-05-23 21:01 | Upgrade        |    5   
-   103 | install gparted                                                                                                                       | 2023-05-23 00:47 | Install        |    1   
-   102 | remove toolbox                                                                                                                        | 2023-05-22 14:53 | Removed        |    1   
-   101 | install policycoreutils-gui                                                                                                           | 2023-05-22 14:19 | Install        |    4   
-   100 | autoremove                                                                                                                            | 2023-05-22 14:14 | Removed        |    2   
-    99 | groupremove Editors                                                                                                                   | 2023-05-22 14:14 | Removed        |    1   
-    98 | install dnf-utils                                                                                                                     | 2023-05-22 14:13 | Install        |    1   
-    97 | groupremove RPM Development Tools                                                                                                     | 2023-05-22 14:13 | C, E           |   15   
-    96 | install firejail                                                                                                                      | 2023-05-22 14:12 | Install        |    1   
-    95 | install toolbox                                                                                                                       | 2023-05-22 00:05 | Install        |    1   
-    94 | install policycoreutils-sandbox-3.5-1.fc38.x86_64 selinux-policy-sandbox                                                              | 2023-05-22 00:02 | Install        |    5   
-    93 | group upgrade system-tools                                                                                                            | 2023-05-21 22:15 | C, E, U        |   47 EE
-    92 | group upgrade hardware-support                                                                                                        | 2023-05-21 22:15 | E, U           |    4   
-    91 | group upgrade editors                                                                                                                 | 2023-05-21 22:14 | C, U           |    2   
-    90 | group upgrade development-tools                                                                                                       | 2023-05-21 22:14 | E, U           |    3   
-    89 | group upgrade container-management                                                                                                    | 2023-05-21 22:14 | Upgrade        |    1   
-    88 | group upgrade admin-tools                                                                                                             | 2023-05-21 22:14 | Upgrade        |    1   
-    87 | group update system-tools                                                                                                             | 2023-05-21 22:14 | Upgrade        |    1   
-    86 | group update hardware-support                                                                                                         | 2023-05-21 22:14 | Upgrade        |    1   
-    85 | group update editors                                                                                                                  | 2023-05-21 22:14 | Upgrade        |    1   
-    84 | group update development-tools                                                                                                        | 2023-05-21 22:14 | Upgrade        |    1   
-    83 | group update container-management                                                                                                     | 2023-05-21 22:14 | Upgrade        |    1   
-    82 | group update admin-tools                                                                                                              | 2023-05-21 22:14 | Upgrade        |    1   
-    81 | group update Cinnamon Desktop                                                                                                         | 2023-05-21 22:11 | I, U           |   16   
-    80 | distro-sync                                                                                                                           | 2023-05-21 22:09 | Downgrade      |    2   
-    79 | autoremove                                                                                                                            | 2023-05-21 22:09 | Removed        |    2   
-    78 | groupremove Security Lab                                                                                                              | 2023-05-21 22:07 | C, E           |  700 EE
-    77 | install podman*                                                                                                                       | 2023-05-21 22:05 | Install        |   44 EE
-    76 | -y install --disablerepo=* /tmp/akmods.5xPJsCV8/results/kmod-nvidia-6.2.15-300.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                | 2023-05-21 20:59 | Install        |    1   
-    75 | autoremove                                                                                                                            | 2023-05-21 20:55 | Removed        |    8   
-    74 | remove kmod-nvidia-6.2.15-300.fc38.x86_64-3:530.41.03-1.fc38.x86_64                                                                   | 2023-05-21 20:54 | Removed        |    1   
-    73 | remove kmod-nvidia-6.2.14-300.fc38.x86_64-3:530.41.03-1.fc38.x86_64                                                                   | 2023-05-21 20:53 | Removed        |    1   
-    72 | remove kmod-nvidia-6.2.11-300.fc38.x86_64-3:530.41.03-1.fc38.x86_64                                                                   | 2023-05-21 20:53 | Removed        |    1   
-    71 | erase podman*                                                                                                                         | 2023-05-21 20:50 | Removed        |   37   
-    70 | remove postgres*                                                                                                                      | 2023-05-21 20:37 | Removed        |    5 EE
-    69 | install podman-compose                                                                                                                | 2023-05-21 19:13 | Install        |    5   
-    68 | erase docker*                                                                                                                         | 2023-05-21 19:10 | Removed        |   24 EE
-    67 | install sqlitebrowser sqliteman nosql --skip-broken                                                                                   | 2023-05-21 17:27 | Install        |   13   
-    66 | install postgresql-server postgresql-contrib                                                                                          | 2023-05-21 10:17 | Install        |    5 EE
-    65 | install docker-compose                                                                                                                | 2023-05-21 10:15 | Install        |   18   
-    64 |                                                                                                                                       | 2023-05-21 10:14 | I, U           |  245 EE
-    63 | remove postgresql                                                                                                                     | 2023-05-21 10:09 | Removed        |    4 EE
-    62 | remove pgadmin4                                                                                                                       | 2023-05-21 09:42 | Removed        |   67   
-    61 | install pgadmin4                                                                                                                      | 2023-05-21 00:30 | Install        |   67   
-    60 | install postgresql-server                                                                                                             | 2023-05-21 00:21 | Install        |    4 EE
-    59 | -y install --disablerepo=* /tmp/akmods.w3cnfPrH/results/kmod-nvidia-6.2.15-300.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                | 2023-05-16 02:25 | Install        |    1   
-    58 |                                                                                                                                       | 2023-05-16 02:23 | C, E, I, U     |   88 EE
-    57 | install pgmodeler                                                                                                                     | 2023-05-15 20:04 | Install        |    1   
-    56 | update --all                                                                                                                          | 2023-05-11 23:45 | I, U           |  102 EE
-    55 | install nyancat -y                                                                                                                    | 2023-05-11 23:34 | Install        |    1   
-    54 | erase sublime*                                                                                                                        | 2023-05-09 23:20 | Removed        |    1   
-    53 | erase gedit                                                                                                                           | 2023-05-09 23:12 | Removed        |    1   
-    52 | erase emacs                                                                                                                           | 2023-05-09 23:09 | Removed        |    5   
-    51 | remove geany                                                                                                                          | 2023-05-09 23:07 | Removed        |    3   
-    50 | install gedit                                                                                                                         | 2023-05-09 22:59 | Install        |    1   
-    49 | install emacs -y                                                                                                                      | 2023-05-09 22:54 | Install        |    5   
-    48 | install geany -y                                                                                                                      | 2023-05-09 22:54 | Install        |    3   
-    47 | install direnv                                                                                                                        | 2023-05-04 22:13 | Install        |    1   
-    46 |                                                                                                                                       | 2023-05-04 21:57 | Install        |    1   
-    45 | install sublime-text                                                                                                                  | 2023-05-04 19:57 | Install        |    1   
-    44 | -y install --disablerepo=* /tmp/akmods.BB70HcsN/results/kmod-nvidia-6.2.14-300.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                | 2023-05-04 19:55 | Install        |    1   
-    43 | update --all                                                                                                                          | 2023-05-04 19:52 | C, E, I, U     |  246 E<
-    42 | remove httrack                                                                                                                        | 2023-05-01 22:46 | Removed        |    1 > 
-    41 | install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --allowerasing                               | 2023-04-27 01:33 | E, I, O        |   10 E<
-    40 | remove docker*                                                                                                                        | 2023-04-27 01:31 | Removed        |   18 > 
-    39 | install docker-compose                                                                                                                | 2023-04-27 01:23 | Install        |   18   
-    38 | install docker                                                                                                                        | 2023-04-27 01:10 | Install        |    3 EE
-    37 |                                                                                                                                       | 2023-04-24 22:04 | I, U           |  237 EE
-    36 | -y install --disablerepo=* /tmp/akmods.YX89cavl/results/kmod-nvidia-6.2.11-300.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                | 2023-04-16 10:03 | Install        |    1  <
-    35 |                                                                                                                                       | 2023-04-16 02:19 | I, U           |  328 >#
-    34 | erase lightzone -y                                                                                                                    | 2023-04-08 22:18 | Removed        |    9   
-    33 | install lightzone -y                                                                                                                  | 2023-04-08 22:12 | Install        |    9  <
-    32 | erase codium                                                                                                                          | 2023-04-07 20:58 | Removed        |    1 > 
-    31 | install virt-manager                                                                                                                  | 2023-04-07 20:40 | Install        |    9   
-    30 | install easyeffects                                                                                                                   | 2023-04-07 20:38 | Install        |   14   
-    29 | install terminator                                                                                                                    | 2023-04-07 20:33 | Install        |    2   
-    28 | install nodejs                                                                                                                        | 2023-04-07 01:15 | Install        |    5   
-    27 | install codium                                                                                                                        | 2023-04-07 00:56 | Install        |    1  <
-    26 | install gimp                                                                                                                          | 2023-04-03 21:36 | Install        |   14 > 
-    25 | remove cmake                                                                                                                          | 2023-04-02 21:23 | Removed        |    6   
-    24 | install cmake                                                                                                                         | 2023-04-02 21:23 | Install        |    6   
-    23 | install rawtherapee                                                                                                                   | 2023-04-02 21:17 | Install        |    3   
-    22 | install nvidia-persistenced xorg-x11-drv-nvidia-power nv-codec-headers                                                                | 2023-04-02 19:33 | Install        |    2   
-    21 | -y install --disablerepo=* /tmp/akmods.FCz93a0g/results/kmod-nvidia-6.2.9-300.fc38.x86_64-530.41.03-1.fc38.x86_64.rpm                 | 2023-04-02 19:32 | Install        |    1   
-    20 | install nvidia-modprobe akmod-nvidia.x86_64 nvidia-settings nvidia-query-resource-opengl xorg-x11-drv-nvidia.x86_64                   | 2023-04-02 19:32 | Install        |   19 EE
-    19 | install f30-backgrounds-extras-gnome                                                                                                  | 2023-04-01 22:43 | Install        |    2   
-    18 | install fedora-release-cinnamon fedora-release-identity-cinnamon --allowerasing                                                       | 2023-04-01 22:41 | E, I           |    3   
-    17 | install gnome-boxes                                                                                                                   | 2023-04-01 22:02 | Install        |  125 EE
-    16 | install protontricks                                                                                                                  | 2023-04-01 21:50 | Install        |    4   
-    15 | install winetricks                                                                                                                    | 2023-04-01 21:50 | Install        |    1   
-    14 | install steam                                                                                                                         | 2023-04-01 19:05 | Install        |   67 E<
-    13 | install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-38.noarch.rpm                                          | 2023-04-01 19:04 | Install        |    1 > 
-    12 | install wine                                                                                                                          | 2023-04-01 18:03 | Install        |  266 EE
-    11 | install qbittorrent                                                                                                                   | 2023-04-01 17:40 | Install        |    7   
-    10 |                                                                                                                                       | 2023-04-01 17:39 | I, U           |   22 EE
-     9 | install audacious-plugins* -y                                                                                                         | 2023-04-01 17:35 | Install        |    9   
-     8 | install audacious -y                                                                                                                  | 2023-04-01 17:35 | Install        |    8   
-     7 | group update core                                                                                                                     | 2023-03-31 22:32 | Upgrade        |    1   
-     6 | install darktable                                                                                                                     | 2023-03-31 22:20 | Install        |    8   
-     5 | install protonvpn                                                                                                                     | 2023-03-31 22:15 | Install        |   19  <
-     4 |                                                                                                                                       | 2023-03-31 22:13 | Install        |    1 > 
-     3 | install flatpak                                                                                                                       | 2023-03-31 22:07 | Install        |    6 EE
-     2 |                                                                                                                                       | 2023-03-31 20:45 | Upgrade        |   98 E<
-     1 |                                                                                                                                       | 2023-03-30 23:23 | Install        | 2638 >E
+Fedora 40 - x86_64                              228 kB/s |  29 kB     00:00    
+Fedora 40 openh264 (From Cisco) - x86_64         12 kB/s | 989  B     00:00    
+Fedora 40 - x86_64 - Updates                    212 kB/s |  24 kB     00:00    
+Fedora 40 - x86_64 - Updates                    6.9 MB/s | 4.1 MB     00:00    
+RPM Fusion for Fedora 40 - Free                  69 kB/s | 7.8 kB     00:00    
+RPM Fusion for Fedora 40 - Free - Updates        78 kB/s | 7.2 kB     00:00    
+RPM Fusion for Fedora 40 - Nonfree               67 kB/s | 7.9 kB     00:00    
+RPM Fusion for Fedora 40 - Nonfree - NVIDIA Dri  66 kB/s | 7.8 kB     00:00    
+RPM Fusion for Fedora 40 - Nonfree - Steam       64 kB/s | 7.4 kB     00:00    
+RPM Fusion for Fedora 40 - Nonfree - Updates     77 kB/s | 7.4 kB     00:00    
+download.vscodium.com                           4.9 kB/s | 833  B     00:00    
+Dependencies resolved.
+========================================================================================
+ Package                       Arch    Version                            Repo      Size
+========================================================================================
+Upgrading:
+ aardvark-dns                  x86_64  2:1.12.2-2.fc40                    updates  906 k
+ augeas-libs                   x86_64  1.14.2-0.1.20240903git2de06e0.fc40 updates  412 k
+ cldr-emoji-annotation         noarch  1:45-4.fc40                        updates  7.8 M
+ cldr-emoji-annotation-dtd     noarch  1:45-4.fc40                        updates   33 k
+ expat                         i686    2.6.3-1.fc40                       updates  119 k
+ expat                         x86_64  2.6.3-1.fc40                       updates  114 k
+ expat-devel                   x86_64  2.6.3-1.fc40                       updates   54 k
+ kasumi-common                 noarch  2.5-47.fc40                        updates   14 k
+ kasumi-unicode                x86_64  2.5-47.fc40                        updates   71 k
+ kernel-devel-matched          x86_64  6.10.8-200.fc40                    updates  177 k
+ libXi                         i686    1.8.2-1.fc40                       updates   42 k
+ libXi                         x86_64  1.8.2-1.fc40                       updates   40 k
+ libXi-devel                   x86_64  1.8.2-1.fc40                       updates  116 k
+ passt                         x86_64  0^20240906.g6b38f07-1.fc40         updates  209 k
+ passt-selinux                 noarch  0^20240906.g6b38f07-1.fc40         updates   33 k
+ perf                          x86_64  6.10.8-200.fc40                    updates  2.4 M
+ tigervnc                      x86_64  1.14.0-4.fc40                      updates  353 k
+ tigervnc-icons                noarch  1.14.0-4.fc40                      updates   36 k
+ tigervnc-license              noarch  1.14.0-4.fc40                      updates   16 k
+ tigervnc-selinux              noarch  1.14.0-4.fc40                      updates   27 k
+ tigervnc-server               x86_64  1.14.0-4.fc40                      updates  258 k
+ tigervnc-server-minimal       x86_64  1.14.0-4.fc40                      updates  1.2 M
+
+Transaction Summary
+========================================================================================
+Upgrade  22 Packages
+
+Total download size: 14 M
+Downloading Packages:
+(1/22): aardvark-dns-1.12.2-2.fc40.x86_64.rpm   1.1 MB/s | 906 kB     00:00    
+(2/22): augeas-libs-1.14.2-0.1.20240903git2de06 496 kB/s | 412 kB     00:00    
+(3/22): cldr-emoji-annotation-dtd-45-4.fc40.noa 190 kB/s |  33 kB     00:00    
+(4/22): expat-2.6.3-1.fc40.x86_64.rpm           506 kB/s | 114 kB     00:00    
+(5/22): expat-devel-2.6.3-1.fc40.x86_64.rpm     1.0 MB/s |  54 kB     00:00    
+(6/22): expat-2.6.3-1.fc40.i686.rpm             157 kB/s | 119 kB     00:00    
+(7/22): kasumi-common-2.5-47.fc40.noarch.rpm     26 kB/s |  14 kB     00:00    
+(8/22): kasumi-unicode-2.5-47.fc40.x86_64.rpm   161 kB/s |  71 kB     00:00    
+(9/22): cldr-emoji-annotation-45-4.fc40.noarch. 2.9 MB/s | 7.8 MB     00:02    
+(10/22): libXi-1.8.2-1.fc40.i686.rpm             61 kB/s |  42 kB     00:00    
+(11/22): libXi-devel-1.8.2-1.fc40.x86_64.rpm    572 kB/s | 116 kB     00:00    
+(12/22): libXi-1.8.2-1.fc40.x86_64.rpm           87 kB/s |  40 kB     00:00    
+(13/22): kernel-devel-matched-6.10.8-200.fc40.x 131 kB/s | 177 kB     00:01    
+(14/22): passt-0^20240906.g6b38f07-1.fc40.x86_6 467 kB/s | 209 kB     00:00    
+(15/22): passt-selinux-0^20240906.g6b38f07-1.fc  38 kB/s |  33 kB     00:00    
+(16/22): tigervnc-icons-1.14.0-4.fc40.noarch.rp 403 kB/s |  36 kB     00:00    
+(17/22): tigervnc-license-1.14.0-4.fc40.noarch. 127 kB/s |  16 kB     00:00    
+(18/22): tigervnc-1.14.0-4.fc40.x86_64.rpm      369 kB/s | 353 kB     00:00    
+(19/22): tigervnc-selinux-1.14.0-4.fc40.noarch. 117 kB/s |  27 kB     00:00    
+(20/22): tigervnc-server-1.14.0-4.fc40.x86_64.r 731 kB/s | 258 kB     00:00    
+(21/22): perf-6.10.8-200.fc40.x86_64.rpm        1.2 MB/s | 2.4 MB     00:01    
+(22/22): tigervnc-server-minimal-1.14.0-4.fc40. 927 kB/s | 1.2 MB     00:01    
+--------------------------------------------------------------------------------
+Total                                           2.4 MB/s |  14 MB     00:05     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : tigervnc-license-1.14.0-4.fc40.noarch                 1/44 
+  Upgrading        : libXi-1.8.2-1.fc40.x86_64                             2/44 
+  Upgrading        : tigervnc-server-minimal-1.14.0-4.fc40.x86_64          3/44 
+  Upgrading        : passt-0^20240906.g6b38f07-1.fc40.x86_64               4/44 
+  Running scriptlet: passt-selinux-0^20240906.g6b38f07-1.fc40.noarch       5/44 
+  Upgrading        : passt-selinux-0^20240906.g6b38f07-1.fc40.noarch       5/44 
+  Running scriptlet: passt-selinux-0^20240906.g6b38f07-1.fc40.noarch       5/44 
+  Upgrading        : cldr-emoji-annotation-dtd-1:45-4.fc40.noarch          6/44 
+  Upgrading        : cldr-emoji-annotation-1:45-4.fc40.noarch              7/44 
+  Running scriptlet: tigervnc-selinux-1.14.0-4.fc40.noarch                 8/44 
+  Upgrading        : tigervnc-selinux-1.14.0-4.fc40.noarch                 8/44 
+  Running scriptlet: tigervnc-selinux-1.14.0-4.fc40.noarch                 8/44 
+  Upgrading        : tigervnc-icons-1.14.0-4.fc40.noarch                   9/44 
+  Upgrading        : kasumi-common-2.5-47.fc40.noarch                     10/44 
+  Upgrading        : expat-2.6.3-1.fc40.x86_64                            11/44 
+  Upgrading        : expat-devel-2.6.3-1.fc40.x86_64                      12/44 
+  Upgrading        : kasumi-unicode-2.5-47.fc40.x86_64                    13/44 
+  Upgrading        : tigervnc-1.14.0-4.fc40.x86_64                        14/44 
+  Upgrading        : tigervnc-server-1.14.0-4.fc40.x86_64                 15/44 
+  Running scriptlet: tigervnc-server-1.14.0-4.fc40.x86_64                 15/44 
+  Upgrading        : libXi-devel-1.8.2-1.fc40.x86_64                      16/44 
+  Upgrading        : perf-6.10.8-200.fc40.x86_64                          17/44 
+  Upgrading        : kernel-devel-matched-6.10.8-200.fc40.x86_64          18/44 
+  Upgrading        : augeas-libs-1.14.2-0.1.20240903git2de06e0.fc40.x86   19/44 
+  Upgrading        : aardvark-dns-2:1.12.2-2.fc40.x86_64                  20/44 
+  Upgrading        : libXi-1.8.2-1.fc40.i686                              21/44 
+  Upgrading        : expat-2.6.3-1.fc40.i686                              22/44 
+  Cleanup          : libXi-devel-1.8.1-5.fc40.x86_64                      23/44 
+  Cleanup          : expat-devel-2.6.2-1.fc40.x86_64                      24/44 
+  Cleanup          : cldr-emoji-annotation-1:45-1.fc40.noarch             25/44 
+  Cleanup          : cldr-emoji-annotation-dtd-1:45-1.fc40.noarch         26/44 
+  Cleanup          : libXi-1.8.1-5.fc40.i686                              27/44 
+  Cleanup          : kernel-devel-matched-6.10.7-200.fc40.x86_64          28/44 
+  Cleanup          : expat-2.6.2-1.fc40.i686                              29/44 
+  Cleanup          : tigervnc-1.14.0-2.fc40.x86_64                        30/44 
+  Running scriptlet: tigervnc-server-1.14.0-2.fc40.x86_64                 31/44 
+  Cleanup          : tigervnc-server-1.14.0-2.fc40.x86_64                 31/44 
+  Running scriptlet: tigervnc-server-1.14.0-2.fc40.x86_64                 31/44 
+  Cleanup          : tigervnc-server-minimal-1.14.0-2.fc40.x86_64         32/44 
+  Cleanup          : passt-0^20240821.g1d6142f-1.fc40.x86_64              33/44 
+  Cleanup          : kasumi-unicode-2.5-45.fc40.x86_64                    34/44 
+  Cleanup          : kasumi-common-2.5-45.fc40.noarch                     35/44 
+  Cleanup          : passt-selinux-0^20240821.g1d6142f-1.fc40.noarch      36/44 
+  Running scriptlet: passt-selinux-0^20240821.g1d6142f-1.fc40.noarch      36/44 
+  Cleanup          : tigervnc-license-1.14.0-2.fc40.noarch                37/44 
+  Cleanup          : tigervnc-selinux-1.14.0-2.fc40.noarch                38/44 
+  Running scriptlet: tigervnc-selinux-1.14.0-2.fc40.noarch                38/44 
+  Cleanup          : tigervnc-icons-1.14.0-2.fc40.noarch                  39/44 
+  Cleanup          : libXi-1.8.1-5.fc40.x86_64                            40/44 
+  Cleanup          : expat-2.6.2-1.fc40.x86_64                            41/44 
+  Cleanup          : perf-6.10.7-200.fc40.x86_64                          42/44 
+  Cleanup          : augeas-libs-1.13.0-7.fc40.x86_64                     43/44 
+  Cleanup          : aardvark-dns-2:1.12.1-1.fc40.x86_64                  44/44 
+  Running scriptlet: passt-selinux-0^20240906.g6b38f07-1.fc40.noarch      44/44 
+  Running scriptlet: aardvark-dns-2:1.12.1-1.fc40.x86_64                  44/44 
+
+Upgraded:
+  aardvark-dns-2:1.12.2-2.fc40.x86_64                                           
+  augeas-libs-1.14.2-0.1.20240903git2de06e0.fc40.x86_64                         
+  cldr-emoji-annotation-1:45-4.fc40.noarch                                      
+  cldr-emoji-annotation-dtd-1:45-4.fc40.noarch                                  
+  expat-2.6.3-1.fc40.i686                                                       
+  expat-2.6.3-1.fc40.x86_64                                                     
+  expat-devel-2.6.3-1.fc40.x86_64                                               
+  kasumi-common-2.5-47.fc40.noarch                                              
+  kasumi-unicode-2.5-47.fc40.x86_64                                             
+  kernel-devel-matched-6.10.8-200.fc40.x86_64                                   
+  libXi-1.8.2-1.fc40.i686                                                       
+  libXi-1.8.2-1.fc40.x86_64                                                     
+  libXi-devel-1.8.2-1.fc40.x86_64                                               
+  passt-0^20240906.g6b38f07-1.fc40.x86_64                                       
+  passt-selinux-0^20240906.g6b38f07-1.fc40.noarch                               
+  perf-6.10.8-200.fc40.x86_64                                                   
+  tigervnc-1.14.0-4.fc40.x86_64                                                 
+  tigervnc-icons-1.14.0-4.fc40.noarch                                           
+  tigervnc-license-1.14.0-4.fc40.noarch                                         
+  tigervnc-selinux-1.14.0-4.fc40.noarch                                         
+  tigervnc-server-1.14.0-4.fc40.x86_64                                          
+  tigervnc-server-minimal-1.14.0-4.fc40.x86_64                                  
+
+Complete!
+Looking for updates…
+
+Info: runtime org.kde.Platform branch 5.15-22.08 is end-of-life, with reason:
+   We strongly recommend moving to the latest Qt 5.15-based stable version of the Platform and SDK
+Info: applications using this runtime:
+   io.github.congard.qnvsm
+
+
+ 1.	   	com.discordapp.Discord	stable	u	flathub	< 112.0 MB
+
+
+Updating…
+Updating…                        0%  0 bytes/s
+Updating… ████████████████████ 100%
+Updating… ████████████████████ 100%
+Updates complete.

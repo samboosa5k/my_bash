@@ -4,22 +4,30 @@
 
 function capture() {
     local cmd
-    local cmd_result
+    local output_location
+    local output_captured_count
+    local output_file
     local cmd_location # which folder was the command run from
     local cmd_output_header
-    local output_location
-    local output_file
+    local cmd_result
 
     cmd=$1
-    cmd_result=$(eval "$cmd")
+    if [ -z "$cmd" ]; then
+        echo "Usage: capture 'command'"
+        return 1
+    fi
 
     output_location=$(dirname "$0")
-
-    cmd_output_header="Command: $cmd\n
-    Called from: $cmd_location"
+    output_captured_count=$(find "$output_location" -maxdepth 1 -iname "*_output.txt" | wc -l)
+    output_file="$(basename "$0" .sh)_output_$output_captured_count.txt"
 
     cmd_location="$(pwd)"
-    output_file="$(basename "$0")_output.txt"
+    cmd_output_header="# Command: $cmd\n
+    # Called from: $cmd_location"
+
+    # cmd_result=$(eval "$cmd")
+    # eval the command, but echo it to the terminal and store the output in a variable
+    cmd_result=$(eval "$cmd" 2>&1)
 
     echo -e "$cmd_output_header\n\n$cmd_result" >"$output_location/$output_file"
     echo "Output saved to $output_location/$output_file"
@@ -31,9 +39,3 @@ function capture() {
 
 alias capture=capture
 capture "$1"
-
-The script is called with the command to be run as an argument.
-$ ./capture.sh "ls -l"
-
-The output is saved in a file in the same directory as the script.
-Command: ls -l
