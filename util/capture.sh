@@ -18,7 +18,7 @@ function capture() {
     fi
 
     output_location=$(dirname "$0")
-    output_captured_count="$(find "$output_location" -maxdepth 1 -iname "*_output.txt" | wc -l)"
+    output_captured_count="$(find "$output_location" -maxdepth 1 -iname "*_output*" | wc -l)"
     # increment the count
     output_captured_count=$((output_captured_count + 1))
     output_file="$(basename "$0" .sh)_output_$output_captured_count.txt"
