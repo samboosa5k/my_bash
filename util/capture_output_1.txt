@@ -1,6 +1,8 @@
-# Command: find ../../../Downloads -maxdepth 2 -iname *.conf
+# Command: git add . && git commit -m [script]
 
-    # Called from: /home/jasper/_WEB/my_bash/util
+    # Called from: /home/jasper/_WEB/my_bash
 
-../../../Downloads/wg-NL-327.conf
-../../../Downloads/platform-tools/mke2fs.conf
+[feat/logging_and_backup 6b71120] [script]
+ 4 files changed, 195 insertions(+), 908 deletions(-)
+ create mode 100644 util/capture_output_1.txt
+ create mode 100644 util/wc
