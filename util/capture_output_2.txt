@@ -1,0 +1,6 @@
+# Command: git add . && git commit -m [script]
+
+    # Called from: /home/jasper/_WEB/my_bash/util
+
+[feat/logging_and_backup 6a1ec3e] [script]
+ 2 files changed, 9 insertions(+), 5 deletions(-)
