@@ -6,8 +6,10 @@
 git add . && git commit -m "[script] Capture terminal command and script output in txt" && git push
 ```
 
-[feat/logging_and_backup 85ae140] [script] Capture terminal command and script output in txt
- 2 files changed, 26 insertions(+), 13 deletions(-)
- create mode 100644 util/capture_output_4.txt
+```bash
+[feat/logging_and_backup de80b83] [script] Capture terminal command and script output in txt
+ 2 files changed, 14 insertions(+)
+ create mode 100644 util/capture_output_1.md
 To github.com:samboosa5k/my_bash.git
-   ea19353..85ae140  feat/logging_and_backup -> feat/logging_and_backup
+   85ae140..de80b83  feat/logging_and_backup -> feat/logging_and_backup
+```
