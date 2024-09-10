@@ -1,0 +1,9 @@
+# Command: git add . && git commit -m "[script] Capture terminal command and script output in txt" && git push
+
+    # Called from: /home/jasper/_WEB/my_bash/util
+
+[feat/logging_and_backup ea19353] [script] Capture terminal command and script output in txt
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+ delete mode 100644 util/wc
+To github.com:samboosa5k/my_bash.git
+   e67cf19..ea19353  feat/logging_and_backup -> feat/logging_and_backup
