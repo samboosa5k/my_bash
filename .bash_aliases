@@ -9,7 +9,7 @@ alias dnf="sudo dnf"
 alias cc="clear"
 
 # Group - config
-alias cfg="vim ~/.bashrc"
+alias cfg='cd $HOME/bash.conf.d/ & ls -la $HOME/bash.conf.d/ && vim "./.bash_aliases"'
 alias editcfg='codium $HOME/bash.conf.d/'
 alias helpme='$HOME/bash.conf.d/.bashrc_help'
 alias rl="clear && source ~/.bashrc"
