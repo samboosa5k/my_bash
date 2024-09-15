@@ -75,4 +75,4 @@ function listImages() {
   return 1
 }
 
-listImages
+alias listImages=listImages
