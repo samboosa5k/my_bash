@@ -88,6 +88,8 @@ alias linenr='$HOME/bash.conf.d/prepend.sh'
 alias capture='$HOME/bash.conf.d/capture.sh'
 alias cap='$HOME/bash.conf.d/capture.sh'
 alias fwrite='$HOME/bash.conf.d/fwrite.sh'
+alias init_script='$HOME/bash.conf.d/init_script.sh'
 
 # Group - Other dependencies and cli packages
 alias rip='/home/jasper/.local/bin/rip'
+alias hello=hello
