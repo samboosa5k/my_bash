@@ -1,95 +1,82 @@
 #!/bin/bash
+# .bash_aliases
 
-echo "Aliases loaded"
-echo "Yeah boooiiii!!!"
-
-# Group - Basic
+export alias CFG_DIR="/Users/Jasper/Sites/my_bash_mac"
 alias ss="sudo -s"
-alias dnf="sudo dnf"
+
+echo "Loading main aliases from $CFG_DIR/.bash_aliases"
+
+# config and basic
+alias cfg='vim $CFG_DIR/.bashrc'
+alias rl='clear && source $CFG_DIR/.bashrc'
 alias cc="clear"
-
-# Group - config
-alias cfg='cd $HOME/bash.conf.d/ & ls -la $HOME/bash.conf.d/ && vim "./.bash_aliases"'
-alias editcfg='codium $HOME/bash.conf.d/'
-alias helpme='$HOME/bash.conf.d/.bashrc_help'
-alias rl="clear && source ~/.bashrc"
-
-# Group - nav
 alias hm="cd ~"
-alias home="/home/jasper"
-alias bkdir='$HOME/bash.conf.d/quick_alias.sh'
+alias loopy='$CFG_DIR/loop_folder_action.sh'
+
+echo 'main aliases loaded'
+# de
+export alias home="/Users/Jasper"
+alias dev="cd $home/Sites/publishing/development"
+alias cms="cd $home/Sites/publishing/development/cms"
+alias web="cd $home/Sites/publishing/development/cms/web"
+alias admin="cd $home/Sites/publishing/development/cms/admin"
+alias web2="cd $home/Sites/publishing/development/web"
+
+alias trans="$home/Sites/publishing/development/script/watcher i18n-cms"
+
+# nav
 alias lsf="ls -p -a | grep -v /"
 alias lsd="ls -d */"
+alias bkdir='$CFG_DIR/quick_alias.sh'
 
-# Group - Development
-alias web="cd /home/jasper/_WEB"
-alias ide="/opt/PhpStorm/bin/phpstorm.sh && exit"
+echo 'git aliases loaded'
 
-# Group - git (custom scripts)
-alias bn='$HOME/bash.conf.d/git_branch_new.sh'
-alias bb='$HOME/bash.conf.d/git_branch_find.sh'
-alias bc='$HOME/bash.conf.d/git_change_utils.sh'
-alias gbf='$HOME/bash.conf.d/git_branch_find.sh'
-alias gbn='$HOME/bash.conf.d/git_branch_new.sh'
-alias gg='$HOME/bash.conf.d/git_change_utils.sh'
-alias co='$HOME/bash.conf.d/git_checkout_handler.sh'
-alias gc='$HOME/bash.conf.d/git_commit_message.sh'
-
-# Group - git
+# git
+alias bn='$CFG_DIR/git_branch_new.sh'
+alias bb='$CFG_DIR/git_branch_find.sh'
+alias bc='$CFG_DIR/git_change_utils.sh'
+alias gbf='$CFG_DIR/git_branch_find.sh'
+alias gbn='$CFG_DIR/git_branch_new.sh'
+alias gg='$CFG_DIR/git_change_utils.sh'
+alias gc='$CFG_DIR/git_commit_message.sh'
 alias gb="git branch"
 alias gd="git diff --name-only"
 alias gbr="git branch -r"
+alias rr="git reset --hard HEAD~1"
 alias gr="git reset --hard HEAD~1"
+alias gpo="git pull origin release/kraken --rebase -f"
+alias grb="git pull origin release/kraken --autostash --rebase -f"
 alias st="git status"
-# alias gpull="git pull"
-# alias gpush="git push"
-# alias gdiff="git diff --name-only"
-# alias gpulldev="git pull origin main --prune --autostash --recurse-submodules=true"
-# alias gaa="git add ."
-# alias gpforce="git push --force"
 # alias gcurr="git branch --show-current"
+
+
+alias gaa="git add ."
+alias pullall="git submodule foreach --recursive git pull"
+alias checkoutall="git submodule foreach --recursive git checkout"
+alias branches="git submodule foreach --recursive git branch | grep -E '\*' | sed 's/\* //'"
+alias changes="git submodule foreach --recursive git status --porcelain"
+alias restoreall="git submodule foreach --recursive git restore ."
+alias resetall="git submodule foreach --recursive git reset --hard HEAD~1"
+alias fetchall="git submodule foreach --recursive git fetch -a -p"
+alias gpforce="git push --force"
 #alias gpf="git add . && git commit -m -read"
 
-# Group - network
-alias lan="sudo arp-scan --interface=eno1 --localnet"
-alias portscan="sudo nmap -sT -p- 192.168.1.126"
+echo 'docker aliases loaded'
+alias duck="docker-compose"
+alias duckps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | awk '{print $1 $2 $3}'"
+alias ducklog="docker-compose logs --no-log-prefix --since 15m -f"
 
-# Group - packages
-alias dnfi="dnf list installed"
-alias dnfs="dnf search"
-alias gli="dnf grouplist installed"
-alias gl="dnf grouplist"
+echo 'docker maintenance aliases loaded'
+alias rs="docker-compose ps | grep exited | awk '{print $1}' | xargs docker-compose restart"
+alias restartexited="duck ps | grep exited | awk '{print $1}' | xargs docker-compose up -d"
+alias heal="docker ps -f health=unhealthy --format 'table {{.Names}}' | grep -E '[a-z]' | xargs docker-compose restart"
+# alias heal="duckps | grep unhealthy | for n in $(awk '{print $1}'); do docker-compose restart "$n"; done"
+alias kk="docker-compose kill && docker-compose down && docker-compose up -d"
+alias seed_local="~/bash/seed_local.sh"
 
-# Group - maintenance
-alias leaves="package-cleanup --leaves"
-alias orphans="package-cleanup --orphans"
-alias unused="rpmconf -a"
-alias cleanconfig="rpmconf -c"
-alias reaper="rpmreaper"
-alias clean_kernels="dnf repoquery --installonly --latest-limit=-2 -q | xargs sudo dnf remove"
+alias dup="docker-compose up -d"
+alias down="docker-compose down"
 
-# Group - updates
-# alias g_upgrade="for grp in "cinnamon-desktop" "admin-tools" "container-management" "development-tools" "editors" "hardware-support" "system-tools"; do dnf group upgrade "$grp" -y; done"
-# alias g_update="for grp in "cinnamon-desktop" "admin-tools" "container-management" "development-tools" "editors" "hardware-support" "system-tools"; do dnf group update "$grp" -y; done"
-# alias sys_update="dnf clean all -y && dnf autoremove && dnf upgrade --refresh -y && dnf distro-sync -y && dnf update"
+alias gogo='gb | grep 4209 | awk {print } | xargs git checkout'
 
-# Group - Systemctl & Systemd
-alias sysc="systemctl"
-alias sysd="systemd"
-alias sysblame="systemd blame"
-alias syscrit="systemd-analyze critical-chain"
-alias systime="systemd-analyze critical-chain"
-
-# Group - experimental
-alias imgidx='$HOME/bash.conf.d/json_index.sh'
-alias flatidx='$HOME/bash.conf.d/flat_index.sh'
-alias mkthumbs='$HOME/bash.conf.d/create_thumbnails.sh'
-alias linenr='$HOME/bash.conf.d/prepend.sh'
-alias capture='$HOME/bash.conf.d/capture.sh'
-alias cap='$HOME/bash.conf.d/capture.sh'
-alias fwrite='$HOME/bash.conf.d/fwrite.sh'
-# alias init_script='/home/jasper/bash.conf.d/init_script.sh'
-
-# Group - Other dependencies and cli packages
-alias rip='/home/jasper/.local/bin/rip'
-# alias hello=hello # This broke everything
+echo "Aliases loaded"

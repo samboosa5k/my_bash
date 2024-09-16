@@ -1,6 +1,9 @@
-alias jasper='cd /home/jasper'
-alias etc='cd /etc'
-alias mybash='cd /home/jasper/WEB/my_bash'
-alias pictures='cd /home/jasper/Pictures'
-alias downloads='cd /home/jasper/Downloads'
-alias opt='cd /opt'
+#!/bin/bash
+
+alias modules='cd /Users/Jasper/Sites/publishing/development/cms/web/modules'
+alias components='cd /Users/Jasper/Sites/publishing/development/cms/web/components'
+alias shared='cd /Users/Jasper/Sites/publishing/development/shared'
+alias cron='cd /Users/Jasper/Sites/publishing/development/cron'
+alias Pictures='cd /Users/jasper/Pictures'
+alias admin2='cd /Users/Jasper/Sites/publishing/development/admin'
+alias play='cd /Users/jasper/Sites/publishing/development/cms/playwright/ && ENVIRONMENT=qa ISSUE=kraken yarn run dev'
