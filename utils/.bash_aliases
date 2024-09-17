@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Quickly create an alias of the current directory
+alias bkdir='$CFG_DIR/quick_alias.sh'
+
 # Capture and log command and output to *.md
 alias capture='$CFG_DIR/capture.sh'
 alias cap='$CFG_DIR/capture.sh'
