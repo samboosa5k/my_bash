@@ -1,5 +1,10 @@
 # MY BASH SCRIPTZ
 
+## 2024
+
+# 17-09 (exact same date is sheer coincidence)
+-   Major refactor and reorganization of all bash scripts, aliases and utils used
+
 ## 2023
 # 17-09
 -   Super bash script for branch switching
