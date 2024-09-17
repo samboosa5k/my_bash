@@ -10,6 +10,7 @@ CONTENTS_AFTER="Contents after: "
 function fwrite() {
     local source
     local target
+    local is_confirmed
 
     if [ -z "$1" ]; then
         echo "Usage: fwrite source target"
@@ -26,6 +27,23 @@ function fwrite() {
 
     source=$1
     target=$2
+
+    while true; do
+        echo "Are you sure you want to overwrite $source with $target? (y/n)"
+        read -r is_confirmed
+        case $is_confirmed in
+        [Yy]*)
+            break
+            ;;
+        [Nn]*)
+            echo "Operation cancelled"
+            return 1
+            ;;
+        *)
+            echo "Please answer y or n"
+            ;;
+        esac
+    done
 
     echo "$READING_FILE $source"
     echo "$CONTENTS_BEFORE"

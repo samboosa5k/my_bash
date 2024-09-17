@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Capture and log command and output to *.md
+alias capture='$CFG_DIR/capture.sh'
+alias cap='$CFG_DIR/capture.sh'
+
+# Overwrite file with content
+alias fwrite='$CFG_DIR/fwrite.sh'
+
+# Success message
+echo "Utils aliases loaded $happy"
