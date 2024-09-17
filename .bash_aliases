@@ -2,19 +2,16 @@
 
 export alias CFG_DIR="/home/jasper/_WEB/my_bash"
 
-# Group - Basic
-alias ss="sudo -s"
-alias cc="clear"
-alias ls="ls -a1 --color=auto"
-
-# Group - config
+# Configuration
 alias cfg='cd $CFG_DIR && ls -a1'
 alias rl="clear && source ~/.bashrc"
 
-# Group - nav
+# Basic
+alias ss="sudo -s"
+alias cc="clear"
+alias ls="ls -a1 --color=auto"
 alias hm="cd ~"
 alias home="/home/jasper"
-alias bkdir='$HOME/bash.conf.d/quick_alias.sh'
 alias lsf="ls -p -a | grep -v /"
 alias lsd="ls -d */"
 
