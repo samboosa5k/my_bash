@@ -3,6 +3,7 @@
 # Network
 alias lan="sudo arp-scan --interface=eno1 --localnet"
 alias portscan="sudo nmap -sT -p- 192.168.1.126"
+alias connect="$CFG_DIR/system/nmcli_connect.sh"
 
 # Packages
 alias dnf="sudo dnf"
