@@ -20,6 +20,7 @@ alias lsd="ls -d */"
 # Applications
 alias web="cd /home/jasper/_WEB"
 alias ide="/opt/PhpStorm/bin/phpstorm.sh && exit"
+alias zed="~/.local/bin/zed"
 
 # CLI applications
 alias rip='/home/jasper/.local/bin/rip'
@@ -37,6 +38,16 @@ fi
 # Utils
 if [ -f $CFG_DIR/utils/.bash_aliases ]; then
     . $CFG_DIR/utils/.bash_aliases
+fi
+
+# Paths
+if [ -f $CFG_DIR/paths/.bash_aliases ]; then
+    . $CFG_DIR/paths/.bash_aliases
+fi
+
+# Dependencies
+if [ -f $CFG_DIR/dependencies/.bash_aliases ]; then
+    . $CFG_DIR/dependencies/.bash_aliases
 fi
 
 # Experimental
