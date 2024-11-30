@@ -2,7 +2,7 @@
 
 WEB_PATH="$HOME/_WEB"
 DOWNLOAD_URL="https://github.com/roc-lang/roc/releases/download/nightly/roc_nightly-linux_x86_64-latest.tar.gz"
-DOWNLOADS_HOME="$HOME/Downloads"
+DOWNLOADS_HOME="$WEB_PATH"
 BASHRC_PATH="$CFG_DIR/.bashrc"
 
 # The extracted dir should be the latest one
