@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ -f ./clone_basic_cli.sh ]; then
+    source ./clone_basic_cli.sh
+else
+    echo "clone_basic_cli.sh not found. Exiting..."
+    exit 1
+fi
+
 WEB_PATH="$HOME/_WEB"
 DOWNLOAD_URL="https://github.com/roc-lang/roc/releases/download/nightly/roc_nightly-linux_x86_64-latest.tar.gz"
 DOWNLOADS_HOME="$WEB_PATH"
@@ -44,7 +51,7 @@ function update_roc() {
     echo "ROC nightly build has been updated and PATH variable has been set."
 
     # Optionally, you can add the PATH update to .bashrc to make it persistent
-    echo "export PATH=\$PATH:$extracted_dir" >> "$BASHRC_PATH"
+    echo "export PATH=\$PATH:$extracted_dir" >>"$BASHRC_PATH"
     echo "PATH update has been added to $BASHRC_PATH for persistence."
 
     # Clean up
@@ -57,4 +64,4 @@ function update_roc() {
 }
 
 alias update_roc=update_roc
-update_roc
+update_roc && cloneme

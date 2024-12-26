@@ -3,9 +3,11 @@
 # Quickly filter x86_64 packages and no devel
 # dnf search poppler | grep -E "^\w+" | sed -E 's/(.+)?devel(.*).+//g' | sed -E 's/(.+)?\.i686(.*).+//g' | sed -E 's/\s:(.+)?//' | grep -E "\S+"
 
-
 # Quickly create an alias of the current directory
 alias bkdir='$CFG_DIR/quick_alias.sh'
+
+# Bulk create symlink directories
+alias mklns='$CFG_DIR/utils/bulk_symlink.sh'
 
 # Capture and log command and output to *.md
 alias capture='$CFG_DIR/utils/capture.sh'
