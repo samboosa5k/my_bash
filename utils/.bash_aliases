@@ -22,3 +22,7 @@ alias cpcp='$CFG_DIR/utils/compare_and_copy.sh'
 
 # Success message
 echo "Utils aliases loaded $happy"
+
+# Navigate like 'cd' but log the location and print useful information
+alias to='source $CFG_DIR/utils/navigation.sh'
+echo "Navigation aliases loaded $happy"
