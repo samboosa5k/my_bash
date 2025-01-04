@@ -8,6 +8,10 @@ alias lan="sudo arp-scan --interface=eno1 --localnet"
 alias lan_ips="sudo arp-scan --interface=eno1 --localnet | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'"
 alias portscan="sudo nmap -sT -p- 192.168.1.126"
 alias connect="$CFG_DIR/system/nmcli_connect.sh"
+alias mancron="$CFG_DIR/system/manage_cron_jobs.sh"
+
+# log addition of mancron
+echo "mancron aliases loaded $happy"
 
 # Packages
 alias dnf="sudo dnf"
