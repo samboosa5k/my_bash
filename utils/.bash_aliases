@@ -14,6 +14,11 @@ alias capture='$CFG_DIR/utils/capture.sh'
 alias cap='$CFG_DIR/utils/capture.sh'
 alias bkdir='$CFG_DIR/utils/quick_alias.sh'
 
+# Renaming scripts
+alias super_rename='$CFG_DIR/utils/super_rename.sh'
+
+echo "Rename aliases loaded $happy"
+
 # Overwrite file with content
 alias fwrite='$CFG_DIR/utils/fwrite.sh'
 
