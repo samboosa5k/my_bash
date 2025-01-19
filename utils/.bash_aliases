@@ -16,6 +16,7 @@ alias bkdir='$CFG_DIR/utils/quick_alias.sh'
 
 # Renaming scripts
 alias super_rename='$CFG_DIR/utils/super_rename.sh'
+alias space_rename='$CFG_DIR/utils/space_rename.sh'
 
 echo "Rename aliases loaded $happy"
 
