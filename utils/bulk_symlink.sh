@@ -1,12 +1,18 @@
 #!/bin/bash
 
+# Color codes
+BG_SOLID_BLACK="\e[48;5;0m"
+FG_NEON_ORANGE="\e[38;5;202m"
+FG_BOLD="\e[1m"
+FG_CYAN="\e[38;5;45m"
+RESET="\e[0m"
+
 function bulk_links() {
     local pattern
-    local search_dir # arg flag --search-dir
-    local found_files
+    local search_dir    # arg flag --search-dir
+    local found_targets # directories and/or files
+    local depth
     local target_symlink_dir
-
-    local test_run
 
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -25,8 +31,9 @@ function bulk_links() {
             shift
             shift
             ;;
-        --test-run)
-            test_run=$1
+        --depth)
+            depth=$2
+            shift
             shift
             ;;
         *)
@@ -36,55 +43,46 @@ function bulk_links() {
         esac
     done
 
-    local info_output
-    local error_output
-    local table_output
+    #  if no arguments are passed, read from the user
 
-    # set info_output template
-    info_output="Info: (blue background)\n"
-    error_output="Error: (red background)\n"
-    table_output="---------------------------------------------\n
-                    | Found | File Path | Symlink Dir | Symlink Name |\n
-                    ---------------------------------------------\n"
-
-    while [[ -z $pattern ]]; do
-        local input_pattern
-        read -p "Enter a pattern to search for files: " input_pattern
-        pattern=$input_pattern
-    done
-    if [[ -z $search_dir ]]; then
-        search_dir=$(pwd)
-    fi
-    while [[ -z $target_symlink_dir ]]; do
-        local input_symlink_dir
-        read -p "Enter a directory to create symlinks: " input_symlink_dir
-        target_symlink_dir=$input_symlink_dir
-    done
-
-    found_files=$(find $search_dir -maxdepth 4 -type f -name $pattern)
-    found_files_count=$(echo $found_files | wc -l)
-    info_output+="1. Found $found_files_count files\n"
-
-    echo "Found $found_files_count files"
-    local confirm_creation
-    read -p "Do you want to create symlinks? (y/n): " confirm_creation
-    if [[ $found_files_count -gt 0 ]]; then
-        for file in $found_files; do
-            local absolute_file_path=$(realpath $file)
-            table_output+="| $file | $target_symlink_dir | $(basename $file) |\n"
-            table_output+="---------------------------------------------"
-            if [[ $confirm_creation == "y" ]]; then
-                ln -s $absolute_file_path $target_symlink_dir/$(basename $file)
-            else
-                echo "Skipped: $absolute_file_path/$(basename $file) ---> $target_symlink_dir/$(basename $file)"
-            fi
-        done
+    if [ -z "$pattern" ]; then
+        read -rp "Enter the pattern to search for: " pattern
     fi
 
-    echo -e $info_output
-    echo -e $table_output
+    if [ -z "$search_dir" ]; then
+        read -rp "Enter the directory to search in: " search_dir
+    fi
 
-    return 0
+    if [ -z "$target_symlink_dir" ]; then
+        read -rp "Enter the target symlink directory: " target_symlink_dir
+    fi
+
+    if [ -z "$depth" ]; then
+        read -rp "Enter the depth to search in: " depth
+    fi
+
+    #  validate and check if all the arguments exist or are valid
+
+    if [ -z "$pattern" ] || [ -z "$search_dir" ] || [ -z "$target_symlink_dir" ] || [ -z "$depth" ]; then
+        echo "Invalid arguments. Please provide valid arguments."
+        return 1
+    fi
+
+    found_targets=$(find "$search_dir" -maxdepth "$depth" -iname "*$pattern*")
+
+    echo -e "${FG_NEON_ORANGE}Found ${#found_targets[@]} targets${RESET}"
+
+    # if directory to create the symlinks does not exist, create it
+    if [ ! -d "$target_symlink_dir" ]; then
+        echo -e "${FG_NEON_ORANGE}Creating directory $target_symlink_dir${RESET}"
+        mkdir -p "$target_symlink_dir"
+    fi
+
+    # Create the symlinks, relative to the target symlink directory
+    for result in $found_targets; do
+        echo -e "${FG_NEON_ORANGE}Creating symlink $result${RESET}"
+        ln -rs "$result" "$target_symlink_dir/$(basename "$result")"
+    done
 }
 
 alias bulk_links=bulk_links
