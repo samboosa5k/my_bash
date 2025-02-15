@@ -1,26 +1,23 @@
 #!/bin/bash
 
-export alias CFG_DIR="/home/jasper/_WEB/my_bash"
-
 # Configuration
-alias cfg='cd $CFG_DIR && ls -a1'
-alias rl="clear && source ~/.bashrc"
+alias cfg='cd $CFG_DIR && ls -A1'
+alias rl="rm ~/.bashrc && cp $CFG_DIR/.bashrc $HOME && source ~/.bashrc"
 
 # Basic
 alias ss="sudo -s"
 alias cc="clear"
-alias ls="ls -a1 --color=auto"
-alias hm="cd ~"
+alias ls="ls -A --color=auto"
 alias home="/home/jasper"
 alias xx="sudo systemctl poweroff -f"
 alias off="sudo systemctl poweroff --now"
 
-alias lsf="ls -p -a | grep -v /"
+alias lsf="ls -p -A | grep -v /"
 alias lsd="ls -d */"
+alias lst="ls -lAt --time=mtime"
 
 # Applications
 alias web="cd /home/jasper/_WEB"
-# alias ide="/opt/PhpStorm/bin/phpstorm.sh && exit" # this IDE is no longer in use
 alias zed="~/.local/bin/zed"
 
 # CLI applications
@@ -41,11 +38,6 @@ if [ -f $CFG_DIR/utils/.bash_aliases ]; then
     . $CFG_DIR/utils/.bash_aliases
 fi
 
-# Paths
-if [ -f $CFG_DIR/paths/.bash_aliases ]; then
-    . $CFG_DIR/paths/.bash_aliases
-fi
-
 # Dependencies
 if [ -f $CFG_DIR/development/.bash_aliases ]; then
     . $CFG_DIR/development/.bash_aliases
@@ -55,6 +47,3 @@ fi
 # if [ -f $CFG_DIR/experimental/.bash_aliases ]; then
 #     . $CFG_DIR/experimental/.bash_aliases
 # fi
-
-echo "Aliases loaded"
-echo "Yeah boooiiii!!!"

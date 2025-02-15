@@ -1,3 +1,14 @@
+# filestore index files (create  using ./utils/create_index.sh
+*.db
+
+# ide configs ffs
+.idea/
 .idea
 .directory/
 .directory
+.vscode/
+.vscode
+
+# Still in progress
+.vm_and_machine_maintenance/
+.vm_and_machine_maintenance

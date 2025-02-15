@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export PATH=$HOME/.local/bin:$PATH
+
+export CFG_DIR="$HOME/_WEB/my_bash"
+export LOCAL_BINS="$HOME/.local/bin"
+export LOCAL_SHARES="$HOME/.local/share"
+export TEMP_DOWNLOADS="$HOME/Downloads/temp"
+
+if [ -f "$CFG_DIR/development/.bash_paths" ]; then
+  . $CFG_DIR/development/.bash_paths
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Success message
+echo "Paths aliases loaded $chicken"

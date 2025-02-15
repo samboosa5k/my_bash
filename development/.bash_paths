@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Roc path
+# export PATH=$PATH:$LOCAL_SHARES/roc-nightly
