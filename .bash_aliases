@@ -47,8 +47,8 @@ if [ -f $CFG_DIR/paths/.bash_aliases ]; then
 fi
 
 # Dependencies
-if [ -f $CFG_DIR/dependencies/.bash_aliases ]; then
-    . $CFG_DIR/dependencies/.bash_aliases
+if [ -f $CFG_DIR/development/.bash_aliases ]; then
+    . $CFG_DIR/development/.bash_aliases
 fi
 
 # Experimental
