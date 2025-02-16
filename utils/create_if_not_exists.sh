@@ -2,7 +2,7 @@
 
 if [-f "$CFG_DIR"/utils/get_type.sh ]; then
     . "$CFG_DIR"/utils/get_type.sh
-fiH#!@
+fi
 
 function create_if_not_exists() {
     local target

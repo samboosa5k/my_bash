@@ -10,3 +10,39 @@ function colorize_stdout() {
     echo -e "$color$message$RESET_COLOR"
     return 0
 }
+
+function log_error() {
+    local message
+
+    message="$1"
+
+    colorize_stdout "$ERROR_RED" "$message"
+    return 0
+}
+
+function log_warning() {
+    local message
+
+    message="$1"
+
+    colorize_stdout "$WARNING_YELLOW" "$message"
+    return 0
+}
+
+function log_info() {
+    local message
+
+    message="$1"
+
+    colorize_stdout "$INFO_BLUE" "$message"
+    return 0
+}
+
+function log_success() {
+    local message
+
+    message="$1"
+
+    colorize_stdout "$SUCCESS_GREEN" "$message"
+    return 0
+}

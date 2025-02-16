@@ -3,5 +3,6 @@
 # Colors
 export ERROR_RED="\033[0;31m"
 export SUCCESS_GREEN="\033[0;32m"
+export WARNING_YELLOW="\033[0;33m"
 export INFO_BLUE="\033[0;34m"
 export RESET_COLOR="\033[0m"

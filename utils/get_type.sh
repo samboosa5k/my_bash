@@ -1,8 +1,36 @@
 #!/bin/bash
 
+if [ -f "$CFG_DIR"/prompt/colorize_stdout.sh ]; then
+    . "$CFG_DIR"/prompt/colorize_stdout.sh
+fi
+
 DIR_EVALUATED_MSG="Is a directory"
 FILE_EVALUATED_MSG="Not a directory"
 DOES_NOT_EXIST_EVALUATED_MSG="No such file or directory"
+
+function is_folder() {
+    local target
+    local target_type
+    local eval_stdout
+
+    eval_stdout=$(eval $1 | sed 's/.*: //')
+
+    if [ "$eval_stdout" == "$DIR_EVALUATED_MSG" ]; then
+        target_type="EXISTS"
+        log_error "Directory already exists: $target"
+        echo "$target_type"
+    elif [ "$eval_stdout" == "$DOES_NOT_EXIST_EVALUATED_MSG" ]; then
+        target_type="DOES_NOT_EXIST"
+        log_success "Directory does not exist: $target"
+        echo "$target_type"
+    else
+        target_type="ERROR"
+        log_error "Error: $eval_stdout"
+        echo "$target_type"
+    fi
+
+    return 0
+}
 
 function is_type() {
     local function_list
