@@ -1,3 +1,8 @@
+# DEPENDENCIES
+basic-cli/*
+basic-cli/
+basic-cli
+
 # filestore index files (create  using ./utils/create_index.sh
 *.db
 

@@ -17,8 +17,9 @@ alias capture='$CFG_DIR/utils/capture.sh'
 alias cap='$CFG_DIR/utils/capture.sh'
 
 # Renaming scripts
-alias super_rename='$CFG_DIR/utils/super_rename.sh'
-alias space_rename='$CFG_DIR/utils/space_rename.sh'
+alias replace_spaces='$CFG_DIR/utils/replace_spaces.sh'
+# alias super_rename='$CFG_DIR/utils/super_rename.sh'
+# alias space_rename='$CFG_DIR/utils/space_rename.sh'
 echo "Rename aliases loaded $happy"
 
 # Delete scripts
@@ -27,6 +28,9 @@ echo "Delete aliases loaded $chicken"
 
 # Overwrite file with content
 alias fwrite='$CFG_DIR/utils/fwrite.sh'
+
+# Move files based on criteria
+alias fastmove='$CFG_DIR/utils/fastmove.sh'
 
 # copy files from 2 directories and 2 extensions to a destination
 alias cpcp='$CFG_DIR/utils/compare_and_copy.sh'

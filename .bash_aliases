@@ -17,7 +17,7 @@ alias lsd="ls -d */"
 alias lst="ls -lAt --time=mtime"
 
 # Applications
-alias web="cd /home/jasper/_WEB"
+alias webstorm="$HOME/.local/share/JetBrains/Toolbox/apps/webstorm/bin/webstorm.sh --new-window"
 alias zed="~/.local/bin/zed"
 
 # CLI applications
