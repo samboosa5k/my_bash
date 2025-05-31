@@ -3,6 +3,9 @@ basic-cli/*
 basic-cli/
 basic-cli
 
+# SPECIFIC CONFIG FILES
+backup/.config/
+
 # filestore index files (create  using ./utils/create_index.sh
 *.db
 
