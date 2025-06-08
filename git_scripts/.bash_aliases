@@ -16,6 +16,7 @@ alias gbn='$CFG_DIR/git_scripts/git_branch_new.sh'
 alias gg='$CFG_DIR/git_scripts/git_change_utils.sh'
 alias co='$CFG_DIR/git_scripts/git_checkout_handler.sh'
 alias gc='$CFG_DIR/git_scripts/git_commit_message.sh'
+alias git_undo='$CFG_DIR/git_scripts/git_undo_push.sh'
 
 # Success message
 echo "Git aliases loaded $happy"

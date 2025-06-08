@@ -29,7 +29,6 @@ alias reaper="rpmreaper"
 alias clean_kernels="dnf repoquery --installonly --latest-limit=-2 -q | xargs sudo dnf remove"
 
 # Troubleshooting
-alias systemctl="sudo systemctl"
 alias sysd="systemd"
 alias sysblame="systemd blame"
 alias syscrit="systemd-analyze critical-chain"

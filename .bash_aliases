@@ -12,8 +12,8 @@ alias home="/home/jasper"
 alias xx="sudo systemctl poweroff -f"
 alias off="sudo systemctl poweroff --now"
 
-alias lsf="ls -p -A | grep -v /"
-alias lsd="ls -d */"
+alias lsf="find . -maxdepth 1 -type f | grep -E '.*\w+'"
+alias lsd="find . -maxdepth 1 -type d"
 alias lst="ls -lAt --time=mtime"
 
 # Applications
