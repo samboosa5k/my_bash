@@ -45,3 +45,5 @@ function install_roc() {
 
 alias install_roc=install_roc
 install_roc "$TEMP_DOWNLOADS" "$LATEST_RELEASE_URL"
+
+# Improved function to install

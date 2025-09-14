@@ -2,7 +2,7 @@
 
 export PATH=$HOME/.local/bin:$PATH
 
-export CFG_DIR="$HOME/_WEB/my_bash"
+export CFG_DIR="$HOME/dev/my_bash"
 export LOCAL_BINS="$HOME/.local/bin"
 export LOCAL_SHARES="$HOME/.local/share"
 export TEMP_DOWNLOADS="$HOME/Downloads/temp"

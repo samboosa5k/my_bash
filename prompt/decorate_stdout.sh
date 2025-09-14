@@ -8,7 +8,13 @@ TILDE_ROW="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 MINUS_ROW="---------------------------------------------------------------------------------------------------------"
 DEFAULT_ROW=$MINUS_ROW
 
-function decorate_stdout (){
+function usage() {
+    echo "Error: --msg argument is required." >&2
+    echo "  decorate_stdout --char=~ --msg=\"Hello, World!\""
+    return 1
+}
+
+function decorate_stdout() {
     # message to decorate
     local message=""
     local output_message=""
@@ -23,32 +29,37 @@ function decorate_stdout (){
     # Parse arguments manually for long options
     while [[ $# -gt 0 ]]; do
         case $1 in
-            --char=*)
-                local char="${1#*=}"
-                # assign filler row based on character
-                if [ "$char" == "=" ]; then
-                    filler_row=$EQUALS_ROW
-                elif [ "$char" == "#" ]; then
-                    filler_row=$HASHTAG_ROW
-                elif [ "$char" == "~" ]; then
-                    filler_row=$TILDE_ROW
-                elif [ "$char" == "-" ]; then
-                    filler_row=$MINUS_ROW
-                else
-                    filler_row=$DEFAULT_ROW
-                fi
-                shift
-                ;;
-            --msg=*)
-                message="${1#*=}"
-                shift
-                ;;
-            *)
-                echo "Invalid option: $1" >&2
-                shift
-                ;;
+        --char=*)
+            local char="${1#*=}"
+            # assign filler row based on character
+            if [ "$char" == "=" ]; then
+                filler_row=$EQUALS_ROW
+            elif [ "$char" == "#" ]; then
+                filler_row=$HASHTAG_ROW
+            elif [ "$char" == "~" ]; then
+                filler_row=$TILDE_ROW
+            elif [ "$char" == "-" ]; then
+                filler_row=$MINUS_ROW
+            else
+                filler_row=$DEFAULT_ROW
+            fi
+            shift
+            ;;
+        --msg=*)
+            message="${1#*=}"
+            shift
+            ;;
+        *)
+            echo "Invalid option: $1" >&2
+            shift
+            ;;
         esac
     done
+
+    if [[ -z $message ]]; then
+        usage
+        return 1
+    fi
 
     # Get terminal width
     local nr_cols
@@ -57,7 +68,7 @@ function decorate_stdout (){
 
     # Create filler and padding rows based on terminal width
     filler_row=$(printf "%${nr_cols}s" "" | sed "s/./${filler_row:0:1}/g")
-    padding_row="${filler_row:0:1}$(printf "%$((nr_cols-2))s" "")${filler_row:0:1}"
+    padding_row="${filler_row:0:1}$(printf "%$((nr_cols - 2))s" "")${filler_row:0:1}"
 
     # output message
     local max_chars_per_row
@@ -98,3 +109,27 @@ function decorate_stdout (){
 }
 
 alias decorate_stdout=decorate_stdout
+
+function log_equals_box() {
+    local message="$1"
+    decorate_stdout --char="=" --msg="$message"
+    return 0
+}
+
+function log_hashtag_box() {
+    local message="$1"
+    decorate_stdout --char="#" --msg="$message"
+    return 0
+}
+
+function log_tilde_box() {
+    local message="$1"
+    decorate_stdout --char="~" --msg="$message"
+    return 0
+}
+
+function log_dash_box() {
+    local message="$1"
+    decorate_stdout --char="-" --msg="$message"
+    return 0
+}
