@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Roc path
-# export PATH=$PATH:$LOCAL_SHARES/roc-nightly
+export PATH=$PATH:~/dev/my_roc_cli/roc_nightly-linux_x86_64-2025-09-09-d73ea109

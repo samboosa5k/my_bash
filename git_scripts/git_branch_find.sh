@@ -1,21 +1,25 @@
 #!/bin/bash
+
 function git_branch_find() {
   local query
   local branch_list
 
   query=$1
-  # If no query is provided, print an error message
+
   if [ -z "$query" ]; then
     echo "No query provided"
     return 1
   fi
 
-  branch_list=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
-  branch_list=$(echo "$branch_list" | awk '{print NR-1 " " $0}')
+  branch_list=$(git branch --list | sed 's/^[[:space:]]*[* ]\{0,2\}//' | grep -i "$query")
+
   if [ -z "$branch_list" ]; then
     echo "No branches found"
     return 1
   fi
+
+  # Index the branch list starting at 0
+  branch_list=$(echo "$branch_list" | awk '{print NR-1 " " $0}')
 
   # If only one branch is found, check it out
   if [ "$(echo "$branch_list" | wc -l)" -eq 1 ]; then
@@ -35,6 +39,7 @@ function git_branch_find() {
       echo "$branch_list"
       read -r idx
     fi
+
     git checkout "$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')" &&
       return 0
   fi
