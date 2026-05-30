@@ -9,9 +9,6 @@ alias bkdir='$CFG_DIR/utils/quick_alias.sh'
 # Bulk create symlink directories
 alias mklns='$CFG_DIR/utils/bulk_symlink.sh'
 
-# Create index for locate
-alias mkidx='$CFG_DIR/utils/create_index.sh'
-
 # Capture and log command and output to *.md
 alias capture='$CFG_DIR/utils/capture.sh'
 alias cap='$CFG_DIR/utils/capture.sh'
@@ -20,18 +17,11 @@ alias cap='$CFG_DIR/utils/capture.sh'
 alias replace_spaces='$CFG_DIR/utils/replace_spaces.sh'
 log_success "Rename aliases loaded $happy"
 
-# Delete scripts
-alias image_delete='$CFG_DIR/utils/image_delete.sh'
-log_success "Delete aliases loaded $chicken"
-
 # Overwrite file with content
 alias fwrite='$CFG_DIR/utils/fwrite.sh'
 
 # Move files based on criteria
 alias fastmove='$CFG_DIR/utils/fastmove.sh'
-
-# copy files from 2 directories and 2 extensions to a destination
-alias cpcp='$CFG_DIR/utils/compare_and_copy.sh'
 
 # Success message
 log_success "Utils aliases loaded $happy"

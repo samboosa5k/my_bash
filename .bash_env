@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration Directory
-export CFG_DIR="/home/jasper/dev/my_bash"
+export CFG_DIR="$HOME/dev/my_bash"
 
 # Shared Constants (Emojis)
 export chicken="🐤"

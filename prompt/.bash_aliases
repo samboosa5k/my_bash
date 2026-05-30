@@ -5,8 +5,8 @@
 ps1_username_styled="\[\033[38;5;15m\]\u (재스퍼)"
 ps1_cat_emoji="\[\033[38;5;15m\]$kitty "
 
-# Get OS Name from os-release (e.g., Fedora) instead of network hostname \h
-os_name=$(grep '^NAME=' /etc/os-release | cut -d'=' -f2 | tr -d '"' | awk '{print $1}')
+# Get OS Name from sw_vers on macOS
+os_name=$(sw_vers -productName)
 ps1_hostname="\[\033[38;5;214m\]$os_name"
 
 ps1_at="\[\033[38;5;15m\]@"
@@ -21,7 +21,7 @@ ps1_git_branch="\[\033[38;5;15m\] \$(git branch 2>/dev/null | grep '^*' | colrm 
 # prompt string concatenated
 PS1="$chicken\n$ps1_username_styled $ps1_at $ps1_hostname ($ps1_cat_emoji) $ps1_folder$ps1_git_branch$ps1_newline_symbol ($ps1_time) \n"
 
-eval "$(dircolors -b)"
+# eval "$(dircolors -b)" (Disabled on macOS)
 
 # Success message
 log_success "Bash prompt loaded $happy"
