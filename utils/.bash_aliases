@@ -18,13 +18,11 @@ alias cap='$CFG_DIR/utils/capture.sh'
 
 # Renaming scripts
 alias replace_spaces='$CFG_DIR/utils/replace_spaces.sh'
-# alias super_rename='$CFG_DIR/utils/super_rename.sh'
-# alias space_rename='$CFG_DIR/utils/space_rename.sh'
-echo "Rename aliases loaded $happy"
+log_success "Rename aliases loaded $happy"
 
 # Delete scripts
 alias image_delete='$CFG_DIR/utils/image_delete.sh'
-echo "Delete aliases loaded $chicken"
+log_success "Delete aliases loaded $chicken"
 
 # Overwrite file with content
 alias fwrite='$CFG_DIR/utils/fwrite.sh'
@@ -36,8 +34,9 @@ alias fastmove='$CFG_DIR/utils/fastmove.sh'
 alias cpcp='$CFG_DIR/utils/compare_and_copy.sh'
 
 # Success message
-echo "Utils aliases loaded $happy"
+log_success "Utils aliases loaded $happy"
 
 # Navigate like 'cd' but log the location and print useful information
 alias to='source $CFG_DIR/utils/navigation.sh'
-echo "Navigation aliases loaded $happy"
+# Success message
+log_success "Navigation aliases loaded $happy"

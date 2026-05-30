@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Configuration Directory
+export CFG_DIR="/home/jasper/dev/my_bash"
+
+# Shared Constants (Emojis)
+export chicken="🐤"
+export kitty="🐱"
+export unhappy="😞"
+export happy="😀"
+export sad="😢"
+export thinking="🤔"
+export angry="😡"
+
+# Common Tooling Exports
+export EDITOR=vim
+export LOCAL_BINS="$HOME/.local/bin"
+export LOCAL_SHARES="$HOME/.local/share"
+export TEMP_DOWNLOADS="$HOME/Downloads/temp"
+export NVM_DIR="$HOME/.nvm"

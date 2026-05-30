@@ -2,11 +2,11 @@
 
 # Decorate stdout with headers filled with ascii characters and colors
 
-EQUALS_ROW="========================================================================================================="
-HASHTAG_ROW="########################################################################################################"
-TILDE_ROW="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-MINUS_ROW="---------------------------------------------------------------------------------------------------------"
-DEFAULT_ROW=$MINUS_ROW
+EQUALS_ROW="="
+HASHTAG_ROW="#"
+TILDE_ROW="~"
+MINUS_ROW="-"
+DEFAULT_ROW="-"
 
 function usage() {
     echo "Error: --msg argument is required." >&2
@@ -17,32 +17,13 @@ function usage() {
 function decorate_stdout() {
     # message to decorate
     local message=""
-    local output_message=""
-    # output additional
-    local output_top
-    local output_bottom
-    # filler and padding rows based on
-    # formatting basis
-    local filler_row=$DEFAULT_ROW
-    local padding_row
-
+    local char="-"
+    
     # Parse arguments manually for long options
     while [[ $# -gt 0 ]]; do
         case $1 in
         --char=*)
-            local char="${1#*=}"
-            # assign filler row based on character
-            if [ "$char" == "=" ]; then
-                filler_row=$EQUALS_ROW
-            elif [ "$char" == "#" ]; then
-                filler_row=$HASHTAG_ROW
-            elif [ "$char" == "~" ]; then
-                filler_row=$TILDE_ROW
-            elif [ "$char" == "-" ]; then
-                filler_row=$MINUS_ROW
-            else
-                filler_row=$DEFAULT_ROW
-            fi
+            char="${1#*=}"
             shift
             ;;
         --msg=*)
@@ -50,7 +31,10 @@ function decorate_stdout() {
             shift
             ;;
         *)
-            echo "Invalid option: $1" >&2
+            # If not a long option, assume it's the message if not already set
+            if [[ -z "$message" ]]; then
+                message="$1"
+            fi
             shift
             ;;
         esac
@@ -64,46 +48,49 @@ function decorate_stdout() {
     # Get terminal width
     local nr_cols
     nr_cols=$(tput cols 2>/dev/null || echo 80)
-    local nr_message_chars=${#message}
+    # Ensure nr_cols is at least 20 for safety
+    if [[ $nr_cols -lt 20 ]]; then nr_cols=80; fi
 
-    # Create filler and padding rows based on terminal width
-    filler_row=$(printf "%${nr_cols}s" "" | sed "s/./${filler_row:0:1}/g")
-    padding_row="${filler_row:0:1}$(printf "%$((nr_cols - 2))s" "")${filler_row:0:1}"
+    local max_chars_per_row=$((nr_cols - 4))
+    local border_char="${char:0:1}"
+    
+    # Create filler and padding rows
+    local filler_row
+    filler_row=$(printf "%${nr_cols}s" "" | tr ' ' "$border_char")
+    local padding_row
+    padding_row="${border_char}$(printf "%$((nr_cols - 2))s" "")${border_char}"
 
-    # output message
-    local max_chars_per_row
-    max_chars_per_row=$((nr_cols - 4))
+    # Start output
+    echo -e "${filler_row}"
+    echo -e "${padding_row}"
 
-    local increment=0
-    # Process message in chunks
-    while [ $increment -lt "$nr_message_chars" ]; do
-        # Extract chunk of message
-        local chunk
-        local chunk_length
-        chunk="${message:$increment:$max_chars_per_row}"
-        chunk_length=${#chunk}
+    # Process message in chunks (handling newlines in message too)
+    local line
+    echo "$message" | while IFS= read -r line || [[ -n "$line" ]]; do
+        local nr_line_chars=${#line}
+        local increment=0
+        
+        if [[ $nr_line_chars -eq 0 ]]; then
+             echo -e "${border_char} $(printf "%${max_chars_per_row}s" "") ${border_char}"
+             continue
+        fi
 
-        # Calculate padding needed
-        local padding_needed
-        local padding
-        padding_needed=$((max_chars_per_row - chunk_length))
-        padding=$(printf "%${padding_needed}s" "")
+        while [ $increment -lt "$nr_line_chars" ]; do
+            local chunk="${line:$increment:$max_chars_per_row}"
+            local chunk_length=${#chunk}
+            local padding_needed=$((max_chars_per_row - chunk_length))
+            local padding=""
+            if [ $padding_needed -gt 0 ]; then
+                padding=$(printf "%${padding_needed}s" "")
+            fi
 
-        # Create row with message chunk
-        local message_row
-        message_row="${filler_row:0:1} ${chunk}${padding} ${filler_row:0:1}"
-
-        output_message+="$message_row\n"
-        increment=$((increment + max_chars_per_row))
+            echo -e "${border_char} ${chunk}${padding} ${border_char}"
+            increment=$((increment + max_chars_per_row))
+        done
     done
 
-    # Create top and bottom rows
-    output_top="${filler_row}\n${padding_row}"
-    output_bottom="${padding_row}${filler_row}"
-    output_message+="$output_bottom"
-
-    echo -e "$output_top"
-    echo -e "$output_message"
+    echo -e "${padding_row}"
+    echo -e "${filler_row}"
 
     return 0
 }

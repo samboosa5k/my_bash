@@ -27,13 +27,19 @@ log_action() {
 # Function to add a cron job
 add_cron_job() {
     local cron_job="$1"
-    (crontab -l; echo "$cron_job") | crontab - || { echo -e "${FG_NEON_ORANGE}Failed to add cron job${RESET}"; return 1; }
+    [ -z "$cron_job" ] && return 1
+    (crontab -l 2>/dev/null; echo "$cron_job") | crontab - || { echo -e "${FG_NEON_ORANGE}Failed to add cron job${RESET}"; return 1; }
     log_action "add" "$cron_job"
 }
 
 # Function to remove a cron job
 remove_cron_job() {
     local cron_job="$1"
+    [ -z "$cron_job" ] && return 1
+    if ! crontab -l | grep -q "$cron_job"; then
+        echo -e "${FG_NEON_ORANGE}Cron job not found${RESET}"
+        return 1
+    fi
     crontab -l | grep -v "$cron_job" | crontab - || { echo -e "${FG_NEON_ORANGE}Failed to remove cron job${RESET}"; return 1; }
     log_action "remove" "$cron_job"
 }
@@ -48,7 +54,7 @@ manage_cron_jobs() {
     local should_install_dialog
 
     if ! command -v dialog &> /dev/null; then
-        echo -e "${FG_NEON_ORANGE}dialog command not found. Please install it to use this script.${RESET}"
+        log_warning "dialog command not found. Please install it to use this script."
         # Check if the user wants to install dialog with read
         read -rp "Do you want to install dialog? (y/n): " should_install_dialog
         if [ "$should_install_dialog" = "y" ]; then

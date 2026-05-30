@@ -27,17 +27,27 @@ function git_branch_find() {
     return 0
   else
     # If multiple branches are found, print them and ask which to check out
-    echo "Enter branch index to check out:"
+    echo "Enter branch index to check out (or 'x' to exit):"
     echo "$branch_list"
 
     local idx
     read -r idx
 
+    if [ "$idx" == "x" ]; then
+      echo "Exiting..."
+      return 0
+    fi
+
     if [ -z "$idx" ]; then
       echo "No index provided"
-      echo "Enter target branch index:"
+      echo "Enter target branch index (or 'x' to exit):"
       echo "$branch_list"
       read -r idx
+
+      if [ "$idx" == "x" ]; then
+        echo "Exiting..."
+        return 0
+      fi
     fi
 
     git checkout "$(echo "$branch_list" | awk -v idx="$idx" 'NR-1==idx {print $2}')" &&

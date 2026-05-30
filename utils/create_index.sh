@@ -41,7 +41,7 @@ function create_index() {
 
     # verbose output
     sudo updatedb -U "$dir_to_index" -o "$dir_index_db"
-    echo "Index created for $dir_to_index in $dir_index_db"
+    log_success "Index created for $dir_to_index in $dir_index_db"
 }
 
 alias create_index=create_index

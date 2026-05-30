@@ -1,13 +1,5 @@
 #!/bin/bash
 
-export chicken="🐤"
-export kitty="🐱"
-export unhappy="😞"
-export happy="😀"
-export sad="😢"
-export thinking="🤔"
-export angry="😡"
-
 #  set a fancy prompt for hostname and folder details
 # Prompt hostname, @ sign, current folder, time, and $ sign
 ps1_username_styled="\[\033[38;5;15m\]\u"
@@ -28,4 +20,4 @@ PS1="$chicken\n$ps1_username_styled $ps1_at $ps1_hostname ($ps1_cat_emoji) $ps1_
 eval "$(dircolors -b)"
 
 # Success message
-echo "Bash prompt loaded $happy"
+log_success "Bash prompt loaded $happy"

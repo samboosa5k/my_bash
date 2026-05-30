@@ -19,4 +19,4 @@ alias gc='$CFG_DIR/git_scripts/git_commit_message.sh'
 alias git_undo='$CFG_DIR/git_scripts/git_undo_push.sh'
 
 # Success message
-echo "Git aliases loaded $happy"
+log_success "Git aliases loaded $happy"

@@ -9,10 +9,10 @@
 # --by-name
 # --SENSITIVE
 
-function concat_crtieria() {
+function concat_criteria() {
     local criteria_list=("$@")
     local criteria
-    local criteria_string
+    local criteria_string=""
 
     for criteria in "${criteria_list[@]}"; do
         criteria_string+="$criteria"
@@ -23,74 +23,75 @@ function concat_crtieria() {
 }
 
 function fastmove() {
-    local target_dir
-    local move_args
-    local criteria_list
+    local target_dir=""
+    local criteria_list=()
+    local arg
 
-    move_args=("$@")
-    criteria_list=()
-
-    for arg in "${move_args[@]}"; do
+    for arg in "$@"; do
         if [ "$arg" == "--by-ext" ]; then
             criteria_list+=("ext")
         elif [ "$arg" == "--by-name" ]; then
             criteria_list+=("name")
         elif [ "$arg" == "--SENSITIVE" ]; then
             criteria_list+=("SENSITIVE")
+        elif [[ ! "$arg" =~ ^-- ]]; then
+            target_dir="$arg"
         fi
     done
 
     local criteria_string
-    criteria_string=$(concat_crtieria "${criteria_list[@]}")
+    criteria_string=$(concat_criteria "${criteria_list[@]}")
 
-    local target_dir
-    # if target dir is not provided, make a "moved" directory in current directory
-    # if target dir exists prompt move into it or make a new one
-    if [ -z "$1" ]; then
+    if [ -z "$criteria_string" ]; then
+        echo "Error: No criteria provided. Use --by-ext, --by-name, or --SENSITIVE."
+        return 1
+    fi
+
+    if [ -z "$target_dir" ]; then
         target_dir="moved"
-    else
-        target_dir="$1"
     fi
 
     if [ -d "$target_dir" ]; then
         echo "Directory $target_dir already exists. Move files into it? (y/n)"
         read -r move_files
-        if [ "$move_files" == "y" ]; then
-            echo "Moving files into $target_dir"
-        else
-            echo "Enter new directory name"
+        if [ "$move_files" != "y" ]; then
+            echo "Enter new directory name:"
             read -r new_dir
             target_dir="$new_dir"
+            [ -z "$target_dir" ] && return 1
+            mkdir -p "$target_dir"
         fi
     else
-        mkdir "$target_dir"
+        mkdir -p "$target_dir"
     fi
 
     local file
     local file_name
     local file_ext
     local file_name_no_ext
-    local target_file
-    local target_file_name
-    local target_file_ext
-    local target_file_name_no_ext
+    local target_path
 
     for file in *; do
-        if [ -f "$file" ]; then
-            file_name=$(basename "$file")
-            file_ext="${file_name##*.}"
-            file_name_no_ext="${file_name%.*}"
+        [ -f "$file" ] || continue
+        [ "$file" == "$target_dir" ] && continue
+        
+        file_name=$(basename "$file")
+        file_ext="${file_name##*.}"
+        file_name_no_ext="${file_name%.*}"
 
-            if [ "$criteria_string" == "ext" ]; then
-                target_file="$target_dir/$file_ext"
-            elif [ "$criteria_string" == "name" ]; then
-                target_file="$target_dir/$file_name_no_ext"
-            elif [ "$criteria_string" == "SENSITIVE" ]; then
-                target_file="$target_dir/$file_name"
-            fi
-
-            mv "$file" "$target_file"
+        if [ "$criteria_string" == "ext" ]; then
+            mkdir -p "$target_dir/$file_ext"
+            target_path="$target_dir/$file_ext/$file_name"
+        elif [ "$criteria_string" == "name" ]; then
+            mkdir -p "$target_dir/$file_name_no_ext"
+            target_path="$target_dir/$file_name_no_ext/$file_name"
+        elif [ "$criteria_string" == "SENSITIVE" ]; then
+            target_path="$target_dir/$file_name"
+        else
+            continue
         fi
+
+        mv "$file" "$target_path"
     done
 
     return 0

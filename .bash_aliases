@@ -2,7 +2,7 @@
 
 # Configuration
 alias cfg='cd $CFG_DIR && ls -A1'
-alias rl="rm ~/.bashrc && cp $CFG_DIR/.bashrc $HOME && source ~/.bashrc"
+alias rl="clear && rm ~/.bashrc && cp $CFG_DIR/.bashrc $HOME && source ~/.bashrc"
 
 # Basic
 alias ss="sudo -s"
@@ -38,12 +38,6 @@ if [ -f $CFG_DIR/utils/.bash_aliases ]; then
     . $CFG_DIR/utils/.bash_aliases
 fi
 
-# Dependencies
-if [ -f $CFG_DIR/development/.bash_aliases ]; then
-    . $CFG_DIR/development/.bash_aliases
-fi
 
-# Experimental
-# if [ -f $CFG_DIR/experimental/.bash_aliases ]; then
-#     . $CFG_DIR/experimental/.bash_aliases
-# fi
+# Success message
+log_success "Main aliases loaded $happy"

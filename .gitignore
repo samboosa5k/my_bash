@@ -1,22 +1,20 @@
 # DEPENDENCIES
-basic-cli/*
 basic-cli/
-basic-cli
 
-# SPECIFIC CONFIG FILES
+# SPECIFIC CONFIG FILES & SCRIPT OUTPUTS
+# Ignore the backed up config files inside the backup folder
 backup/.config/
+# Ignore generic output files from your utils scripts
+*.csv
+*.json
+*.log
 
-# filestore index files (create  using ./utils/create_index.sh
+# filestore index files (create using ./utils/create_index.sh)
 *.db
 
-# ide configs ffs
+# IDE and OS configurations
 .idea/
-.idea
-.directory/
-.directory
 .vscode/
-.vscode
-
-# Still in progress
-.vm_and_machine_maintenance/
-.vm_and_machine_maintenance
+.junie/
+.directory
+.DS_Store

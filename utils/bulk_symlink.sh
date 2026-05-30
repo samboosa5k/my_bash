@@ -68,21 +68,28 @@ function bulk_links() {
         return 1
     fi
 
-    found_targets=$(find "$search_dir" -maxdepth "$depth" -iname "*$pattern*")
+    # Validate depth
+    if ! [[ "$depth" =~ ^[0-9]+$ ]]; then
+        echo "Error: Depth must be a non-negative integer."
+        return 1
+    fi
 
-    echo -e "${FG_NEON_ORANGE}Found ${#found_targets[@]} targets${RESET}"
-
+    local found_count=0
     # if directory to create the symlinks does not exist, create it
     if [ ! -d "$target_symlink_dir" ]; then
-        echo -e "${FG_NEON_ORANGE}Creating directory $target_symlink_dir${RESET}"
+        log_tilde_box "Creating directory $target_symlink_dir"
         mkdir -p "$target_symlink_dir"
     fi
 
     # Create the symlinks, relative to the target symlink directory
-    for result in $found_targets; do
-        echo -e "${FG_NEON_ORANGE}Creating symlink $result${RESET}"
+    while read -r result; do
+        [ -z "$result" ] && continue
+        log_info "Creating symlink for: $result"
         ln -rs "$result" "$target_symlink_dir/$(basename "$result")"
-    done
+        ((found_count++))
+    done < <(find "$search_dir" -maxdepth "$depth" -iname "*$pattern*")
+
+    log_success "Created $found_count symlinks in $target_symlink_dir"
 }
 
 alias bulk_links=bulk_links

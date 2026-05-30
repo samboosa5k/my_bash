@@ -36,32 +36,26 @@
 # alias getImageInfo=getImageInfo
 
 function flat_index() {
-    echo "filename,extension,width,height,path,size,date,year,month,day" > index_formatted.csv
-    find . -type f \( -iname \*.jpg -o -iname \*.png \) | while read -r img_glob; do
+    local output_file="index_formatted.csv"
+    echo "filename,extension,width,height,path,size,date,year,month,day" > "$output_file"
+    find . -type f \( -iname "*.jpg" -o -iname "*.png" \) | while read -r img_glob; do
         # assignment
         local imagemagickstr
-        # local filename
-        # local type
         local size
         local date
         local daymonthyear
-        # local width
-        # local height
-        # local path
-        # local relativepath
         local output
-        # declariton
-        imagemagickstr=$(identify -format "%t,%e,%w,%h,$(pwd)\/%d\/%f" "$img_glob" | sed 's/\s\+/%20/g')
+
+        imagemagickstr=$(identify -format "%t,%e,%w,%h,$(pwd)/%d/%f" "$img_glob" | sed 's/\s\+/%20/g')
         size=$(du -h "$img_glob" | cut -f1)
         # sed strip everything after the first space, then replace colon with comma
         date=$(identify -format "%[EXIF:DateTime]" "$img_glob" | sed 's/\s\+.*//g' | sed 's/\:/\-/g')
         daymonthyear=$(echo "$date" | sed 's/\-/\,/g')
         output="$imagemagickstr","$size","$date","$daymonthyear"
-        echo "Done: "
-        echo "$output"
-        echo "$output" >> index_formatted.csv
+        echo "Done: $img_glob"
+        echo "$output" >> "$output_file"
     done
-    return 1
+    return 0
 }
 
 alias flat_index=flat_index

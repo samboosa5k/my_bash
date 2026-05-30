@@ -1,8 +1,5 @@
 #!/bin/bash
 
-TABLE_HEADINGS="$(nmcli d status | grep -E "([A-Z]{2,}.+)")" # Get the headings
-DEVICES="$(nmcli d status | grep -E "([a-z].+)")"            # Get the list of devices
-
 # Prompts
 PROMPT_SELECTION="Select a device to connect to: "
 PROMPT_ERROR="Invalid selection. Please try again: "
@@ -12,43 +9,50 @@ function nmcli_connect() {
     local device_nr
     local device_name
     local user_confirmed
+    local devices
+    local headings
 
-    # Print the first row of the table
-    echo "$TABLE_HEADINGS"
+    headings=$(nmcli d status | head -n 1)
+    devices=$(nmcli d status | tail -n +2)
 
-    # Print the $DEVICES output with each row prefixed with a number
-    echo "$DEVICES" | awk '{print NR-1 " " $0}'
+    if [ -z "$devices" ]; then
+        echo "No devices found."
+        return 1
+    fi
+
+    # Print the headings
+    log_equals_box "$headings"
+
+    # Print the devices output with each row prefixed with a number
+    log_dash_box "$(echo "$devices" | awk '{print NR-1 " " $0}')"
 
     # Prompt the user to select a device
     echo -n "$PROMPT_SELECTION"
-    read device_nr
+    read -r device_nr
 
-    # Check if the input is a number
-    while ! [[ $device_nr =~ ^[0-9]+$ ]]; do
-        echo -n "$PROMPT_ERROR"
-        read device_nr
-    done
+    local num_devices
+    num_devices=$(echo "$devices" | wc -l)
 
-    # Check if the input is within the range of the devices
-    while [ $device_nr -gt $(echo "$DEVICES" | wc -l) ]; do
+    # Check if the input is a number and within range
+    while ! [[ "$device_nr" =~ ^[0-9]+$ ]] || [ "$device_nr" -ge "$num_devices" ]; do
         echo -n "$PROMPT_ERROR"
-        read device_nr
+        read -r device_nr
     done
 
     # Get the device name from the list of devices based on the row number
-    device_name=$(echo "$DEVICES" | awk -v device_nr="$device_nr" 'NR-1==device_nr {print $1}')
+    device_name=$(echo "$devices" | awk -v device_nr="$device_nr" 'NR==device_nr+1 {print $1}')
 
     # Confirm the connection
     echo "Connect to $device_name? (y/n)"
-    read user_confirmed
+    read -r user_confirmed
 
-    if [ "$user_confirmed" != "y" ]; then
+    if [[ ! "$user_confirmed" =~ ^[Yy] ]]; then
         echo "Connection aborted"
         return 1
     fi
 
     # Connect to the selected device
-    nmcli d connect $device_name
+    nmcli d connect "$device_name"
     return 0
 }
 

@@ -20,16 +20,16 @@ function getImageInfo() {
   file="$1"
 
   # assignment
-  filename=$(basename "$File")
-  path=$(realpath --relative-to="$HOME" "$File")
-  width=$(identify -format "%w" "$File")
-  height=$(identify -format "%h" "$File")
-  aspectRatio=$(echo "scale=2; $Width/$Height" | bc)
-  size=$(du -h "$File" | cut -f1)
-  type=$(file -b --mime-type "$File")
+  filename=$(basename "$file")
+  path=$(realpath --relative-to="$HOME" "$file")
+  width=$(identify -format "%w" "$file")
+  height=$(identify -format "%h" "$file")
+  aspectRatio=$(echo "scale=2; $width/$height" | bc)
+  size=$(du -h "$file" | cut -f1)
+  type=$(file -b --mime-type "$file")
   # Original date from file properties
-  date=$(stat -c %y "$File" | cut -d' ' -f1)
-  relativePath=$(realpath --relative-to="$PWD" "$File")
+  date=$(stat -c %y "$file" | cut -d' ' -f1)
+  relativePath=$(realpath --relative-to="$PWD" "$file")
 
   # format output
   infoJson=$(jq -n \
@@ -46,7 +46,7 @@ function getImageInfo() {
 
   echo "$infoJson"
 
-  return 1
+  return 0
 }
 
 alias getImageInfo=getImageInfo
@@ -61,18 +61,22 @@ function listImages() {
   filename="_images_$filename_date.json"
 
   local image
+  local first=true
+  echo "[" >"$filename"
   for image in *.jpg *.jpeg *.png; do
+    [ -e "$image" ] || continue
     # glob image to pass to function
     outputjson=$(getImageInfo "${image}")
-    outputjson=$(echo "$outputjson" | sed 's/}/},/g')
-    echo "$outputjson" >>"$filename"
+    if [ "$first" = true ]; then
+      echo "$outputjson" >>"$filename"
+      first=false
+    else
+      echo ",$outputjson" >>"$filename"
+    fi
   done
-
-  sed -i '1s/^/[/' "$filename"
-  sed -i '$ s/.$//' "$filename"
   echo "]" >>"$filename"
 
-  return 1
+  return 0
 }
 
 alias listImages=listImages

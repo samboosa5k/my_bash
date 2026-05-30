@@ -25,6 +25,8 @@ function capture() {
     cmd_location="$(pwd)"
 
     output_location="$HOME/Logs"
+    mkdir -p "$output_location"
+
     output_captured_count="$(find "$output_location" -maxdepth 1 -iname "*$initial_cmd*" | wc -l)"
     # increment the count
     output_captured_count=$((output_captured_count + 1))
@@ -32,19 +34,29 @@ function capture() {
 
     # Markdown formatting
     cmd_header="# Command log and output:"
-    cmd_subheader="# Called from: $cmd_location"
-    cmd_wrapper="\`\`\`bash"
-    cmd_wrapper="$cmd_wrapper\n$cmd\n\`\`\`"
-
+    cmd_subheader="## Called from: $cmd_location"
+    
     cmd_result=$(eval "$cmd" 2>&1)
-    cmd_result="\`\`\`bash\n$cmd_result\n\`\`\`"
 
-    output_content="$cmd_header\n\n$cmd_subheader\n\n$cmd_wrapper\n\n$cmd_result"
+    # Save output using printf to handle multi-line strings correctly
+    {
+        echo "$cmd_header"
+        echo ""
+        echo "$cmd_subheader"
+        echo ""
+        echo "### Command"
+        echo '```bash'
+        echo "$cmd"
+        echo '```'
+        echo ""
+        echo "### Output"
+        echo '```text'
+        echo "$cmd_result"
+        echo '```'
+    } > "$output_location/$output_file"
 
-    # save the output to a file
-    echo -e "$output_content" >"$output_location/$output_file"
     echo "Output saved to $output_location/$output_file"
-    echo "file://$output_location/$output_file"
+    log_success "file://$output_location/$output_file"
 
     return 0
 }

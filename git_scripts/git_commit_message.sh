@@ -7,6 +7,8 @@ function git_commit_message(){
     local commit_type
     local branch_name
     local revision_number
+    local last_msg_file="/tmp/.last_git_commit_msg"
+    local last_type_file="/tmp/.last_git_commit_type"
 
     branch_name=$(git branch | grep -E "\*" | cut -d ' ' -f2)
     # Get revision number from branch name after first / and before underscore
@@ -38,17 +40,33 @@ function git_commit_message(){
 
     # Check if commit_type is empty, else prompt for commit_type
     if [ -z "$commit_type" ]; then
-        echo "Enter commit type:"
+        local default_type=""
+        [ -f "$last_type_file" ] && default_type=$(cat "$last_type_file")
+        echo "Enter commit type [default: $default_type]:"
         read -r commit_type
+        [ -z "$commit_type" ] && commit_type="$default_type"
     fi
 
     read -r commit_message <<< "$commit_message"
 
     # Check if commit_message is empty, else prompt for commit_message
     if [ -z "$commit_message" ]; then
-        echo "Enter commit message:"
-        read -r commit_message
+        local default_msg=""
+        [ -f "$last_msg_file" ] && default_msg=$(cat "$last_msg_file")
+        
+        if [ -n "$default_msg" ]; then
+            echo "Enter commit message (Leave empty to use: '$default_msg'):"
+            read -r commit_message
+            [ -z "$commit_message" ] && commit_message="$default_msg"
+        else
+            echo "Enter commit message:"
+            read -r commit_message
+        fi
     fi
+
+    # Save details to temp files in case of failure
+    echo "$commit_message" > "$last_msg_file"
+    echo "$commit_type" > "$last_type_file"
 
     # Echo commit message template
     echo "[$commit_type] revision-$revision_number - $commit_message"
@@ -62,9 +80,9 @@ function git_commit_message(){
     if [ "$exit_code" -eq 0 ]; then
         echo "Committed [$commit_type] $revision_number - $commit_message"
     else
-        echo "Commit failed"
+        echo "Commit failed. Message saved for retry."
     fi
-   
+
     return 0
 }
 

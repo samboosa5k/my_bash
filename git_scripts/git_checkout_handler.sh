@@ -9,77 +9,62 @@ thinking="🤔"
 angry="😡"
 
 function checkout_branch_handler() {
-  local query
+  local query=$1
   local branch_list
-
-  query=$1
-
-  # List branches and print index
-  branch_list=$(git branch -a | grep -i "$query" | sed 's/^\s\+//g' | sed 's/\s\+//g' | sed 's/\*//g')
-  branch_list=$(echo "$branch_list" | awk '{print NR-1 " " $0}')
-  if [ -z "$branch_list" ]; then
-    echo "No branches found"
-    return 1
-  fi
-
-  local is_local_branch
-  local is_remote_branch
   local local_branch_list
   local remote_branch_list
 
-  if [ "$(echo "$branch_list" | wc -l)" -eq "1" ]; then
-    echo "One branch found $happy:"
-    echo "$branch_list" | awk '{print $2}'
-  elif [ "$(echo "$branch_list" | wc -l)" -gt 1 ]; then
-    echo "Multiple branches found $thinking:"
-    # Check if there are local branches, erase remote branches from branch_list
-    if [ "$(echo "$branch_list" | grep -c "remote|origin")" -gt 0 ]; then
-      is_remote_branch="1"
-      remote_branch_list="$(echo "$branch_list" | grep -i "remote|origin")"
-      #      echo "Remote branches:"
-      echo "$remote_branch_list" | awk '{print $2}'
-    fi
+  # List branches, clean up, and separate local and remote
+  local_branch_list=$(git branch --list "*$query*" | sed 's/[* ]//g')
+  remote_branch_list=$(git branch -r --list "*origin/*$query*" | sed 's/origin\///g' | sed 's/ //g')
 
-    if [ "$(echo "$branch_list" | grep -c "remote|origin")" -eq "0" ]; then
-      is_local_branch="1"
-      local_branch_list="$(echo "$branch_list" | grep -v -i "remote|origin")"
-      #      echo "Local branches:"
-      echo "$local_branch_list" | awk '{print $2}'
-    fi
-  else
-    echo "No branches found $unhappy"
+  if [ -z "$local_branch_list" ] && [ -z "$remote_branch_list" ]; then
+    echo "No branches found matching '$query' $unhappy"
     return 1
   fi
 
-  local branch_type
-  # Ask user to select remote or local branch if both exist
-  if [ "$(echo "$local_branch_list" | wc -l)" -gt 0  ] && [ "$(echo "$remote_branch_list" | wc -l)" -gt 0  ]; then
-    echo "Select branch type:"
-    echo "0 Local"
-    echo "1 Remote"
-    read -r branch_type
-    if [ "$branch_type" -eq "0" ]; then
-      branch_list="$local_branch_list"
-    elif [ "$branch_type" -eq "1" ]; then
-      branch_list="$remote_branch_list"
+  local selected_branch=""
+
+  # Logic for selection
+  if [ -n "$local_branch_list" ] && [ -n "$remote_branch_list" ]; then
+    echo "Branches found in both local and remote $thinking:"
+    echo "Local:"
+    echo "$local_branch_list" | awk '{print "  L: " $1}'
+    echo "Remote:"
+    echo "$remote_branch_list" | awk '{print "  R: " $1}'
+    
+    echo "Select (l)ocal or (r)emote? [l/r]"
+    read -r choice
+    if [[ "$choice" =~ ^[Rr] ]]; then
+        branch_list="$remote_branch_list"
     else
-      echo "Invalid branch type $unhappy"
-      return 1
+        branch_list="$local_branch_list"
     fi
+  elif [ -n "$local_branch_list" ]; then
+    branch_list="$local_branch_list"
+  else
+    branch_list="$remote_branch_list"
   fi
 
-  local branch_index
-  local branch_name
-  # Display a prompt to select a local or remote branch depending on the branch list
-  # If there are only remote branches, create a local branch from the remote branch
-  if [ "$is_local_branch" -eq "0" ] && [ "$is_remote_branch" -eq "1" ]; then
-    echo "Select branch to create:"
-    echo "$branch_list"
+  local count
+  count=$(echo "$branch_list" | grep -c .)
+
+  if [ "$count" -eq 1 ]; then
+    selected_branch=$(echo "$branch_list" | tr -d ' ')
+  else
+    log_tilde_box "Multiple branches found $thinking:\n$(echo "$branch_list" | awk '{print NR-1 " " $1}')"
+    echo "Select branch index:"
     read -r branch_index
-    branch_name=$(echo "$branch_list" | awk -v branch_index="$branch_index" 'NR==branch_index+1 {print $2}')
-    git checkout -b "$branch_name" "origin/$branch_name"
-    return 0
+    selected_branch=$(echo "$branch_list" | awk -v idx="$branch_index" 'NR==idx+1 {print $1}')
   fi
+
+  if [ -z "$selected_branch" ]; then
+    echo "Selection failed $unhappy"
+    return 1
+  fi
+
+  echo "Checking out $selected_branch $happy..."
+  git checkout "$selected_branch" || git checkout -b "$selected_branch" "origin/$selected_branch"
 }
 
 alias checkout_branch_handler="checkout_branch_handler"

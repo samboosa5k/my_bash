@@ -1,19 +1,12 @@
 #!/bin/bash
 
+# PATH additions
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/home/jasper/.ghcup/bin
 
-export CFG_DIR="$HOME/dev/my_bash"
-export LOCAL_BINS="$HOME/.local/bin"
-export LOCAL_SHARES="$HOME/.local/share"
-export TEMP_DOWNLOADS="$HOME/Downloads/temp"
+# GHCup environment
+[ -f "/home/jasper/.ghcup/env" ] && . "/home/jasper/.ghcup/env"
 
-if [ -f "$CFG_DIR/development/.bash_paths" ]; then
-  . $CFG_DIR/development/.bash_paths
-fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-# Success message
-echo "Paths aliases loaded $chicken"
+# NVM (Node Version Manager)
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

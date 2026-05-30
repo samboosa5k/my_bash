@@ -25,11 +25,11 @@ function fwrite() {
         return 1
     fi
 
-    source=$1
-    target=$2
+    source="$1"
+    target="$2"
 
     while true; do
-        echo "Are you sure you want to overwrite $source with $target? (y/n)"
+        log_equals_box "Are you sure you want to overwrite $target with $source? (y/n)"
         read -r is_confirmed
         case $is_confirmed in
         [Yy]*)
@@ -47,11 +47,11 @@ function fwrite() {
 
     echo "$READING_FILE $source"
     echo "$CONTENTS_BEFORE"
-    echo cat "$target"
-    echo "$WRITING_FILE $target to $source"
+    cat "$source"
+    echo "$WRITING_FILE $source to $target"
     cat "$source" >"$target"
     echo "$CONTENTS_AFTER"
-    cat "$source"
+    cat "$target"
 
     return 0
 }
